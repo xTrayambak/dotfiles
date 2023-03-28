@@ -10,5 +10,5 @@ This kind of serves as a backup or in case someone requests a dotfile from me. E
 * wofi: a Wayland alternative to Rofi
 
 # Screenshots
-![Picture 1](https://github.com/xTrayambak/ferus/screenshots/1.png)
-![Picture 2](https://github.com/xTrayambak/ferus/screenshots/2.png)
+![Picture 1](https://github.com/xTrayambak/dotfiles/blob/main/screenshots/1.png)
+![Picture 2](https://github.com/xTrayambak/dotfiles/blob/main/screenshots/2.png)
