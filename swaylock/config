@@ -1,0 +1,20 @@
+daemonize
+ignore-empty-password
+font=Jet Brains Mono
+font-size=16
+indicator-radius=100
+indicator-thickness=16
+inside-color=ffffff00
+key-hl-color=#1a1a1a
+ring-color=#262626
+line-uses-ring
+separator-color=1d99f322
+text-color=ffffff
+text-clear-color=ffffff
+text-caps-lock-color=ffffff
+effect-blur=8x8
+image=~/Wallpapers/kurt-cotoaga-cqbLg3lZEpk-unsplash.jpg
+
+ignore-empty-password
+fade-in
+clock

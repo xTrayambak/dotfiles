@@ -1,0 +1,62 @@
+window {
+margin: 5px;
+background-color: #282a36;
+opacity: 0.9;
+}
+
+#outer-box {
+margin: 5px;
+border: 2px solid #44475a;
+background-color: #282a36;
+}
+
+#input {
+margin: 5px;
+border: 2px solid #808080;
+background-color: #36454F;
+color: #808080;
+font-size: 18px;
+}
+
+#inner-box {
+margin: 5px;
+background-color: #36454F;
+}
+
+#scroll {
+margin: 5px;
+border: 2px solid #808080;
+background-color: #36454F;
+font-size: 16px;
+color: #f8f8f2;
+}
+
+#scroll label {
+margin: 2px 0px;
+}
+
+#entry {
+margin: 5px;
+background-color: #36454F;
+}
+
+#entry:selected {
+background-color: #44475a;
+border: 1px solid #36454F;
+}
+
+#img {
+margin: 4px;
+}
+#img:selected {
+background-color: #44475a;
+}
+
+#text {
+margin: 5px;
+border: none;
+color: #f8f8f2;
+}
+#text:selected {
+background-color: #44475a;
+}
