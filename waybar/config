@@ -3,7 +3,7 @@
     "spacing": 5,
     "modules-left": ["wlr/workspaces", "hyprland/window"],
     "modules-center": ["clock", "custom/notification"],
-    "modules-right": ["custom/weather", "pulseaudio", "network", "cpu", "memory", "temperature", "battery"], 
+    "modules-right": ["custom/weather", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "tray"], 
     "tray": {
         "spacing": 10
     },
