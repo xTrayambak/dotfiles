@@ -30,7 +30,6 @@ input {
     touchpad {
         natural_scroll = true
         tap-to-click = true
-        drag_lock = true
         disable_while_typing = false
     }
 
@@ -269,14 +268,13 @@ bind = $mainMod SHIFT, 9, movetoworkspace, 9
 bind = $mainMod SHIFT, 0, movetoworkspace, 10
 
 # Execute stuff
-exec      = sleep 1 && ~/.scripts/wallpaper
+exec      = swww init
+exec-once = ~/.scripts/wallpaper
 exec-once = waybar
 exec-once = /usr/libexec/polkit-gnome-authentication-agent-1 
 exec-once = emacs --daemon
 exec-once = discover-overlay
 exec-once = mako
-exec-once = wl-paste --type text --watch cliphist store # Stores only text data
-exec-once = wl-paste --type image --watch cliphist store # Stores only image data
 exec-once = avizo-service
 exec-once = nm-applet
     '';

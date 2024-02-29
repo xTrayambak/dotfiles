@@ -2,12 +2,14 @@
 	programs.waybar = {
 		enable = true;
     style = ''
-* {
+* 
+{
     font-family: JetBrainsMono, FontAwesome, RobotoMono;
     font-size: 14px;
 }
 
-window#waybar {
+window#waybar 
+{
     background-color: rgba(59, 66, 82, 0.0);
     border-radius: 0px;
     color: #FFFFFF;
@@ -51,7 +53,7 @@ window#waybar {
 	margin: 3px 0;
 }
 
-#custom-cava 
+#cava 
 {
 	margin: 3px 0;
 	padding: 0 10px;
@@ -85,31 +87,68 @@ window#waybar {
 #custom-playerctl.forward,
 #custom-vpn,
 #bluetooth,
+#cava,
 #tray,
-#privacy
+#privacy,
+#custom-quit,
+#custom-lock,
+#custom-reboot,
+#custom-power
 {
     background-color: rgba(46, 52, 64, 0.4998);
     color: #FFFFFF;
 }
 
-#tray {
+#custom-quit,
+#custom-lock,
+#custom-reboot,
+#custom-power
+{
+	padding: 10px;
+}
+
+#custom-quit
+{
+	border-radius: 10px 0px 0px 10px;
+}
+
+#custom-reboot
+{
+	border-radius: 0px 10px 10px 0px;
+}
+
+#tray 
+{
 	margin-right: 10px;
 }
 
-#custom-weather {
+#custom-weather 
+{
 	margin: 3px 0px;
 }
 
-#clock {
+#clock 
+{
 	margin-right: 5px;
 }
 
-#pulseaudio {
+#custom-power
+{
 	margin-left: 10px;
 	border-radius: 10px 0px 0px 10px;
 }
 
-#temperature, #custom-vpn, #bluetooth, #privacy {
+#pulseaudio 
+{
+	border-radius: 10px 0px 0px 10px;
+	margin-left: 10px;
+}
+
+#temperature, 
+#custom-vpn, 
+#bluetooth, 
+#privacy 
+{
 	border-radius: 0px 0px 0px 0px;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -117,56 +156,29 @@ window#waybar {
 	border-right: 0px;
 }
 
-#network {
+#network 
+{
 	border-radius: 10px 0px 0px 10px;
 }
 
-#battery {
+#battery 
+{
 	border-radius: 0px 0px 0px 0px;
 }
 
-#clock {
+#clock 
+{
 	border-radius: 0px 10px 10px 0px;
 }
 
-#custom-weather {
+#custom-weather 
+{
 	border-radius: 0px 10px 10px 0px;
 }
 
 #custom-cava 
 {
 	background-color: rgba(46, 52, 64, 0.4998);
-}
-
-#custom-playerlabel
-{
-	border-radius: 10px 0px 0px 0px;
-}
-
-#custom-playerctl.backward {
-	margin-left: 10px;
-	border-radius: 10px 0px 0px 0px;
-	padding-left: 16px;
-	margin-left: 7px;
-}
-
-#custom-playerctl.play {
-	border-radius: 0px 0px 0px 0px;
-	padding: 0 5px;
-}
-
-#custom-playerctl.forward {
-	border-radius: 0px 0px 10px 0px;
-	padding-right: 12px;
-        margin-right: 7px
-}
-
-#custom-playerctl.backward,
-#custom-playerctl.play,
-#custom-playerctl.forward
-{
-	font-weight: bold;
-	font-size: 22px;
 }
     		'';
 		settings.mainBar = {
@@ -181,19 +193,18 @@ window#waybar {
 				"custom/weather"
 			];
 			modules-center = [
-				"hyprland/window"
+				"cava"
 			];
 			modules-right = [
 				"network"
 				"bluetooth"
-				"custom/vpn"
         			"clock"
         			"tray"
 			];
 			cava = {
-        			framerate = 60;
+        			framerate = 90;
         			autosens = 1;
-        			bars = 18;
+        			bars = 24;
         			lower_cutoff_freq = 50;
         			higher_cutoff_freq = 10000;
         			method = "pipewire";
@@ -202,8 +213,8 @@ window#waybar {
         			reverse = false;
         			bar_delimiter = 0;
         			monstercat = false;
-        			waves = false;
-        			input_delay = 2;
+        			waves = true;
+        			input_delay = 0;
         			format-icons = [ 
           				"▁" 
           				"▂" 
@@ -250,13 +261,6 @@ window#waybar {
 				interval = 1;
 
 			};
-			cpu = {
-				format = " {usage}%";
-				tooltip = false;
-			};
-			memory = {
-				format = "{}%";
-			};
 			bluetooth = {
 				format = "";
 				on-click = "GTK_THEME=Adwaita-dark blueman-manager";
@@ -266,8 +270,8 @@ window#waybar {
 				tooltip-format-enumerate-connected = "{device_alias}";
 			};
 			temperature = {
-				hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
-				critical-threshold = 85;
+				hwmon-path = "/sys/class/hwmon/hwmon1/temp1_input";
+				critical-threshold = 90;
 				format = "{icon} {temperatureC}℃";
 				format-icons = ["" "" ""];
 			};
@@ -299,7 +303,7 @@ window#waybar {
 				};
 			};
 			"hyprland/window" = {
-				max-length = 48;
+				max-length = 128;
 				format = "{}";
 				seperate-outputs = true;
 			};

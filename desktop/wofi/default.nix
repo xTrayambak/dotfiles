@@ -21,12 +21,12 @@
     style = ''
 * {
 	font-family: JetBrainsMono;
+	background: transparent;
 }
 
 window {
     margin: 0px;
     border: 5px solid #121212;
-    background: rgba(18, 18, 18, 0.4);
     color: rgba(18, 18, 18, 0.4);
     border-radius: 50px;
     font-family: JetBrainsMono;

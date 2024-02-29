@@ -6,6 +6,7 @@
     ./mako/default.nix
     ./waybar/default.nix
     ./wofi/default.nix
+    ./hyprlock/default.nix
 
     ./gtk.nix
   ];

@@ -6,9 +6,12 @@
     ripgrep
     fzf
     jq
-    btop
     playerctl
     moreutils
     gh
+    swww
+    cava
+    python3
+    cmatrix
   ];
 }

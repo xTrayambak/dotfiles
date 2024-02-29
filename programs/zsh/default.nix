@@ -12,6 +12,9 @@
     			plugins = [ "git" ];
     			theme = "robbyrussell";
   		};
+		sessionVariables = {
+			PATH = "~/.nimble/bin:$PATH";
+		};
 	};
 }
 
