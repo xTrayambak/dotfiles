@@ -1,4 +1,4 @@
-{ inputs, username, ... }:
+{ inputs, username, pkgs, self, ... }:
 {
   imports = [
     ./foot/default.nix

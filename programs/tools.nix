@@ -9,9 +9,14 @@
     playerctl
     moreutils
     gh
-    swww
     cava
     python3
     cmatrix
+    ani-cli
+
+    zip
+    unzip
+    htop
+    imagemagick_light
   ];
 }

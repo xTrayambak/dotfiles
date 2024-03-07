@@ -7,7 +7,8 @@ binDir = "bin/"
 bin = @[
   "locker", "power_saver",
   "screenshot", "wallpaper",
-  "waybar_vpn", "wttr"
+  "waybar_vpn", "wttr",
+  "pretty_date"
 ]
 
 import std/distros

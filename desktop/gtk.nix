@@ -17,5 +17,16 @@
 			name = "Adwaita";
 			package = pkgs.gnome.adwaita-icon-theme;
 		};
+		font = {
+			name = "JetBrainsMono";
+			size = 11;
+		};
   	};
+
+	home.packages = with pkgs; [
+		gnome.adwaita-icon-theme
+		libadwaita
+		adwaita-qt
+		adwaita-qt6
+	];
 }

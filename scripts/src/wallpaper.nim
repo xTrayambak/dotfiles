@@ -57,7 +57,7 @@ proc main {.inline.} =
   while true:
     let wallpaper = getWallpaper()
     swww(wallpaper)
-    sleep rand(30..60) * 60 * 60 * 60 # Sleep anywhere between 30 minutes to an hour 
+    sleep rand(30..60) * 60 * 60 # Sleep anywhere between 30 minutes to an hour 
 
 when isMainModule:
   main()

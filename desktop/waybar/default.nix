@@ -193,7 +193,7 @@ window#waybar
 				"custom/weather"
 			];
 			modules-center = [
-				"cava"
+				"hyprland/window"
 			];
 			modules-right = [
 				"network"

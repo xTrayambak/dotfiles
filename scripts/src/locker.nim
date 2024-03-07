@@ -15,7 +15,6 @@ proc lockUp {.inline.} =
   randomize()
 
   echo "~> we're gonna lock up, heheheha."
-  let randWallpaper = getRandWallpaper()
 
   discard execCmd(
     "notify-send \"Locking Your Desktop\" " &
@@ -23,14 +22,14 @@ proc lockUp {.inline.} =
     "-t 4000"
   )
 
-  echo "~> " & randWallpaper
-  
   discard execCmd(
-    "playerctl stop"
+    "playerctl pause"
   )
   discard execCmd(
-    "swaylock -i " &
-    randWallpaper
+    "hyprlock"
+  )
+  discard execCmd(
+    "playerctl play"
   )
 
   echo "~> unlocked."

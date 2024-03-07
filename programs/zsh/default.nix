@@ -12,9 +12,10 @@
     			plugins = [ "git" ];
     			theme = "robbyrussell";
   		};
-		sessionVariables = {
-			PATH = "~/.nimble/bin:$PATH";
-		};
+		initExtra = ''
+# I can't find a way to add these to my path automatically. Aw shucks.
+export PATH="/home/$USER/.nimble/bin:$PATH"
+		'';
 	};
 }
 

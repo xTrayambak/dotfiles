@@ -5,6 +5,7 @@
     avizo
     grim
     slurp
+    swww
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -56,6 +57,7 @@ decoration {
 	enabled = true
 	size = 8
 	passes = 2
+	popups = true
     }
 
     # Opacity for focused window  #
@@ -204,8 +206,8 @@ bind = SUPER, D, exec, $applauncher
 bind = ,Print, exec, $selectss
 
 # Start Swaylock #
-#       F9       #
-bind = ,F1, exec, $screenlock
+#  SUPER+L       #
+bind = $mainMod, L, exec, $screenlock
 
 # Media Controls #
 # F8  - Previous #
@@ -266,6 +268,9 @@ bind = $mainMod SHIFT, 7, movetoworkspace, 7
 bind = $mainMod SHIFT, 8, movetoworkspace, 8
 bind = $mainMod SHIFT, 9, movetoworkspace, 9
 bind = $mainMod SHIFT, 0, movetoworkspace, 10
+
+# Toggle recording
+bind = $mainMod, F10, pass, ^(OBS Studio)$
 
 # Execute stuff
 exec      = swww init
