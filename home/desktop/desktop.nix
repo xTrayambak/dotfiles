@@ -8,6 +8,7 @@
     ./wofi/default.nix
     ./hyprlock/default.nix
 
+    ./freedesktop.nix
     ./gtk.nix
   ];
 }

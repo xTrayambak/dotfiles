@@ -12,6 +12,8 @@
     cava
     python3
     cmatrix
+    fd
+    file
     ani-cli
 
     zip

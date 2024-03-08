@@ -1,10 +1,6 @@
 { inputs, lib, config, pkgs, ... }: {
   imports = [
-  	# Home config - desktop apps, programs, etc.
-  	./home/desktop/desktop.nix
-	./home/programs/programs.nix
-
-	# System config - TODO
+	./home/default.nix
   ];
 
   nixpkgs = {

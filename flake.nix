@@ -11,9 +11,13 @@
         url = "github:hyprwm/hyprlock";
 	inputs.nixpkgs.follows = "nixpkgs";
       };
+      nur = {
+      	url = "github:nix-community/NUR";
+      };
+      lanzaboote.url = "github:nix-community/lanzaboote";
   };
 
-  outputs = { nixpkgs, home-manager, hyprlock, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, hyprlock, nur, lanzaboote, ... }@inputs: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = {
@@ -21,6 +25,13 @@
         pkgs = import nixpkgs { system = "x86_64-linux"; };
 	extraSpecialArgs = { inherit inputs; };
         modules = [ ./home.nix ];
+      };
+    };
+    nixosConfigurations = {
+      "box" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+	specialArgs = { inherit inputs; };
+	modules = [ ./sys.nix ];
       };
     };
   };
