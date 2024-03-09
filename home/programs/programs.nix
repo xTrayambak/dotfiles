@@ -1,9 +1,9 @@
 { inputs, username, ... }:
 {
   imports = [
-    ./neovim/default.nix
-    ./zsh/default.nix
-    ./btop/default.nix
+    ./neovim
+    ./zsh
+    ./btop
     ./terminal/tools.nix
     
     ./apps.nix

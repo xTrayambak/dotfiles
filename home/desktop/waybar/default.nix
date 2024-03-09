@@ -259,7 +259,6 @@ window#waybar
 				format = "<span foreground='#e5e9f0'> </span> {:%a %d %H:%M:%S}";
 				tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
 				interval = 1;
-
 			};
 			bluetooth = {
 				format = "";
@@ -274,6 +273,7 @@ window#waybar
 				critical-threshold = 90;
 				format = "{icon} {temperatureC}℃";
 				format-icons = ["" "" ""];
+				interval = 20;
 			};
 			network = {
 				format-wifi = " ";

@@ -34,7 +34,6 @@ proc wttr*(format: ReportFormat, location: string, url: string = "https://wttr.i
     return httpClient.getContent(url & '/' & location)
 
 proc waybar*(city: string) =
-  assert paramCount() > 1
   var tooltip: string = wttr(rfNamePlainWind, city)
   tooltip.removeSuffix('\n')
 
@@ -44,16 +43,21 @@ proc waybar*(city: string) =
     }
   )
 
+proc hyprlock*(city: string) =
+  echo wttr(rfPlain, city).split('\n')[0]
+
 when isMainModule: 
   assert paramCount() > 1
   let
     city = 2.paramStr()
   case paramStr(1):
     of "waybar":
-      waybar(paramStr(2))
+      waybar(city)
     of "notifs":
       discard execCmd(
         "notify-send " &
         "\"Weather in " & city & "\" " &
         '"' & wttr(rfTabular, city) & '"'
       )
+    of "lock_screen":
+      hyprlock(city)

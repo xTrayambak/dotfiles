@@ -4,6 +4,7 @@
 		./boot.nix
 		./security.nix
 		./users.nix
+		./chores.nix
 	];
 	documentation.dev.enable = true;
 
@@ -27,19 +28,28 @@
 			gc = "git commit ";
 			gcm = "git commit -m ";
 			nix-switch = "sudo nixos-rebuild switch --flake path:/home/tray/.config/home-manager#box";
-			hm-switch = "nix run /home/tray/.config/home-manager#box -- switch";
+			hm-switch = "nix run /home/tray/.config/home-manager -- switch";
 			all-switch = "nix-switch && hm-switch";
 			upgrade = "sudo nix flake update /home/tray/.config/home-manager# && all-switch";
 		};
 	};
-
+	
+	# Blueman
 	services.blueman.enable = true;
+
+	environment.systemPackages = with pkgs; [
+		libnotify
+		xdg-utils
+		clang
+		gcc
+	];
 
 	# Nerd Fonts
   	fonts.packages = with pkgs; [
     		fira-code
     		noto-fonts-cjk-sans
     		noto-fonts
+		noto-fonts-emoji
     		(nerdfonts.override {
       			fonts = [
         			"IBMPlexMono"
@@ -58,11 +68,15 @@
       			xdg-desktop-portal-gtk
      			xdg-desktop-portal-hyprland
     		];
-    		config.common.default = "*";
+		config = {
+			common.default = [ "gtk" ];
+			hyprland.default = [ "gtk" "hyprland" ];
+		};
+		xdgOpenUsePortal = true;
  	};
-	
+
 	services.flatpak.enable = true;
 
-	system.stateVersion = lib.mkDefault "24.05";
+	system.stateVersion = lib.mkForce "24.05";
 	time.timeZone = lib.mkDefault "Asia/Kolkata";
 }

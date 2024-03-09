@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     cloc
+    htop
     ripgrep
     fzf
     jq
@@ -14,6 +15,7 @@
     cmatrix
     fd
     file
+    mpv
     ani-cli
 
     zip
