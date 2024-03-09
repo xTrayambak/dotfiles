@@ -2,10 +2,30 @@
 This is my 2nd attempt at NixOS, going better than my first run which was done completely blindly and ended... badly to say the least.
 
 # Screenshots
+## Neovim Configuration [Dotfiles](https://github.com/xTrayambak/dotfiles/tree/master/home/programs/neovim)
 ![My Neovim Configuration](screenshots/march2024/neovim.jpg "Neovim")
+
+## My Hyprland desktop [Dotfiles](https://github.com/xTrayambak/dotfiles/tree/master/home/desktop/hyprland)
 ![My Desktop](screenshots/march2024/desktop.jpg "Desktop")
+
+## My Bar [Dotfiles](https://github.com/xTrayambak/dotfiles/tree/master/home/desktop/waybar)
 ![My Waybar Configuration](screenshots/march2024/waybar.jpg "Waybar")
+
+## Hyprlock [Dotfiles; requires flake to be set-up!](https://github.com/xTrayambak/dotfiles/tree/master/home/desktop/hyprlock)
 ![My Lockscreen Config](screenshots/march2024/lock_screen.jpg "Hyprlock")
+
+# Programs Used
+Wayland Compositor - [Hyprland](https://github.com/hyprwm/hyprland) \
+Text Editor - [Neovim](https://github.com/neovim/neovim) \
+Status Bar - [Waybar](https://github.com/Alexays/Waybar) \
+Terminal Emulator - [Foot](https://codeberg.org/dnkl/foot) \
+Shell - [Zsh + Oh My Zsh!](https://www.zsh.org) \
+PDF Reader - [Zathura](https://github.com/pwmt/zathura) \
+Video Viewer - [Mpv](https://github.com/mpv-player/mpv) \
+Video Recorder - [OBS Studio](https://github.com/obsproject/obs-studio) \
+Image Viewer - [Loupe](https://apps.gnome.org/Loupe) \
+File Manager GUI - [Nautilus](https://apps.gnome.org/Nautilus) \
+File Manager TUI - [Nimmm](https://github.com/joachimschmidt557/nimmm) \
 
 # Acknowledgements
 A lot of things here are just cobbled from different places, and I've forgotten most of them.
