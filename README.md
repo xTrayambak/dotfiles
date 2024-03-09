@@ -30,5 +30,5 @@ File Manager TUI - [Nimmm](https://github.com/joachimschmidt557/nimmm)
 # Acknowledgements
 A lot of things here are just cobbled from different places, and I've forgotten most of them.
 
-I used [fufexan's dotfiles](https://github.com/fufexan/dotfiles) to set up a flake, among other things.
+I used [fufexan's dotfiles](https://github.com/fufexan/dotfiles) to set up a flake, among other things. \
 I used [justinlime's dotfiles](https://github.com/justinlime/dotfiles) to set up some other stuff.
