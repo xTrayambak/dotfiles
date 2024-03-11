@@ -1,4 +1,4 @@
-import std/[os, osproc, json, httpclient, strutils]
+import std/[os, osproc, options, json, times, httpclient, strutils]
 
 const NimblePkgVersion {.strdefine.} = ""
 
@@ -9,6 +9,25 @@ type
     rfPlainWind  ## <icon> <temp> <windspeed>
     rfNamePlain  ## <name> <icon> <temp>
     rfNamePlainWind ## <name> <icon> <temp> <windspeed>
+
+proc getCache*: Option[JsonNode] =
+  if fileExists("/tmp/wttr-cache.json"):
+    return readFile("/tmp/wttr-cache.json").parseJson().some()
+
+proc setCache*(data: string, format: string, write: bool = true) =
+  echo "Saving cache: [" & format & "]: " & data
+  let preExisting = getCache()
+  let jsonData = if preExisting.isSome: preExisting.unsafeGet() else: %* {
+    "date": epochTime()
+  }
+  
+  jsonData["date"] = newJFloat(epochTime())
+  jsonData[format] = newJString(data)
+  
+  var final: string
+  toUgly(final, jsonData)
+
+  writeFile("/tmp/wttr-cache.json", final)
 
 proc toInt*(format: ReportFormat): int =
   case format
@@ -27,11 +46,28 @@ proc wttr*(format: ReportFormat, location: string, url: string = "https://wttr.i
   let 
     httpClient = newHttpClient(userAgent=userAgent)
     fmt = toInt format
+    cached = getCache()
+
+  if cached.isSome:
+    if $fmt in cached.unsafeGet():
+      let delta = epochTime() - cached.unsafeGet()["date"].getFloat()
+      echo "Seconds since last wttr API call: " & $delta
+      if delta <= 3600f:
+        echo "Using cached data: " & $fmt
+        return cached.unsafeGet()[$fmt].getStr()
+      else:
+        echo "Cache is outdated (more than an hour old); fetching wttr"
+    else:
+      echo "Cache does not contain data we need; fetching wttr"
+  else:
+    echo "Cache doesn't exist (most likely we just booted, or the cache was manually removed); fetching wttr"
   
   if fmt != int.high:
-    return httpClient.getContent(url & '/' & location & "?format=" & $fmt)
+    result = httpClient.getContent(url & '/' & location & "?format=" & $fmt)
   else:
-    return httpClient.getContent(url & '/' & location)
+    result = httpClient.getContent(url & '/' & location)
+
+  setCache(result, $fmt)
 
 proc waybar*(city: string) =
   var tooltip: string = wttr(rfNamePlainWind, city)
@@ -48,16 +84,11 @@ proc hyprlock*(city: string) =
 
 when isMainModule: 
   assert paramCount() > 1
-  let
-    city = 2.paramStr()
+  let city = paramStr(2)
+
   case paramStr(1):
     of "waybar":
       waybar(city)
-    of "notifs":
-      discard execCmd(
-        "notify-send " &
-        "\"Weather in " & city & "\" " &
-        '"' & wttr(rfTabular, city) & '"'
-      )
     of "lock_screen":
       hyprlock(city)
+    else: discard
