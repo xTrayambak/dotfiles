@@ -6,6 +6,7 @@
     ./waybar
     ./wofi
     ./hyprlock
+    ./avizo
     ./mako
 
     ./freedesktop.nix

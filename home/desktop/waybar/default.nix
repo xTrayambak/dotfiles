@@ -261,10 +261,10 @@ window#waybar
 				interval = 1;
 			};
 			bluetooth = {
-				format = "";
+				format = " {device_alias}";
 				on-click = "GTK_THEME=Adwaita-dark blueman-manager";
 				format-connected = " ";
-				tooltip-format = "{device_alias}";
+				# tooltip-format = "{device_alias}";
 				tooltip-format-connected = "{device_enumerate}";
 				tooltip-format-enumerate-connected = "{device_alias}";
 			};
@@ -276,9 +276,9 @@ window#waybar
 				interval = 20;
 			};
 			network = {
-				format-wifi = " ";
+				format-wifi = "  {essid}";
 				on-click = "iwgtk";
-				tooltip-format = "{essid}";
+				# tooltip-format = "";
 				format-ethernet = "";
 				format-disconnected = "";
 				format-disabled = "✈";
@@ -303,7 +303,7 @@ window#waybar
 				};
 			};
 			"hyprland/window" = {
-				max-length = 128;
+				max-length = 100;
 				format = "{}";
 				seperate-outputs = true;
 			};

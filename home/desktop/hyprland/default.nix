@@ -2,13 +2,13 @@
 
 {
   home.packages = with pkgs; [
-    avizo
     grim
     slurp
     swww
   ];
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     extraConfig = ''
 monitor=,preferred,auto,1
 env = GTK_THEME,Adwaita-dark

@@ -12,6 +12,9 @@
     gh
     cava
     python3
+    arp-scan
+    meson
+    ninja
     cmatrix
     fd
     file
