@@ -42,6 +42,9 @@
 		xdg-utils
 		clang
 		gcc
+		polkit
+		polkit_gnome
+		libclang
 	];
 
 	# Nerd Fonts
@@ -58,6 +61,7 @@
 				"Ubuntu"
 				"AnonymousPro"
 				"RobotoMono"
+				"Iosevka"
       			];
     		})
   	];
