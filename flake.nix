@@ -3,21 +3,20 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-      home-manager = {
-        url = "github:nix-community/home-manager";
-	inputs.nixpkgs.follows = "nixpkgs";
-      };
-      hyprlock = {
-        url = "github:hyprwm/hyprlock";
-	inputs.nixpkgs.follows = "nixpkgs";
-      };
-      nur = {
-      	url = "github:nix-community/NUR";
-      };
-      lanzaboote.url = "github:nix-community/lanzaboote";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur.url = "github:nix-community/NUR";
+    hyprland.url = "github:hyprwm/Hyprland";
+    lanzaboote.url = "github:nix-community/lanzaboote";
   };
 
-  outputs = { nixpkgs, home-manager, hyprlock, nur, lanzaboote, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, hyprlock, hyprland, nur, lanzaboote, ... }@inputs: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = {
