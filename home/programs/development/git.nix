@@ -15,5 +15,5 @@
     };
   };
 
-  imports = lib.filter lib.pathExists [ ../private.nix ];
+  imports = lib.filter lib.pathExists [ ../../private.nix ];
 }

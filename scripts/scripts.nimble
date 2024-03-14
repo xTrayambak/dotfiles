@@ -8,7 +8,8 @@ bin = @[
   "locker", "power_saver",
   "screenshot", "wallpaper",
   "waybar_vpn", "wttr",
-  "pretty_date"
+  "pretty_date", "batinfo",
+  "netinfo"
 ]
 
 import std/distros

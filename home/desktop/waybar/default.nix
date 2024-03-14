@@ -1,186 +1,7 @@
-{
+{	
 	programs.waybar = {
 		enable = true;
-    style = ''
-* 
-{
-    font-family: JetBrainsMono, FontAwesome, RobotoMono;
-    font-size: 14px;
-}
-
-window#waybar 
-{
-    background-color: rgba(59, 66, 82, 0.0);
-    border-radius: 0px;
-    color: #FFFFFF;
-    transition-property: background-color;
-    transition-duration: .5s; 
-}
-
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#tray,
-#mode,
-#window,
-#custom-vpn,
-#bluetooth,
-#privacy,
-#custom-weather
-{
-    padding: 0 10px;
-    margin: 3px 0;
-    color: rgba(46, 52, 64, 0.4998);
-    border-radius: 10px;
-}
-
-#custom-notification
-{
-	padding: 0 10px;
-	margin: 0 0;
-	color: rgba(46, 52, 64, 0.4998);
-	border-radius: 10px;
-}
-
-#user
-{
-	margin: 3px 0;
-}
-
-#cava 
-{
-	margin: 3px 0;
-	padding: 0 10px;
-	border-radius: 10px;
-}
-
-#workspaces
-{
-	padding: 0 5px;
-	margin: 3px 0;
-	color: #FFFFFF;
-	border-radius: 5px;
-}
-
-#clock,
-#window,
-#workspaces,
-#battery,
-#cpu,
-#memory,
-#disk,
-#backlight,
-#network,
-#pulseaudio,
-#temperature,
-#custom-notification,
-#custom-weather,
-#custom-playerlabel,
-#custom-playerctl.backward,
-#custom-playerctl.play,
-#custom-playerctl.forward,
-#custom-vpn,
-#bluetooth,
-#cava,
-#tray,
-#privacy,
-#custom-quit,
-#custom-lock,
-#custom-reboot,
-#custom-power
-{
-    background-color: rgba(46, 52, 64, 0.4998);
-    color: #FFFFFF;
-}
-
-#custom-quit,
-#custom-lock,
-#custom-reboot,
-#custom-power
-{
-	padding: 10px;
-}
-
-#custom-quit
-{
-	border-radius: 10px 0px 0px 10px;
-}
-
-#custom-reboot
-{
-	border-radius: 0px 10px 10px 0px;
-}
-
-#tray 
-{
-	margin-right: 10px;
-}
-
-#custom-weather 
-{
-	margin: 3px 0px;
-}
-
-#clock 
-{
-	margin-right: 5px;
-}
-
-#custom-power
-{
-	margin-left: 10px;
-	border-radius: 10px 0px 0px 10px;
-}
-
-#pulseaudio 
-{
-	border-radius: 10px 0px 0px 10px;
-	margin-left: 10px;
-}
-
-#temperature, 
-#custom-vpn, 
-#bluetooth, 
-#privacy 
-{
-	border-radius: 0px 0px 0px 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	border-left: 0px;
-	border-right: 0px;
-}
-
-#network 
-{
-	border-radius: 10px 0px 0px 10px;
-}
-
-#battery 
-{
-	border-radius: 0px 0px 0px 0px;
-}
-
-#clock 
-{
-	border-radius: 0px 10px 10px 0px;
-}
-
-#custom-weather 
-{
-	border-radius: 0px 10px 10px 0px;
-}
-
-#custom-cava 
-{
-	background-color: rgba(46, 52, 64, 0.4998);
-}
-    		'';
+		style = builtins.readFile ./style.css;
 		settings.mainBar = {
 			height = 32;
 			spacing = 0;
@@ -269,7 +90,7 @@ window#waybar
 				tooltip-format-enumerate-connected = "{device_alias}";
 			};
 			temperature = {
-				hwmon-path = "/sys/class/hwmon/hwmon1/temp1_input";
+				# hwmon-path = "/sys/class/hwmon/hwmon0/temp1_input";
 				critical-threshold = 90;
 				format = "{icon} {temperatureC}℃";
 				format-icons = ["" "" ""];
@@ -304,8 +125,8 @@ window#waybar
 			};
 			"hyprland/window" = {
 				max-length = 100;
-				format = "{}";
-				seperate-outputs = true;
+				format = "<span>{}</span>";
+				separate-outputs = true;
 			};
 		};
 	};

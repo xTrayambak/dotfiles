@@ -4,12 +4,11 @@
     ./neovim
     ./zsh
     ./btop
+    ./development
+    ./browser
     ./terminal/tools.nix
     
     ./apps.nix
     ./gaming.nix
-    ./nim.nix
-    ./rust.nix
-    ./git.nix
   ];
 }

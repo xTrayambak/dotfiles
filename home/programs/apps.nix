@@ -9,7 +9,6 @@
 	zathura
 
 	overskride
-	fractal
 	snapshot
 	loupe
 	gnome.nautilus

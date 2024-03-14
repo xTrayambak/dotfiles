@@ -16,7 +16,10 @@
     lanzaboote.url = "github:nix-community/lanzaboote";
   };
 
-  outputs = { nixpkgs, home-manager, hyprlock, hyprland, nur, lanzaboote, ... }@inputs: {
+  outputs = { 
+    nixpkgs, home-manager, hyprlock, 
+    hyprland, nur, lanzaboote,
+  ... } @ inputs: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = {

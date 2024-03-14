@@ -9,7 +9,6 @@
     ./avizo
     ./mako
 
-    ./freedesktop.nix
     ./gtk.nix
   ];
 }

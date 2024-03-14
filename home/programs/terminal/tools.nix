@@ -11,6 +11,7 @@
     moreutils
     gh
     cava
+    ngrok
     python3
     arp-scan
     meson

@@ -5,6 +5,7 @@
     grim
     slurp
     swww
+    networkmanagerapplet
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -274,11 +275,9 @@ bind = $mainMod, F10, pass, ^(OBS Studio)$
 
 # Execute stuff
 exec      = swww init
-exec-once = ~/.scripts/wallpaper
+exec-once = $HOME/.scripts/wallpaper
 exec-once = waybar
 exec-once = /usr/libexec/polkit-gnome-authentication-agent-1 
-exec-once = emacs --daemon
-exec-once = discover-overlay
 exec-once = mako
 exec-once = avizo-service
 exec-once = nm-applet

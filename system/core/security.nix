@@ -49,5 +49,8 @@
 
     # userland niceness
     rtkit.enable = true;
+
+    # my security prefs
+    sudo.enable = true;
   };
 }

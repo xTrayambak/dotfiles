@@ -1,9 +1,10 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, inputs, ... }:
 {
 	imports = [
 		./boot.nix
 		./security.nix
 		./users.nix
+		./lanzaboote.nix
 		./chores.nix
 	];
 	documentation.dev.enable = true;
@@ -17,6 +18,19 @@
 		"flakes"
 	];
 
+	system.autoUpgrade = {
+  		enable = true;
+  		flake = inputs.self.outPath;
+  		flags = [
+    			"--update-input"
+    			"nixpkgs"
+   			 "-L" # print build logs
+  		];
+  		dates = "02:00";
+  		randomizedDelaySec = "45min";
+	};
+
+
 	# Dconf
 	programs.dconf.enable = true;
 	
@@ -25,11 +39,8 @@
 		# Make sure that nothing can disable zsh or we're majestically screwed.
 		enable = lib.mkForce true;
 		shellAliases = {
-			gc = "git commit ";
-			gcm = "git commit -m ";
-			nix-switch = "sudo nixos-rebuild switch --flake path:/home/tray/.config/home-manager#box";
-			hm-switch = "nix run /home/tray/.config/home-manager -- switch";
-			all-switch = "nix-switch && hm-switch";
+			gc = "git commit";
+			gcm = "git commit -m";
 			upgrade = "sudo nix flake update /home/tray/.config/home-manager# && all-switch";
 		};
 	};
@@ -37,15 +48,18 @@
 	# Blueman
 	services.blueman.enable = true;
 
-	environment.systemPackages = with pkgs; [
-		libnotify
-		xdg-utils
-		clang
-		gcc
-		polkit
-		polkit_gnome
-		libclang
-	];
+	environment = {
+		systemPackages = with pkgs; [
+			libnotify
+			xdg-utils
+			polkit
+			polkit_gnome
+			glib
+			gsettings-desktop-schemas
+			sbctl
+		];
+		shellAliases = {};
+	};
 
 	# Nerd Fonts
   	fonts.packages = with pkgs; [
@@ -73,7 +87,7 @@
      			xdg-desktop-portal-hyprland
     		];
 		config = {
-			common.default = [ "gtk" ];
+			common.default = [ "gtk" "gnome" ];
 			hyprland.default = [ "gtk" "hyprland" ];
 		};
 		xdgOpenUsePortal = true;

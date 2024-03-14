@@ -17,7 +17,7 @@
       {
 	blur_passes = 2;
 	blur_size = 8;
-        path = "/home/tray/Wallpapers/meadow-afternoon.png";
+        path = "/home/${config.home.username}/Wallpapers/meadow-afternoon.png";
       }
     ];
 
@@ -61,7 +61,7 @@
       }
       {
       	monitor = "";
-	text = "cmd[update:3600000] echo \"$(/home/tray/.scripts/pretty_date lock_screen)\"";
+	text = "cmd[update:3600000] echo \"$(/home/${config.home.username}/.scripts/pretty_date lock_screen)\"";
 	font_size = 24;
 	color = "rgb(255, 255, 255)";
 
@@ -75,7 +75,7 @@
        }
        {
          monitor = "";
-	 text = "cmd[update:3600000] echo \"$(/home/tray/.scripts/wttr lock_screen NOIDA)\"";
+	 text = "cmd[update:3600000] echo \"$(/home/${config.home.username}/.scripts/wttr lock_screen NOIDA)\"";
 	 font_size = 16;
 	 color = "rgb(255, 255, 255)";
 
@@ -86,6 +86,19 @@
 
 	 valign = "center";
 	 halign = "center";
+       }
+       {
+         monitor = "";
+	 text = "cmd[update:40000] echo \"$(/home/${config.home.username}/.scripts/batinfo lock_screen NOIDA)\"";
+	 font_size = 16;
+	 color = "rgb(255, 255, 255)";
+
+	 position = {
+	   x = -24;
+	   y = -70;
+	 };
+	 valign = "bottom";
+	 halign = "right";
        }
     ];
   };
