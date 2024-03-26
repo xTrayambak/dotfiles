@@ -62,9 +62,10 @@ window {
 }
 
 #entry {
-    margin: 0px 0px;
+    margin: 2px 0px;
     border: none;
     border-radius: 5px;
+    font-family: Iosevka;
     background-color: transparent;
 }
 

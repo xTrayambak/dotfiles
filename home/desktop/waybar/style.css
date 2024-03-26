@@ -140,10 +140,15 @@ window#waybar
 	margin-left: 10px;
 }
 
-#temperature, 
+#privacy
+{
+	border-radius: 10px 10px 10px 10px;
+	margin-left: 10px;
+}
+
+#custom-weather,
 #custom-vpn, 
-#bluetooth, 
-#privacy 
+#bluetooth
 {
 	border-radius: 0px 0px 0px 0px;
 	margin-left: 0px;
@@ -167,7 +172,7 @@ window#waybar
 	border-radius: 0px 10px 10px 0px;
 }
 
-#custom-weather 
+#temperature
 {
 	border-radius: 0px 10px 10px 0px;
 }
@@ -190,7 +195,8 @@ window#waybar
 	}
 }
 
-window#waybar.empty #window 
+window#waybar.empty #window,
+window#privacy.empty #privacy
 {
     background-color: transparent;
 }

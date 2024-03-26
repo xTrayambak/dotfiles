@@ -1,6 +1,9 @@
+{ inputs, pkgs, ... }:
+
 {	
 	programs.waybar = {
 		enable = true;
+		package = inputs.waybar.packages.${pkgs.system}.waybar;
 		style = builtins.readFile ./style.css;
 		settings.mainBar = {
 			height = 32;
@@ -10,8 +13,9 @@
 			modules-left = [
 				"pulseaudio"
 				"battery"
-				"temperature"
 				"custom/weather"
+				"temperature"
+				"privacy"
 			];
 			modules-center = [
 				"hyprland/window"
@@ -83,7 +87,7 @@
 			};
 			bluetooth = {
 				format = " {device_alias}";
-				on-click = "GTK_THEME=Adwaita-dark blueman-manager";
+				on-click = "blueman-manager";
 				format-connected = " ";
 				# tooltip-format = "{device_alias}";
 				tooltip-format-connected = "{device_enumerate}";

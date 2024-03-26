@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 {
 	imports = [
 		./boot.nix
@@ -7,11 +7,19 @@
 		./lanzaboote.nix
 		./chores.nix
 	];
-	documentation.dev.enable = true;
+
+	# Enable manpages for all users
+	documentation = {
+		dev.enable = true;
+		man.generateCaches = true;
+		nixos.includeAllModules = true;
+	};
 
 	i18n = {
 		defaultLocale = "en_US.UTF-8";
 	};
+
+	services.xserver.enable = lib.mkForce false;
 
 	nix.settings.experimental-features = [
 		"nix-command"
@@ -39,8 +47,6 @@
 		# Make sure that nothing can disable zsh or we're majestically screwed.
 		enable = lib.mkForce true;
 		shellAliases = {
-			gc = "git commit";
-			gcm = "git commit -m";
 			upgrade = "sudo nix flake update /home/tray/.config/home-manager# && all-switch";
 		};
 	};
@@ -52,11 +58,10 @@
 		systemPackages = with pkgs; [
 			libnotify
 			xdg-utils
-			polkit
 			polkit_gnome
+			man-pages
 			glib
 			gsettings-desktop-schemas
-			sbctl
 		];
 		shellAliases = {};
 	};

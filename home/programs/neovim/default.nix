@@ -70,6 +70,7 @@ impure_plugins = {
 	"hrsh7th/nvim-cmp",
 	"nvim-lualine/lualine.nvim",
 	"tpope/vim-fugitive",
+	"folke/todo-comments.nvim",
 	{"nvim-telescope/telescope.nvim", tag = '0.1.5',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
@@ -90,6 +91,16 @@ vim.keymap.set('n', 'ff', builtin.find_files, {})
 vim.keymap.set('n', 'fg', builtin.live_grep, {})
 vim.keymap.set('n', 'fb', builtin.buffers, {})
 vim.keymap.set('n', 'fh', builtin.help_tags, {})
+
+-- Todo comments
+require("todo-comments").setup()
+vim.keymap.set('n', 'tn', function()
+	require("todo-comments").jump_next()
+end)
+
+vim.keymap.set('n', 'tp', function()
+	require("todo-comments").jump_prev()
+end)
 
 -- Setup transparency effect
 require("transparent").setup({

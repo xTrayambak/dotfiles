@@ -6,6 +6,7 @@
   		shellAliases = {
 			phyton3 = "python3";
 			phyton = "python3";
+
 			nix-switch = "sudo nixos-rebuild switch --flake path:/home/${config.home.username}/.config/home-manager#box";
 			hm-switch = "nix run /home/${config.home.username}/.config/home-manager -- switch";
 			all-switch = "nix-switch && hm-switch";

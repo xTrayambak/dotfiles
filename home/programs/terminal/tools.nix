@@ -26,5 +26,6 @@
     unzip
     htop
     imagemagick_light
+    senpai
   ];
 }

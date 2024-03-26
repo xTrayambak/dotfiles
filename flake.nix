@@ -13,12 +13,19 @@
     };
     nur.url = "github:nix-community/NUR";
     hyprland.url = "github:hyprwm/Hyprland";
+    waybar.url = "github:Alexays/waybar";
     lanzaboote.url = "github:nix-community/lanzaboote";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    schizofox.url = "github:schizofox/schizofox";
   };
 
   outputs = { 
     nixpkgs, home-manager, hyprlock, 
     hyprland, nur, lanzaboote,
+    waybar, nixvim,
   ... } @ inputs: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 

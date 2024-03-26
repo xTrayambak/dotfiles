@@ -34,7 +34,7 @@
 
         outer_color = "rgba(46, 52, 64, 50)";
         inner_color = "rgba(46, 52, 64, 50)";
-        font_color = "rgb(255, 255, 255)";
+        font_color = "#ffffff";
 
         fade_on_empty = true;
         placeholder_text = ''<span font_family="JetBrainsMono">Password</span>'';
@@ -99,6 +99,19 @@
 	 };
 	 valign = "bottom";
 	 halign = "right";
+       }
+       {
+         monitor = "";
+	 text = "cmd[update:40000] echo \"$(/home/${config.home.username}/.scripts/netinfo)\"";
+	 font_size = 16;
+	 color = "rgb(255, 255, 255)";
+
+	 position = {
+	   x = -54;
+	   y = -70;
+	};
+	valign = "bottom";
+	halign = "right";
        }
     ];
   };

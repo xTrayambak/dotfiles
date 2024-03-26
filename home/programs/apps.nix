@@ -6,9 +6,11 @@
 	blender
 	obs-studio
 	keepassxc
-	zathura
-
+	zathura	
+	
+	gnome.gnome-calculator
 	overskride
+	headlines
 	snapshot
 	loupe
 	gnome.nautilus

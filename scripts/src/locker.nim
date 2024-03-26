@@ -1,20 +1,13 @@
 # small interface over swaylock
 
-import std/[os, random, osproc]
-
-proc getRandWallpaper: string {.inline.} =
-  var files: seq[string]
-
-  for x in walkDirRec(getHomeDir() / "Wallpapers"):
-    if fileExists(x):
-      files.add x
-
-  sample files
+import std/[os, random, strutils, osproc]
 
 proc lockUp {.inline.} =
   randomize()
 
-  echo "~> we're gonna lock up, heheheha."
+  echo "~> we're gonna lock up"
+
+  let wasPreviouslyPlaying = execCmdEx("playerctl status").output == "Playing\n"
 
   discard execCmd(
     "notify-send \"Locking Your Desktop\" " &
@@ -28,14 +21,17 @@ proc lockUp {.inline.} =
   discard execCmd(
     "hyprlock"
   )
-  discard execCmd(
-    "playerctl play"
-  )
+
+  if wasPreviouslyPlaying:
+    echo "~> restarting player"
+    discard execCmd(
+      "playerctl play"
+    ) 
 
   echo "~> unlocked."
 
   discard execCmd(
-    "notify-send \"Welcome back, " & getEnv("USER") & " !\" " &
+    "notify-send \"Welcome back, " & getEnv("USER").split('\n')[0] & " !\" " &
     "\"It's nice to see you back!\" " &
     "-t 4000"
   )

@@ -7,7 +7,7 @@
       height = 600;
       location = "bottom_center";
       show = "drun";
-      prompt = "Search...";
+      prompt = "Search";
       filter_rate = 128;
       allow_markup = true;
       no_actions = true;
