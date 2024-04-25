@@ -4,7 +4,7 @@
 		./boot.nix
 		./security.nix
 		./users.nix
-		./lanzaboote.nix
+		# ./lanzaboote.nix
 		./chores.nix
 	];
 
@@ -18,7 +18,7 @@
 	i18n = {
 		defaultLocale = "en_US.UTF-8";
 	};
-
+	
 	services.xserver.enable = lib.mkForce false;
 
 	nix.settings.experimental-features = [
@@ -46,14 +46,8 @@
 	programs.zsh = {
 		# Make sure that nothing can disable zsh or we're majestically screwed.
 		enable = lib.mkForce true;
-		shellAliases = {
-			upgrade = "sudo nix flake update /home/tray/.config/home-manager# && all-switch";
-		};
 	};
 	
-	# Blueman
-	services.blueman.enable = true;
-
 	environment = {
 		systemPackages = with pkgs; [
 			libnotify

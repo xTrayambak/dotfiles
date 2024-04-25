@@ -57,7 +57,8 @@
       			"custom/weather" = {
 				exec = "~/.scripts/wttr waybar NOIDA";
 				"return-type" = "json";
-				interval = 100;
+				on-click = "~/.scripts/wttr refresh NOIDA";
+				interval = 10;
 				format = "{}";
 				tooltip = false;
 			};
@@ -78,6 +79,7 @@
                 		format-charging = "  {capacity}%";
                 		format-plugged = " {capacity}% ";
                 		format-alt = "{icon} {time}";
+				update-interval = 30; 
                 		format-icons = ["" "" "" "" ""];
             		};
 			clock = {
@@ -87,7 +89,6 @@
 			};
 			bluetooth = {
 				format = " {device_alias}";
-				on-click = "blueman-manager";
 				format-connected = " ";
 				# tooltip-format = "{device_alias}";
 				tooltip-format-connected = "{device_enumerate}";
@@ -114,6 +115,8 @@
 				format-source = "";
 				format-source-muted = "";
 				on-hover = "{source}%";
+				on-scroll-up = "volumectl -d +1%";
+				on-scroll-down = "volumectl -d -1%";
 				format-icons = {
 					headphone = "";
             				headset = "";

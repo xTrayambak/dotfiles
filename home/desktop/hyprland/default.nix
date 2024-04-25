@@ -7,11 +7,15 @@
     swww
     networkmanagerapplet
   ];
+  imports = [
+    ./hypridle.nix
+    ./hyprlock.nix
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
-    	# Variables
+	# Variables
     	"$mainMod" = "SUPER";
 	"$term" = "foot";
 	"$filemanager" = "nautilus";
@@ -19,6 +23,8 @@
 	"$selectss" = "/home/${config.home.username}/.scripts/screenshot select";
 	"$screenlock" = "/home/${config.home.username}/.scripts/locker";
 	"$applauncher" = "wofi -H 480 -W 640";
+	"$selectss_silent" = "/home/${config.home.username}/.scripts/screenshot select silent";
+	"$fullscreenss_silent" = "/home/${config.home.username}/.scripts/screenshot full silent";
 
 	# Config begins from here
 
@@ -32,9 +38,10 @@
 	exec-once = [
 		"waybar"
 		"swww init"
-		"/home/${config.home.username}/.scripts/wallpaper"
+		"/home/${config.home.username}/.scripts/wallpaper_dumb"
 		"mako"
 		"avizo-service"
+		"emacs --daemon"
 		"nm-applet"
 	];
 
@@ -86,7 +93,7 @@
 			"border, 1, 10, default"
 			"borderangle, 1, 8, default"
 			"fade, 1, 7, default"
-			"workspaces, 1, 5, default"
+			"workspaces, 1, 5, default, slidevert"
 			"specialWorkspace, 1, 5, myBezier, slidevert"
 		];
 	};
@@ -158,9 +165,12 @@
 		",F10, exec, playerctl next"
 		",F11, fullscreen"
 		"$mainMod, Print, exec, $fullscreenss"
-		",XF86AudioMute, exec, volumectl toggle-mute"
-		",XF86AudioMicMute, exec, volumectl -m toggle-mute"
+		",XF86AudioMute, exec, volumectl -d toggle-mute"
+		",XF86AudioMicMute, exec, volumectl -d -m toggle-mute"
 		",XF86Calculator, exec, gnome-calculator"
+		"SUPER_SHIFT, F, exec, $fullscreenss_silent"
+		"SUPER_SHIFT, S, exec, $selectss_silent"
+                "SUPER_SHIFT, E, exec, emacs"
 
 		# Workspace switching
 		"$mainMod, 1, workspace, 1"
@@ -194,10 +204,10 @@
 
 	# Holdable buttons
 	binde = [
-		",XF86AudioLowerVolume, exec, volumectl -u down"
-		",XF86AudioRaiseVolume, exec, volumectl -u up"
-		",XF86MonBrightnessDown,exec,lightctl down"
-		",XF86MonBrightnessUp,exec,lightctl up"
+		",XF86AudioLowerVolume, exec, volumectl -d -u down"
+		",XF86AudioRaiseVolume, exec, volumectl -d -u up"
+		",XF86MonBrightnessDown,exec,lightctl -d down"
+		",XF86MonBrightnessUp,exec,lightctl -d up"
 	];
     };
   };

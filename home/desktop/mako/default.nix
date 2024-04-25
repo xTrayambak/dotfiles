@@ -10,7 +10,7 @@
 	];
 	services.mako = {
 		enable = true;
-		anchor = "top-right";
+		anchor = "top-center";
 		borderRadius = 8;
 		font = "JetBrainsMono 11";
 		defaultTimeout = 4000;

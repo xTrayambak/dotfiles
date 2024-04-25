@@ -6,7 +6,7 @@
 		source = (
 			fetchTarball {
 				url = "https://github.com/rafaelmardojai/firefox-gnome-theme/archive/master.tar.gz";
-				sha256 = "01adb28aym5gk90p57c18m96wbzv7367gw8ad830zc3ly045k040";
+				sha256 = "1xxd40dv0z8bj29krbrvhqiy1z3ysynj205pac22yy7004f6wp3v";
 			}
 		);
 	};
@@ -14,7 +14,8 @@
 		enable = true;
 		profiles = {
 			default = {
-				extraConfig = builtins.readFile ./user.js;
+				# GitHub keeps telling me to setup Deno or Node, so this is the only way to make it shut up.
+				extraConfig = builtins.readFile ./userjsfile;
 				userChrome = ''
 					@import "firefox-gnome-theme/userChrome.css";
             				@import "firefox-gnome-theme/theme/colors/dark.css"; 
@@ -27,7 +28,6 @@
 					return-youtube-dislikes
 					windscribe
 					youtube-shorts-block
-					notifier-for-github
 					decentraleyes
 				];
 			};

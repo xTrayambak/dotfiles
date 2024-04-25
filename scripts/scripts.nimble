@@ -9,7 +9,8 @@ bin = @[
   "screenshot", "wallpaper",
   "waybar_vpn", "wttr",
   "pretty_date", "batinfo",
-  "netinfo", "player_notifs"
+  "netinfo", "player_notifs",
+  "wallpaper_dumb"
 ]
 
 import std/distros

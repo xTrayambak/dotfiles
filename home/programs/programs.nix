@@ -2,6 +2,7 @@
 {
   imports = [
     ./neovim
+    ./emacs
     ./zsh
     ./btop
     ./development

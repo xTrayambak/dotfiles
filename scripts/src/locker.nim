@@ -1,4 +1,4 @@
-# small interface over swaylock
+## small interface over hyprlock
 
 import std/[os, random, strutils, osproc]
 
@@ -7,7 +7,8 @@ proc lockUp {.inline.} =
 
   echo "~> we're gonna lock up"
 
-  let wasPreviouslyPlaying = execCmdEx("playerctl status").output == "Playing\n"
+  let 
+    wasPreviouslyPlaying = execCmdEx("playerctl status").output == "Playing\n"
 
   discard execCmd(
     "notify-send \"Locking Your Desktop\" " &
@@ -31,7 +32,7 @@ proc lockUp {.inline.} =
   echo "~> unlocked."
 
   discard execCmd(
-    "notify-send \"Welcome back, " & getEnv("USER").split('\n')[0] & " !\" " &
+    "notify-send \"Welcome back, " & getEnv("USER").split('\n')[0] & "!\" " &
     "\"It's nice to see you back!\" " &
     "-t 4000"
   )

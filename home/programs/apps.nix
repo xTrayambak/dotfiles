@@ -9,10 +9,11 @@
 	zathura	
 	
 	gnome.gnome-calculator
-	overskride
+	valent
 	headlines
 	snapshot
 	loupe
+	chromium
 	gnome.nautilus
   ];
 }

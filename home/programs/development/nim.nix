@@ -1,9 +1,9 @@
 { inputs, lib, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    nim
-    nimlsp
-    nimble
-  ];
+	home.packages = with pkgs; [
+		nim-unwrapped-2
+		nimlsp
+		nimble
+  	];
 }

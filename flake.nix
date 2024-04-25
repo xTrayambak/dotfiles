@@ -11,6 +11,10 @@
       url = "github:hyprwm/hyprlock";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hypridle = {
+      url = "github:hyprwm/hypridle";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur.url = "github:nix-community/NUR";
     hyprland.url = "github:hyprwm/Hyprland";
     waybar.url = "github:Alexays/waybar";
@@ -25,7 +29,7 @@
   outputs = { 
     nixpkgs, home-manager, hyprlock, 
     hyprland, nur, lanzaboote,
-    waybar, nixvim,
+    waybar, nixvim, hypridle,
   ... } @ inputs: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 

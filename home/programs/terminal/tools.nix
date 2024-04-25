@@ -10,6 +10,7 @@
     playerctl
     moreutils
     gh
+    git
     cava
     ngrok
     python3

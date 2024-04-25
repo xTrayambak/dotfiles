@@ -32,8 +32,8 @@ vim.g.mapleader = " "
 impure_plugins = {
 	"nvim-treesitter/nvim-treesitter", -- Treesitter highlighting
 	"alaviss/nim.nvim",               -- Nim LSP plugin
-	"nvim-tree/nvim-web-devicons",    -- Web devicons
-	"nvim-tree/nvim-tree.lua",         -- File tree
+	-- "nvim-tree/nvim-web-devicons",    -- Web devicons
+	-- "nvim-tree/nvim-tree.lua",         -- File tree
 	"ms-jpq/coq_nvim", -- Autocomplete
 	"mrcjkb/rustaceanvim", -- Did you guys know that memory safety is key?
 	-- Nordic theme (<3)
@@ -232,20 +232,6 @@ require('lualine').setup {
 
 -- Setup zig-tools
 require("zig-tools").setup()
-
--- Setup file tree
-require("nvim-tree").setup({
-  sort_by = "case_sensitive",
-  view = {
-    width = 30,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
 
 local theme = {
   fill = 'TabLineFill',

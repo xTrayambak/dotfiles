@@ -19,7 +19,7 @@
     packages = with pkgs; [
       flatpak
       neofetch
-      swaybg
+      gh
       gnome.gnome-software
     ];
     sessionPath = [

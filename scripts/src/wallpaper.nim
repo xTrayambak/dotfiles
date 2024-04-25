@@ -1,3 +1,5 @@
+## Time-based wallpaper script
+
 import std/[os, osproc, times, strutils, random]
 
 const IMAGE_EXT = [
@@ -51,13 +53,27 @@ proc swww(wallpaper: string, step: int = 2) {.inline.} =
     "swww img --transition-type random --transition-step " & $step & " --transition-fps 144 " & wallpaper
   )
 
-proc main {.inline.} =
-  randomize()
-
+proc randWallpaperLoop {.inline.} =
   while true:
     let wallpaper = getWallpaper()
     swww(wallpaper)
     sleep rand(30..60) * 60 * 60 # Sleep anywhere between 30 minutes to an hour 
+
+proc main {.inline.} =
+  randomize()
+  
+  if paramCount() < 1:
+    randWallpaperLoop()
+
+  let op = paramStr(1)
+
+  case op
+  of "loop":
+    randWallpaperLoop()
+  of "rand":
+    echo getWallpaper()
+  else:
+    discard
 
 when isMainModule:
   main()

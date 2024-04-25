@@ -5,8 +5,8 @@
     ./hyprland
     ./waybar
     ./wofi
-    ./hyprlock
     ./avizo
+    ./fusuma
     ./mako
 
     ./gtk.nix

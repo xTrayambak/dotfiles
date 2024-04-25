@@ -9,6 +9,7 @@
       			serviceConfig = {
         			Type = "simple";
         			ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+				Environment = "GTK_THEME=Adwaita";
         			Restart = "on-failure";
         			RestartSec = 1;
         			TimeoutStopSec = 10;

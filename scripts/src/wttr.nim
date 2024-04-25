@@ -1,4 +1,4 @@
-import std/[os, osproc, options, json, times, httpclient, strutils]
+import std/[os, options, json, times, httpclient, strutils]
 
 const NimblePkgVersion {.strdefine.} = ""
 
@@ -41,16 +41,16 @@ proc toInt*(format: ReportFormat): int =
   of rfTabular:
     return int.high
 
-proc wttr*(format: ReportFormat, location: string, url: string = "https://wttr.in", userAgent: string = "curl/8.2.1"): string =
+proc wttr*(format: ReportFormat, location: string, url: string = "https://wttr.in", userAgent: string = "curl/8.2.1", ignoreCache: bool = false): string =
   let 
     httpClient = newHttpClient(userAgent=userAgent)
     fmt = toInt format
     cached = getCache()
 
-  if cached.isSome:
+  if cached.isSome and not ignoreCache:
     if $fmt in cached.unsafeGet():
       let delta = epochTime() - cached.unsafeGet()["date"].getFloat()
-      if delta <= 3600f:
+      if delta <= 3600f: # 1 hour
         return cached.unsafeGet()[$fmt].getStr()
   
   if fmt != int.high:
@@ -73,6 +73,10 @@ proc waybar*(city: string) =
 proc hyprlock*(city: string) =
   echo wttr(rfPlain, city).split('\n')[0]
 
+proc refresh*(city: string) =
+  for field in [rfNamePlainWind, rfNamePlain]:
+    discard wttr(field, city, ignoreCache = true)
+
 when isMainModule: 
   assert paramCount() > 1
   let city = paramStr(2)
@@ -82,4 +86,7 @@ when isMainModule:
       waybar(city)
     of "lock_screen":
       hyprlock(city)
-    else: discard
+    of "refresh":
+      refresh(city)
+    else:
+      quit "Unrecognized operation: " & paramStr(1)
