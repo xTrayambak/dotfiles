@@ -23,6 +23,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-gaming.url = "github:fufexan/nix-gaming";
     schizofox.url = "github:schizofox/schizofox";
   };
 
@@ -30,6 +31,7 @@
     nixpkgs, home-manager, hyprlock, 
     hyprland, nur, lanzaboote,
     waybar, nixvim, hypridle,
+    nix-gaming,
   ... } @ inputs: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 

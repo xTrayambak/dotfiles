@@ -272,9 +272,15 @@
   :ensure
   :commands lsp-ui-mode
   :custom
-  (lsp-ui-peek-always-show t)
+  (lsp-ui-sideline-enable t)
   (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-enable nil))
+  (lsp-ui-sideline-update-mode t)
+  (lsp-ui-doc-enable t)
+  (lsp-ui-doc-position 'top)
+  (lsp-ui-doc-side 'left)
+  (lsp-ui-sideline-show-diagnostics t)
+  (lsp-ui-peek-always-show t)
+  (lsp-ui-sideline-show-hover t))
 
 (defun my--init-nim-mode ()
   "Local init function for `nim-mode'."
@@ -293,6 +299,11 @@
   :ensure t
   :bind (("C-c g" . magit-status)))
 
+;; Nord theme
+(package-install 'nord-theme)
+(add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
+(load-theme 'nord t)
+
 ;; Fuzzy finder
 (package-install 'orderless)
 (require 'orderless)
@@ -306,7 +317,18 @@
 
 (global-set-key (kbd "C-c f") 'affe-grep)
 
-(setq affe-regexp-compiler #'affe-orderless-regexp-compiler)
+; (setq affe-regexp-compiler #'affe-orderless-regexp-compiler)
+
+;; Email client
+(package-install 'notmuch)
+(use-package helm
+  :vc (:fetcher github :repo emacs-helm/helm)
+  )
+
+(package-install 'helm-notmuch)
+(require 'helm)
+(require 'helm-notmuch)
+(require 'notmuch)
 
 ;; Dashboard
 (defun db/random-quote ()

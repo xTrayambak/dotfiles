@@ -17,7 +17,7 @@ in {
       {
 	blur_passes = 2;
 	blur_size = 8;
-        path = "/home/${config.home.username}/Wallpapers/pexels-archie-binamira-672451.png";
+        path = "/home/${config.home.username}/Wallpapers/thing16-afternoon.png";
       }
     ];
 
@@ -31,6 +31,7 @@ in {
         };
 
         outline_thickness = 4;
+	rounding = 1;
 
         outer_color = "rgba(46, 52, 64, 50)";
         inner_color = "rgba(46, 52, 64, 50)";

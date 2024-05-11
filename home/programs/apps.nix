@@ -9,6 +9,10 @@
 	zathura	
 	
 	gnome.gnome-calculator
+	gnome.gnome-characters
+	gnome.gnome-control-center
+	gnome-usage
+        dino
 	valent
 	headlines
 	snapshot

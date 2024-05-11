@@ -38,7 +38,7 @@
 	exec-once = [
 		"waybar"
 		"swww init"
-		"/home/${config.home.username}/.scripts/wallpaper_dumb"
+		"/home/${config.home.username}/.scripts/wallpaper"
 		"mako"
 		"avizo-service"
 		"emacs --daemon"
@@ -67,6 +67,7 @@
 		allow_tearing = true;
 		layout = "dwindle";
 	};
+
 	decoration = {
 		rounding = 10;
 
@@ -125,6 +126,7 @@
 		"ignorezero, avizo"
 		"blur, waybar"
 		"ignorealpha 0.23, waybar"
+		"blurpopups, waybar"
 	];
 
 	# Window rules
@@ -143,7 +145,6 @@
 		"fullscreen, ^(Minecraft)(.*)$"
 		"float, Calculator"
 		"float, Nautilus"
-		"size 1324,805, Nautilus"
 	];
 
 	# Keybinds
@@ -171,6 +172,10 @@
 		"SUPER_SHIFT, F, exec, $fullscreenss_silent"
 		"SUPER_SHIFT, S, exec, $selectss_silent"
                 "SUPER_SHIFT, E, exec, emacs"
+		"SUPER_SHIFT, B, exec, firefox"
+		"SUPER_SHIFT, D, exec, armcord"
+		"SUPER_SHIFT, C, exec, gnome-characters"
+		"SUPER_SHIFT, P, exec, gnome-usage"
 
 		# Workspace switching
 		"$mainMod, 1, workspace, 1"

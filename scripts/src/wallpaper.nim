@@ -54,8 +54,16 @@ proc swww(wallpaper: string, step: int = 2) {.inline.} =
   )
 
 proc randWallpaperLoop {.inline.} =
+  var prev: string
   while true:
-    let wallpaper = getWallpaper()
+    let wallpaper = block:
+      var x = getWallpaper()
+      
+      while x == prev:
+        x = getWallpaper()
+
+      x
+
     swww(wallpaper)
     sleep rand(30..60) * 60 * 60 # Sleep anywhere between 30 minutes to an hour 
 

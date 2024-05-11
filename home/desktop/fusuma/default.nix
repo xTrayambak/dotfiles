@@ -9,11 +9,11 @@
 			interval = { swipe = 0.25; };
 			swipe = {
 				"4" = {
-					left.command = "${pkgs.avizo}/bin/volumectl -u down";
-					right.command = "${pkgs.avizo}/bin/volumectl -u up";
+					left.command = "DISPLAY=0 ${pkgs.avizo}/bin/volumectl -u down";
+					right.command = "DISPLAY=0 ${pkgs.avizo}/bin/volumectl -u up";
 
-					up.command = "${pkgs.avizo}/bin/lightctl up";
-					down.command = "${pkgs.avizo}/bin/lightctl down";
+					up.command = "DISPLAY=0 ${pkgs.avizo}/bin/lightctl up";
+					down.command = "DISPLAY=0 ${pkgs.avizo}/bin/lightctl down";
 				};
 			};
 		};

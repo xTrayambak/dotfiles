@@ -7,6 +7,7 @@
     ./wofi
     ./avizo
     ./fusuma
+    ./eww
     ./mako
 
     ./gtk.nix

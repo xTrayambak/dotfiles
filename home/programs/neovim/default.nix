@@ -36,16 +36,8 @@ impure_plugins = {
 	-- "nvim-tree/nvim-tree.lua",         -- File tree
 	"ms-jpq/coq_nvim", -- Autocomplete
 	"mrcjkb/rustaceanvim", -- Did you guys know that memory safety is key?
-	-- Nordic theme (<3)
-	{ 
-		"AlexvZyl/nordic.nvim", 
-		lazy = false, 
-		priority = 1000, 
-		config = function()
-			require("nordic").load()
-		end
-	},
-	"jose-elias-alvarez/null-ls.nvim",
+	"kyazdani42/blue-moon",	
+	"nvimtools/none-ls.nvim",
 	"neovim/nvim-lspconfig", -- Nvim LSPConfig
 	"andweeb/presence.nvim", -- Discord RPC
 	-- Tabs
@@ -62,10 +54,10 @@ impure_plugins = {
   	},
 	"nvim-lua/plenary.nvim", -- plenary
 	"akinsho/ToggleTerm.nvim", -- Toggle terminal
-	"NTBBloodbath/zig-tools.nvim", -- Zig LSP
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
+	"j-morano/buffer_manager.nvim",
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/nvim-cmp",
 	"nvim-lualine/lualine.nvim",
@@ -84,6 +76,8 @@ require("lazy").setup(impure_plugins, {})
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
+
+vim.cmd('colorscheme blue-moon')
 
 -- Setup telescope
 local builtin = require('telescope.builtin')
@@ -123,6 +117,8 @@ require("transparent").setup({
   	exclude_groups = {} -- table: groups you don't want to clear
 })
 
+local buffctl = require("buffer_manager.ui")
+
 -- Nim autocomplete
 local null_ls = require "null-ls"
 
@@ -136,7 +132,7 @@ local kinds = {
 
 null_ls.register({
   method = null_ls.methods.COMPLETION,
-  filetypes = { "nim" },
+  filetypes = { "nim", "c", "rs" },
   generator = {
     async = true,
     fn = function(params, done)
@@ -200,19 +196,19 @@ require("nvterm").setup({
 local term = require("nvterm.terminal")
 
 vim.keymap.set('n', 'tt', function() 
-		term.toggle "horizontal"
+		term.toggle "float"
 	end, 
 	{}
 )
 
 vim.keymap.set('n', 'nb', function()
-		term.send("nimble build", "horizontal")
+		term.send("nimble build", "float")
 	end,
 	{}
 )
 
 vim.keymap.set('n', 'nr', function()
-		term.send("nimble run", "horizontal")
+		term.send("nimble run", "float")
 	end,
 	{}
 )
@@ -230,9 +226,6 @@ require('lualine').setup {
   offsets = {{filetype = "NvimTree", text = "File Explorer", padding = 0 }},
 }
 
--- Setup zig-tools
-require("zig-tools").setup()
-
 local theme = {
   fill = 'TabLineFill',
   -- Also you can do this: fill = { fg='#f2e9de', bg='#907aa9', style='italic' }
@@ -242,6 +235,7 @@ local theme = {
   win = 'TabLine',
   tail = 'TabLine',
 }
+
 -- Initialize treesitter
 require("nvim-treesitter.configs").setup({
   ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "cpp", "json", "toml", "glsl", "nim", "rust" },
@@ -317,17 +311,6 @@ require("presence").setup({
     reading_text        = "Reading %s",               -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
     workspace_text      = "Working on %s",            -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
     line_number_text    = "Line %s out of %s",        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
-})
-
--- Open nvim-tree on startup
-vim.api.nvim_create_autocmd({"BufNewFile", "BufReadPost"}, {
-  callback = function(args)
-    if vim.fn.expand "%:p" ~= "" then
-      vim.api.nvim_del_autocmd(args.id)
-      vim.cmd "noautocmd NvimTreeOpen"
-      vim.cmd "noautocmd wincmd p"
-    end
-  end,
 })
 
 -- LSP and autocompletion

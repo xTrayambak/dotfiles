@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-	services.thermald.enable = true;
 	services.tlp = {
 		enable = true;
 		settings = {
@@ -16,8 +15,12 @@
         		CPU_MAX_PERF_ON_BAT = 20;
 
         		# Optional helps save long term battery health
-        		START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
+        		START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
         		STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+			
+			# make the GPUs slow down
+			RADEON_DPM_PERF_LEVEL_ON_AC = "high";
+			RADEON_DPM_PERF_LEVEL_ON_BAT = "low";
 		};
 	};
 }
