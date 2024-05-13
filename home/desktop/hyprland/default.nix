@@ -145,6 +145,9 @@
 		"fullscreen, ^(Minecraft)(.*)$"
 		"float, Calculator"
 		"float, Nautilus"
+		"float, Wike"
+		"float, Usage"
+		"float, Characters"
 	];
 
 	# Keybinds
@@ -176,6 +179,7 @@
 		"SUPER_SHIFT, D, exec, armcord"
 		"SUPER_SHIFT, C, exec, gnome-characters"
 		"SUPER_SHIFT, P, exec, gnome-usage"
+		"SUPER_SHIFT, W, exec, wike"
 
 		# Workspace switching
 		"$mainMod, 1, workspace, 1"

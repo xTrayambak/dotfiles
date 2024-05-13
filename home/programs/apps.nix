@@ -12,6 +12,7 @@
 	gnome.gnome-characters
 	gnome.gnome-control-center
 	gnome-usage
+	wike
         dino
 	valent
 	headlines
