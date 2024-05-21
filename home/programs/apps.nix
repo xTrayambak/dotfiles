@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-  	armcord
+  	vesktop
 	blender
 	obs-studio
 	keepassxc
@@ -12,7 +12,6 @@
 	gnome.gnome-characters
 	gnome.gnome-control-center
 	gnome-usage
-	wike
         dino
 	valent
 	headlines

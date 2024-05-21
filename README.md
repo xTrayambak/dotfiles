@@ -22,7 +22,7 @@ My old `configuration.nix` file is in the `ancient/` directory.
 Wayland Compositor - [Hyprland](https://github.com/hyprwm/hyprland) \
 Text Editor - [Neovim](https://github.com/neovim/neovim) \
 Status Bar - [Waybar](https://github.com/Alexays/Waybar) \
-Terminal Emulator - [Foot](https://codeberg.org/dnkl/foot) \
+Terminal Emulator - [Wezterm](https://github.com/wez/wezterm) \
 Shell - [Zsh + Oh My Zsh!](https://www.zsh.org) \
 PDF Reader - [Zathura](https://github.com/pwmt/zathura) \
 Video Viewer - [Mpv](https://github.com/mpv-player/mpv) \

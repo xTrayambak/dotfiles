@@ -1,5 +1,5 @@
 { pkgs, ... }:
-# haha touch gestures go brrrr
+# haha, touch gestures go brrrr
 {
 	services.fusuma = {
 		enable = true;

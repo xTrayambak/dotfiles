@@ -24,15 +24,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-gaming.url = "github:fufexan/nix-gaming";
-    schizofox.url = "github:schizofox/schizofox";
+    # schizofox.url = "github:schizofox/schizofox";
   };
 
   outputs = { 
     nixpkgs, home-manager, hyprlock, 
     hyprland, nur, lanzaboote,
     waybar, nixvim, hypridle,
-    nix-gaming,
-  ... } @ inputs: {
+    nix-gaming, ... } @ inputs: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = {

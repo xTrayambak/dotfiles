@@ -36,7 +36,7 @@
 	
 	# Start my bar, wallpaper applier + wallpaper script, notification daemon, OSD and networkmanager applet
 	exec-once = [
-		"waybar"
+		"GTK_THEME=adw-gtk3-dark waybar"
 		"swww init"
 		"/home/${config.home.username}/.scripts/wallpaper"
 		"mako"

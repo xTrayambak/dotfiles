@@ -31,7 +31,6 @@ in {
         };
 
         outline_thickness = 4;
-	rounding = 1;
 
         outer_color = "rgba(46, 52, 64, 50)";
         inner_color = "rgba(46, 52, 64, 50)";

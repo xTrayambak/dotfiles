@@ -1,6 +1,6 @@
 * 
 {
-    font-family: JetBrainsMono, FontAwesome, RobotoMono;
+    font-family: JetBrainsMono;
     font-size: 14px;
 }
 
@@ -10,7 +10,7 @@ window#waybar
     border-radius: 0px;
     color: #FFFFFF;
     transition-property: background-color;
-    transition-duration: .5s; 
+    transition-duration: .5s;
 }
 
 #clock,

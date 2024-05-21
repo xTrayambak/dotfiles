@@ -8,6 +8,7 @@
     ./avizo
     ./fusuma
     ./eww
+    ./wezterm
     ./mako
 
     ./gtk.nix
