@@ -2,11 +2,10 @@ local wezterm = require('wezterm')
 local config  = {}
 
 config.font = wezterm.font('JetBrainsMono')
---config.enable_wayland = false -- :rip:
+config.enable_wayland = false -- :rip:
 config.tiling_desktop_environments = {
 	'Wayland Hyprland'
 }
-
 config.max_fps = 144
 config.animation_fps = 144
 config.prefer_egl = true

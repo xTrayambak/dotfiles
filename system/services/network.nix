@@ -1,6 +1,7 @@
 {
 	networking = {
 		networkmanager.enable = true;
+		hostName = "box";
 
 		nftables.enable = true;
 		firewall = {

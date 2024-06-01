@@ -2,22 +2,22 @@
 
 {
   home.packages = with pkgs; [
-  	vesktop
+  	(vesktop.override { withSystemVencord = false; })
 	blender
 	obs-studio
-	keepassxc
 	zathura	
 	
 	gnome.gnome-calculator
+	gnome-secrets
 	gnome.gnome-characters
 	gnome.gnome-control-center
-	gnome-usage
         dino
 	valent
 	headlines
 	snapshot
 	loupe
 	chromium
+	protonvpn-cli_2
 	gnome.nautilus
   ];
 }

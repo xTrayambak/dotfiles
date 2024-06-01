@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ lib, pkgs, config, ... }:
 
 {
 	boot = {
@@ -9,10 +9,17 @@
 			supportedFilesystems = [ "ext4" ];
 		};
 
-		kernelPackages = pkgs.linuxPackages_latest;
+		kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
 		consoleLogLevel = 3;
 
-		kernelParams = [];
+		kernelParams = [
+			"quiet"
+			"splash"
+			"amd_iommu=on"
+			"kvm.ignore_msrs=1" 
+			"video=efifb:off" 
+			"vfio-pci.ids=1002:743f,1002:ab28"
+		];
 
 		loader = {
 			efi.canTouchEfiVariables = true;

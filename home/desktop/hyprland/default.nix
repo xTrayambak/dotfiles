@@ -131,21 +131,28 @@
 
 	# Window rules
 	windowrule = [
-		"float, title:^(ArmCord)$"
-		"workspace 4 silent, ^(ArmCord)$"
-		"tile, title:^(.*)( - ArmCord)$"
-		"float, KeePassXC"
-		"workspace 1 silent, librewolf"
-		"workspace 1 silent, ^(.*)( Mozilla Firefox)$"
-		"opacity 0.921 override, title:^(.*)( - ArmCord)$"
-		"workspace 4 silent, title:^(.*)( - ArmCord)$"
+		"float, title:^(.*)(Discord)(.*)$"
+		"workspace 4 silent, ^(.*)(Discord)(.*)$"
+		"workspace 4 silent, vesktop"
+		"workspace 5 silent, ^(Proton VPN)$"
+		"tile, title:^(.*)(Discord)(.*)$"
+		"float, Secrets"
+		"workspace 1 silent, ^(Firefox)(.*)$"
+		"workspace 1 silent, ^(.*)(Mozilla Firefox)(.*)$"
+		"opacity 0.921 override, title:^(.*)(Discord)(.*)$"
+		"workspace 4 silent, title:^(.*)(Discord)(.*)$"
 		"float, blueman"
 		"float, Windscribe"
+		"fullscreen, Xonotic"
 		"fullscreen, robloxplayerbeta.exe"
 		"fullscreen, ^(Minecraft)(.*)$"
+		"immediate, ^(Minecraft)(.*)$"
+		"immediate, robloxplayerbeta.exe"
+		"immediate, Xonotic"
 		"float, Calculator"
 		"float, Nautilus"
 		"float, Wike"
+		"float, title:^(Network Connections)"
 		"float, Usage"
 		"float, Characters"
 	];
@@ -176,10 +183,14 @@
 		"SUPER_SHIFT, S, exec, $selectss_silent"
                 "SUPER_SHIFT, E, exec, emacs"
 		"SUPER_SHIFT, B, exec, firefox"
-		"SUPER_SHIFT, D, exec, armcord"
+		"SUPER_SHIFT, D, exec, vesktop"
 		"SUPER_SHIFT, C, exec, gnome-characters"
-		"SUPER_SHIFT, P, exec, gnome-usage"
-		"SUPER_SHIFT, W, exec, wike"
+
+		# Global keybinds
+		"SUPER, R, pass, ^(com\.obsproject\.Studio)$"
+		"SUPER, P, pass, ^(com\.obsproject\.Studio)$"
+		"SUPER, M, pass, ^(com\.obsproject\.Studio)$"
+		"SUPER, N, pass, ^(com\.obsproject\.Studio)$"
 
 		# Workspace switching
 		"$mainMod, 1, workspace, 1"
@@ -192,7 +203,8 @@
         	"$mainMod, 8, workspace, 8"
         	"$mainMod, 9, workspace, 9"
         	"$mainMod, 0, workspace, 10"
-
+		
+		# Workspace shifting
 		"bind = $mainMod SHIFT, 1, movetoworkspace, 1"
 		"bind = $mainMod SHIFT, 2, movetoworkspace, 2"
 		"bind = $mainMod SHIFT, 3, movetoworkspace, 3"

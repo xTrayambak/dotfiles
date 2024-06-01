@@ -79,17 +79,17 @@
                 		format-charging = "  {capacity}%";
                 		format-plugged = " {capacity}% ";
                 		format-alt = "{icon} {time}";
-				update-interval = 30; 
+				update-interval = 60; 
                 		format-icons = ["" "" "" "" ""];
             		};
 			clock = {
-				format = "<span foreground='#e5e9f0'> </span> {:%a %d %H:%M:%S}";
+				format = "󰥔  {:%a %d %H:%M:%S}";
 				tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
 				interval = 1;
 			};
 			bluetooth = {
-				format = " {device_alias}";
-				format-connected = " ";
+				format = "󰂱 {device_alias}";
+				format-connected = "󰂱 ";
 				# tooltip-format = "{device_alias}";
 				tooltip-format-connected = "{device_enumerate}";
 				tooltip-format-enumerate-connected = "{device_alias}";
@@ -99,32 +99,39 @@
 				critical-threshold = 90;
 				format = "{icon} {temperatureC}℃";
 				format-icons = ["" "" ""];
-				interval = 20;
+				interval = 10;
 			};
 			network = {
-				format-wifi = "  {essid}";
+				format-wifi = "{icon}  {essid}";
 				on-click = "iwgtk";
-				# tooltip-format = "";
-				format-ethernet = "";
-				format-disconnected = "";
-				format-disabled = "✈";
+				format-icons = [
+					"󰤯"
+					"󰤟"
+					"󰤢"
+					"󰤥"
+					"󰤨"
+				];
+				tooltip-format = "↑ {bandwidthUpBytes} ↓ {bandwidthDownBytes}";
+				format-ethernet = "󰈁";
+				format-disconnected = "󰤫";
+				format-disabled = "󰤭";
 			};
 			pulseaudio = {
 				format = "{icon}  {volume}%";
-				format-muted = "";
+				format-muted = "󰸈";
 				format-source = "";
 				format-source-muted = "";
 				on-hover = "{source}%";
 				on-scroll-up = "volumectl -d +1%";
 				on-scroll-down = "volumectl -d -1%";
 				format-icons = {
-					headphone = "";
-            				headset = "";
-            				phone = "";
-            				portable = "";
+					headphone = "󰋍";
+            				headset = "󰋍";
+            				phone = "";
+            				portable = "󰥰";
             				car = "";
             				default = [
-						""
+						"󰕿"
 						""
 						""
 					];

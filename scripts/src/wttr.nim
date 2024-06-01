@@ -41,6 +41,24 @@ proc toInt*(format: ReportFormat): int =
   of rfTabular:
     return int.high
 
+proc nerdify*(s: string): string {.inline.} =
+  s.multiReplace(
+    {
+      "🌫": "󰖑",
+      "🌦": "",
+      "☀️": "󰖨",
+      "🌤": "",
+      "☁️": "",
+      "🌩": "",
+      "⚡": "",
+      "☔": "",
+      "🌈": "",
+      "💨": "",
+      "🌡️": "󱃂",
+      "🌬️": " "
+    }
+  )
+
 proc wttr*(format: ReportFormat, location: string, url: string = "https://wttr.in", userAgent: string = "curl/8.2.1", ignoreCache: bool = false): string =
   let 
     httpClient = newHttpClient(userAgent=userAgent)
@@ -65,13 +83,13 @@ proc waybar*(city: string) =
   tooltip.removeSuffix('\n')
 
   echo $(%* {
-      "text": wttr(rfPlain, city).split('\n')[0],
-      "tooltip": tooltip
+      "text": wttr(rfPlain, city).split('\n')[0].nerdify(),
+      "tooltip": tooltip.nerdify()
     }
   )
 
 proc hyprlock*(city: string) =
-  echo wttr(rfPlain, city).split('\n')[0]
+  echo wttr(rfPlain, city).split('\n')[0].nerdify()
 
 proc refresh*(city: string) =
   for field in [rfNamePlainWind, rfNamePlain]:

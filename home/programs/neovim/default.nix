@@ -1,8 +1,5 @@
 { config, pkgs, lib, ... }:
 {
-	home.packages = with pkgs; [
-		nimlsp
-	];
 	programs.git.enable = true;
 	programs.neovim = {
 		enable = true;

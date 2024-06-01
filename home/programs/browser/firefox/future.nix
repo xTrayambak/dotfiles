@@ -54,6 +54,12 @@
 					URL = "https://discourse.nixos.org";
 					Placement = "toolbar";
 					Folder = "Forums";
+				},
+				{
+					Title = "Pastebin";
+					URL = "https://bin.disroot.org/";
+					Placement = "toolbar";
+					Folder = "Utilities";
 				}
 			];
 		};
