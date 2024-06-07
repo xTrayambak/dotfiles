@@ -8,8 +8,6 @@
 		pkgs.xonotic
 		pkgs.steam
 		pkgs.bottles
-
-		inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
 	];
 
 	programs.java = {

@@ -1,8 +1,7 @@
 { pkgs, lib, inputs, config, ... }:
 {
-	imports = [ inputs.hypridle.homeManagerModules.default ];
-	services.hypridle = {
-		enable = true;
+	services.hypridle.enable = true;
+	services.hypridle.settings = {
 		beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
 		lockCmd = lib.getExe config.programs.hyprlock.package;
 

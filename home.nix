@@ -17,10 +17,8 @@
     username = "tray";
     homeDirectory = "/home/tray";
     packages = with pkgs; [
-      flatpak
-      neofetch
       gh
-      gnome.gnome-software
+      fastfetch
     ];
     sessionPath = [
     	"~/.nimble/bin"

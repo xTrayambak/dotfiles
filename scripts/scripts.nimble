@@ -15,6 +15,9 @@ bin = @[
 
 import std/distros
 
+requires "https://github.com/neroist/libtray"
+requires "colored_logger >= 0.1.0"
+
 foreignDep "openssl"
 
 after build:

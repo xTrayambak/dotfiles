@@ -11,6 +11,7 @@
 	gnome-secrets
 	gnome.gnome-characters
 	gnome.gnome-control-center
+	gnome.gnome-calendar
         dino
 	valent
 	headlines

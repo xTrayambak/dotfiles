@@ -7,16 +7,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hypridle = {
-      url = "github:hyprwm/hypridle";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nur.url = "github:nix-community/NUR";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     waybar.url = "github:Alexays/waybar";
     lanzaboote.url = "github:nix-community/lanzaboote";
     nixvim = {
@@ -28,9 +20,9 @@
   };
 
   outputs = { 
-    nixpkgs, home-manager, hyprlock, 
+    nixpkgs, home-manager, 
     hyprland, nur, lanzaboote,
-    waybar, nixvim, hypridle,
+    waybar, nixvim,
     nix-gaming, ... } @ inputs: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
