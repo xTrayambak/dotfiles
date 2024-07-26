@@ -9,7 +9,8 @@
 		./display-manager.nix
 		./gnome-services.nix
 		./power.nix
-		./kde.nix
+		./printing.nix
+		./warp.nix
 		./polkit.nix
 		./waydroid.nix
 	];

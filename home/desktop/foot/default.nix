@@ -1,4 +1,4 @@
-{ inputs, libs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 	home.packages = with pkgs; [
@@ -15,7 +15,7 @@
                 		dpi-aware = "no";
             		};
             		colors = {
-                		alpha="0.2993";
+                		alpha="0.199";
                 		regular0="2e3440";  # black
                 		regular1="bf616a";  # red
                 		regular2="a3be8c";  # green

@@ -1,20 +1,21 @@
-import std/[os, options, json, times, httpclient, strutils]
+import std/[os, osproc, options, json, times, httpclient, strutils]
 
 const NimblePkgVersion {.strdefine.} = ""
 
 type
   ReportFormat* = enum
-    rfTabular    ## full report
-    rfPlain      ## <icon> <temp>
-    rfPlainWind  ## <icon> <temp> <windspeed>
-    rfNamePlain  ## <name> <icon> <temp>
-    rfNamePlainWind ## <name> <icon> <temp> <windspeed>
+    rfTabular = 0    ## full report
+    rfPlain = 1     ## <icon> <temp>
+    rfPlainWind = 2  ## <icon> <temp> <windspeed>
+    rfNamePlain = 3  ## <name> <icon> <temp>
+    rfNamePlainWind = 4 ## <name> <icon> <temp> <windspeed>
 
 proc getCache*: Option[JsonNode] =
   if fileExists("/tmp/wttr-cache.json"):
     return readFile("/tmp/wttr-cache.json").parseJson().some()
 
-proc setCache*(data: string, format: string, write: bool = true) =
+proc setCache*(data: string, format: string) =
+  echo "> cache \"" & format & "\": " & data
   let preExisting = getCache()
   let jsonData = if preExisting.isSome: preExisting.unsafeGet() else: %* {
     "date": epochTime()
@@ -75,7 +76,7 @@ proc wttr*(format: ReportFormat, location: string, url: string = "https://wttr.i
     result = httpClient.getContent(url & '/' & location & "?format=" & $fmt)
   else:
     result = httpClient.getContent(url & '/' & location)
-
+  
   setCache(result, $fmt)
 
 proc waybar*(city: string) =
@@ -92,8 +93,18 @@ proc hyprlock*(city: string) =
   echo wttr(rfPlain, city).split('\n')[0].nerdify()
 
 proc refresh*(city: string) =
-  for field in [rfNamePlainWind, rfNamePlain]:
-    discard wttr(field, city, ignoreCache = true)
+  let shout = paramCount() > 2
+  if shout:
+    discard execCmd("notify-send -t 30000 \"Refreshing weather data for " & city & "\" \"This may take a minute.\"")
+
+  for field in 0 .. 4:
+    echo "> refresh " & $field
+    echo wttr(ReportFormat(field), city, ignoreCache = true)
+
+  discard execCmd("notify-send -t 60000 \"Weather in " & city & "\" \"" & wttr(rfNamePlainWind, city).nerdify() & '"')
+
+proc notify*(city: string) {.inline.} =
+  discard execCmd("notify-send -t 60000 \"Weather in " & city & "\" \"" & wttr(rfNamePlainWind, city).nerdify() & '"')
 
 when isMainModule: 
   assert paramCount() > 1
@@ -106,5 +117,7 @@ when isMainModule:
       hyprlock(city)
     of "refresh":
       refresh(city)
+    of "notify":
+      notify(city)
     else:
       quit "Unrecognized operation: " & paramStr(1)

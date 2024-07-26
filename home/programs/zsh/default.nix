@@ -10,6 +10,8 @@
 			nix-switch = "sudo nixos-rebuild switch --flake path:/home/${config.home.username}/.config/home-manager#box";
 			hm-switch = "nix run /home/${config.home.username}/.config/home-manager -- switch";
 			all-switch = "nix-switch && hm-switch";
+			upgrade-flake = "ROLLBACK=$(pwd) cd /home/${config.home.username}/.config/home-manager && nix flake update && cd $ROLLBACK";
+			neofetch = "fastfetch";
   		};
   		oh-my-zsh = {
     			enable = true;

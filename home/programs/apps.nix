@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -14,11 +14,14 @@
 	gnome.gnome-calendar
         dino
 	valent
-	headlines
 	snapshot
 	loupe
+	godot_4
 	chromium
-	protonvpn-cli_2
+	qbittorrent
+	kcachegrind
+	mission-center
+	blueman
 	gnome.nautilus
   ];
 }

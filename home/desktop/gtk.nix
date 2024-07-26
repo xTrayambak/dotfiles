@@ -5,15 +5,20 @@
     		settings = {
       			"org/gnome/desktop/interface" = {
         			color-scheme = "prefer-dark";
-				gtk-theme = "Adwaita-dark";
+				gtk-theme = "Colloid-Dark";
       			};
     		};
   	};
+
 	gtk = {
 		enable = true;
+		cursorTheme = {
+			name = "Adwaita";
+			size = 8;
+		};
 		theme = {
-      			name = "Adwaita-dark";
-			package = pkgs.adw-gtk3;
+      			name = "Colloid-Dark";
+			package = pkgs.colloid-gtk-theme;
     		};
 		iconTheme = {
 			name = "Adwaita";
@@ -32,9 +37,9 @@
   		"gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
 
 
-		"gtk-3.0/assets".source = "${config.gtk.theme.package}/share/themes/adw-gtk3-dark/gtk-3.0/assets";
-		"gtk-3.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/adw-gtk3-dark/gtk-3.0/gtk.css";
-		"gtk-3.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/adw-gtk3-dark/gtk-3.0/gtk-dark.css";
+		"gtk-3.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-3.0/assets";
+		"gtk-3.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-3.0/gtk.css";
+		"gtk-3.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-3.0/gtk-dark.css";
 	};
 
 	home.packages = with pkgs; [

@@ -16,7 +16,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
-impure_plugins = {
+plugins = {
 	"nvim-treesitter/nvim-treesitter", -- Treesitter highlighting
 	"alaviss/nim.nvim",               -- Nim LSP plugin
 	"nvim-tree/nvim-web-devicons",    -- Web devicons
@@ -49,6 +49,7 @@ impure_plugins = {
 	"nvim-lualine/lualine.nvim",
 	"tpope/vim-fugitive",
 	"folke/todo-comments.nvim",
+	"echasnovski/mini.nvim",
 	{"nvim-telescope/telescope.nvim", tag = '0.1.5',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
@@ -58,7 +59,7 @@ impure_plugins = {
 }
 
 -- Initialize lazy
-require("lazy").setup(impure_plugins, {})
+require("lazy").setup(plugins, {})
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
@@ -90,6 +91,64 @@ end
 local function notify(title, content)
 	vim.fn.system("notify-send --icon=neovim --expire-time=36000 \""..title.."\" \""..content.."\"")
 end
+
+-- Setup alignment helper
+require("mini.align").setup(
+	{
+		mappings = {
+			start = "sa",
+			start_with_preview = "sA"
+		},
+		options = {
+			justify_side = "left"
+		},
+		silent = false
+	}
+)
+
+-- Setup notification system
+local notify = require("mini.notify")
+notify.setup(
+	{
+		-- Content management
+		content = {
+			-- Function which formats the notification message
+			-- By default prepends message with notification time
+			format = nil,
+
+			-- Function which orders notification array from most to least important
+    			-- By default orders first by level and then by update timestamp
+    			sort = nil,
+  		},
+
+  		-- Notifications about LSP progress
+  		lsp_progress = {
+			-- Whether to enable showing
+			enable = true,
+
+    			-- Duration (in ms) of how long last message should be shown
+    			duration_last = 1000,
+  		},
+
+  		-- Window options
+  		window = {
+    			-- Floating window config
+    			config = {},
+
+    			-- Maximum window width as share (between 0 and 1) of available columns
+    			max_width_share = 0.382,
+
+    			-- Value of 'winblend' option
+    			winblend = 25,
+  		}
+	}
+)
+notify.setup()
+vim.notify = notify.make_notify({
+	ERROR = { duration = 5000 },
+	WARN = { duration = 4000 },
+	INFO = { duration = 3000 }
+})
 
 -- Setup transparency effect
 require("transparent").setup({
@@ -189,6 +248,18 @@ vim.keymap.set('n', 'bp', function()
 	end
 )
 
+vim.keymap.set('n', 'df', function()
+		local file = vim.api.nvim_buf_get_name(0)
+		if fileExists(file) then
+			local answer = vim.fn.input("Do you want to delete this file? [y/n] ")
+			if answer == "y" then
+				os.remove(file)
+				vim.notify("Deleted file \""..file.."\" successfully.")
+			end
+		end
+	end
+)
+
 -- Setup NvTerm
 require("nvterm").setup({
   terminals = {
@@ -239,7 +310,7 @@ vim.keymap.set('n', 'nr', function()
 )
 
 -- Dashboard
---[[ require('dashboard').setup(
+--[[require('dashboard').setup(
 	{
 		theme = 'doom',
 		config = {
@@ -253,7 +324,7 @@ vim.keymap.set('n', 'nr', function()
 			}
 		}
 	}
-) --]]
+)--]]
 
 -- Setup my status bar
 require('lualine').setup {
@@ -280,7 +351,7 @@ local theme = {
 
 -- Initialize treesitter
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "cpp", "json", "toml", "glsl", "nim", "rust" },
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "cpp", "json", "toml", "glsl", "nim", "rust", "javascript", "markdown" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -290,7 +361,7 @@ require("nvim-treesitter.configs").setup({
   auto_install = true,
 
   -- List of parsers to ignore installing (for "all")
-  ignore_install = { "javascript" },
+  ignore_install = { },
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
   -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
@@ -304,7 +375,7 @@ require("nvim-treesitter.configs").setup({
     -- list of language that will be disabled
     -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
     disable = function(lang, buf)
-        local max_filesize = 100 * 1024 -- 100 KB
+        local max_filesize = 102400 -- 100 KB
         local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
         if ok and stats and stats.size > max_filesize then
             return true
@@ -369,11 +440,11 @@ vim.keymap.set('n', 'rd', function()
 			f:write("sneak 100")
 			
 			presence.cancel()
-			notify("Your RPC has been disabled.", "Nobody can see what you are doing now.")
+			vim.notify("Discord RPC has been disabled.")
 		else
 			os.remove(rpcKillSwitch)
 			presence.connect()
-			notify("Your RPC has been enabled.", "Everyone can see what you are doing now.")
+			vim.notify("Discord RPC has been enabled.")
 		end
 	end,
 	{}
@@ -402,7 +473,7 @@ local nvim_lsp = require('lspconfig')
 
 -- setup languages 
 -- Nim
-nvim_lsp['nimls'].setup{
+nvim_lsp['nimls'].setup {
   cmd = {'nimlsp'},
   -- on_attach = on_attach,
   capabilities = capabilities,
@@ -411,6 +482,9 @@ nvim_lsp['nimls'].setup{
     usePlaceholders = true,
   }
 }
+
+-- Nix
+nvim_lsp['nil_ls'].setup {}
 
 -- Lua
 require('lspconfig').lua_ls.setup {

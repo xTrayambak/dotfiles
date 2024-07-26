@@ -1,9 +1,9 @@
 { pkgs, ... }:
 
 {
-	hardware.opengl = {
+	hardware.graphics = {
 		enable = true;
-		driSupport32Bit = true;
+		enable32Bit = true;
 		extraPackages = with pkgs; [
 			libva
 			vaapiVdpau

@@ -1,0 +1,4 @@
+/* Disable title bar/window controls */
+.titlebar-buttonbox-container {
+	display:none !important;
+}

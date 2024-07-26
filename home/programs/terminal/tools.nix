@@ -11,8 +11,8 @@
     moreutils
     gh
     git
+    hyperfine
     cava
-    ngrok
     python3
     arp-scan
     meson
@@ -20,6 +20,7 @@
     cmatrix
     fd
     file
+    ngrok
     mpv
     ani-cli
 

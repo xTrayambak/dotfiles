@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -25,8 +25,12 @@
 	"$applauncher" = "wofi -H 480 -W 640";
 	"$selectss_silent" = "/home/${config.home.username}/.scripts/screenshot select silent";
 	"$fullscreenss_silent" = "/home/${config.home.username}/.scripts/screenshot full silent";
-
-	# Config begins from here
+	
+	env = [
+		"HYPRCURSOR_THEME,${config.gtk.cursorTheme.name}"
+		"HYPRCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
+		"GTK_THEME,${config.gtk.theme.name}"
+	];
 
 	# Monitor configuration (1920x1080 display at 144FPS)
 	monitor = [
@@ -36,12 +40,13 @@
 	
 	# Start my bar, wallpaper applier + wallpaper script, notification daemon, OSD and networkmanager applet
 	exec-once = [
-		"GTK_THEME=adw-gtk3-dark waybar"
+		"zsh -c waybar"
 		"swww init"
 		"/home/${config.home.username}/.scripts/wallpaper"
 		"mako"
 		"avizo-service"
 		"emacs --daemon"
+		"blueman-applet"
 		"nm-applet"
 	];
 
@@ -87,14 +92,18 @@
 
 	animations = {
 		enabled = true;
-		bezier = [ "myBezier, 0.05, 0.9, 0.1, 1.05" ];
+		bezier = [ 
+			"myBezier, 0.05, 0.9, 0.1, 1.05" 
+			"workspaceSwitch, .37,.04,.6,.92"
+		];
 		animation = [
 			"windows, 1, 5, myBezier"
-			"windowsOut, 1, 5, default, popin 80%"
+			"windowsOut, 1, 5, myBezier, popin 80%"
 			"border, 1, 10, default"
 			"borderangle, 1, 8, default"
-			"fade, 1, 7, default"
-			"workspaces, 1, 5, default, slidevert"
+			"layersIn, 1, 5, default, slidevert"
+			"layersOut, 1, 5, default, slidevert"
+			"workspaces, 1, 5, myBezier, slidevert"
 			"specialWorkspace, 1, 5, myBezier, slidevert"
 		];
 	};
@@ -104,7 +113,7 @@
 		preserve_split = true;
 	};
 
-	master.new_is_master = true;
+	#master.new_is_master = true;
 
 	gestures = {
 		workspace_swipe = true;
@@ -122,6 +131,7 @@
 		"blur, wofi"
 		"blur, notifications"
 		"ignorezero, notifications"
+		"ignorezero, wofi"
 		"blur, avizo"
 		"ignorezero, avizo"
 		"blur, waybar"
@@ -139,8 +149,9 @@
 		"float, Secrets"
 		"workspace 1 silent, ^(Firefox)(.*)$"
 		"workspace 1 silent, ^(.*)(Mozilla Firefox)(.*)$"
-		"opacity 0.921 override, title:^(.*)(Discord)(.*)$"
+		"opacity 0.899 override, title:^(.*)(Discord)(.*)$"
 		"workspace 4 silent, title:^(.*)(Discord)(.*)$"
+		"move 194 50, title:^(.*)(Discord)(.*)$"
 		"float, blueman"
 		"float, Windscribe"
 		"fullscreen, Xonotic"
@@ -149,6 +160,8 @@
 		"immediate, ^(Minecraft)(.*)$"
 		"immediate, robloxplayerbeta.exe"
 		"immediate, Xonotic"
+		"float, title:^(.*)(Discord)(.*)$"
+		"size 1531 1019, title:^(.*)(Discord)(.*)$"
 		"float, Calculator"
 		"float, Nautilus"
 		"float, Wike"

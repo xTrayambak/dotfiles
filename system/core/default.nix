@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ lib, pkgs, ... }:
 {
 	imports = [
 		./boot.nix
@@ -19,8 +19,6 @@
 		defaultLocale = "en_US.UTF-8";
 	};
 	
-	services.xserver.enable = lib.mkForce false;
-
 	nix.settings.experimental-features = [
 		"nix-command"
 		"flakes"

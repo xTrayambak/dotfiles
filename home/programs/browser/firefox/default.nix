@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, ... }:
 
 {
 	home.file."firefox-gnome-theme" = {
@@ -10,6 +10,10 @@
 			}
 		);
 	};
+	home.file."custom-firefox-css" = {
+		target = ".mozilla/firefox/default/chrome/custom.css";
+		source = ./custom.css;
+	};
 	programs.firefox = {
 		enable = true;
 		profiles = {
@@ -18,7 +22,8 @@
 				extraConfig = builtins.readFile ./userjsfile;
 				userChrome = ''
 					@import "firefox-gnome-theme/userChrome.css";
-            				@import "firefox-gnome-theme/theme/colors/dark.css"; 
+            				@import "firefox-gnome-theme/theme/colors/dark.css";
+					@import "custom.css";
 				'';
 				extensions = with pkgs.nur.repos.rycee.firefox-addons; [
 					ublock-origin

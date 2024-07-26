@@ -16,7 +16,7 @@
     loader.efi.canTouchEfiVariables = true;
 
     # Don't use the LTS kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
       "amd_iommu=pt"
       "iommu=soft"

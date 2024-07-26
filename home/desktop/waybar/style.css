@@ -113,12 +113,12 @@ window#waybar
 	border-radius: 0px 10px 10px 0px;
 }
 
-#tray 
+#tray
 {
 	margin-right: 10px;
 }
 
-#custom-weather 
+#custom-weather
 {
 	margin: 3px 0px;
 }
@@ -170,6 +170,7 @@ window#waybar
 #clock 
 {
 	border-radius: 0px 10px 10px 0px;
+	margin-right: 10px;
 }
 
 #temperature

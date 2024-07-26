@@ -29,7 +29,6 @@ Video Viewer - [Mpv](https://github.com/mpv-player/mpv) \
 Video Recorder - [OBS Studio](https://github.com/obsproject/obs-studio) \
 Image Viewer - [Loupe](https://apps.gnome.org/Loupe) \
 File Manager GUI - [Nautilus](https://apps.gnome.org/Nautilus) \
-File Manager TUI - [Nimmm](https://github.com/joachimschmidt557/nimmm)
 
 # Acknowledgements
 A lot of things here are just cobbled from different places, and I've forgotten most of them.

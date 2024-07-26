@@ -5,5 +5,6 @@
 		./rust.nix
 		./vala.nix
 		./git.nix
+		./nix.nix
 	];
 }

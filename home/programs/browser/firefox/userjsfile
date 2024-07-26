@@ -1671,6 +1671,9 @@ user_pref("browser.search.defaultenginename", "DuckDuckGo");
 user_pref("browser.search.defaultenginename.US", "data:text/plain,browser.search.defaultenginename.US=DuckDuckGo");
 user_pref("browser.search.selectedEngine", "DuckDuckGo");
 
+user_pref("browser.tabs.hoverPreview.enabled", true)
+user_pref("browser.tabs.hoverPreview.showThumbnails", true)
+
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/

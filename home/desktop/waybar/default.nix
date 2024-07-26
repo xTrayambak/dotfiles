@@ -21,10 +21,10 @@
 				"hyprland/window"
 			];
 			modules-right = [
+				"tray"
 				"network"
 				"bluetooth"
         			"clock"
-        			"tray"
 			];
 			cava = {
         			framerate = 90;
@@ -57,7 +57,8 @@
       			"custom/weather" = {
 				exec = "~/.scripts/wttr waybar NOIDA";
 				"return-type" = "json";
-				on-click = "~/.scripts/wttr refresh NOIDA";
+				on-click = "~/.scripts/wttr notify NOIDA";
+				on-click-right = "~/.scripts/wttr refresh NOIDA notify";
 				interval = 10;
 				format = "{}";
 				tooltip = false;
@@ -138,9 +139,10 @@
 				};
 			};
 			"hyprland/window" = {
-				max-length = 100;
+				max-length = 80;
 				format = "<span>{}</span>";
 				separate-outputs = true;
+				on-click = "missioncenter";
 			};
 		};
 	};

@@ -43,6 +43,8 @@ proc main {.inline.} =
        
   elif ssType == "select":
     let dims = execCmdEx("slurp").output.split('\n')[0]
+    sleep 240 # wait for the layer to disappear
+
     if execCmd(
       "grim -g " & 
       '"' & dims & '"' & 

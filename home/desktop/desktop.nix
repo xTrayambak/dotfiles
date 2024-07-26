@@ -1,4 +1,4 @@
-{ inputs, username, pkgs, self, ... }:
+{ ... }:
 {
   imports = [
     ./foot
