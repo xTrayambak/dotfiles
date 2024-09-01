@@ -6,8 +6,8 @@
 		nftables.enable = true;
 		firewall = {
 			enable = true;
-			allowedTCPPorts = [ 80 443 8080 1714 ];
-			allowedUDPPorts = [ 1714 ];
+			allowedTCPPorts = [ 80 443 ];
+			allowedUDPPorts = [ ];
 		};
 
 		nameservers = [ "192.168.68.214" ];

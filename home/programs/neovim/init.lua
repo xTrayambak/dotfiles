@@ -22,7 +22,7 @@ plugins = {
 	"nvim-tree/nvim-web-devicons",    -- Web devicons
 	"ms-jpq/coq_nvim", -- Autocomplete
 	"mrcjkb/rustaceanvim", -- Did you guys know that memory safety is key?
-	"navarasu/onedark.nvim",	
+	"navarasu/onedark.nvim", -- Theme
 	"nvimtools/none-ls.nvim",
 	"neovim/nvim-lspconfig", -- Nvim LSPConfig
 	"andweeb/presence.nvim", -- Discord RPC
@@ -38,6 +38,7 @@ plugins = {
     		opts = {},
     		version = '^1.0.0', -- optional: only update when a new 1.x version is released
   	},
+	"lukas-reineke/indent-blankline.nvim",
 	"nvim-lua/plenary.nvim", -- plenary
 	"akinsho/ToggleTerm.nvim", -- Toggle terminal
 	"hrsh7th/cmp-nvim-lsp",
@@ -117,17 +118,15 @@ notify.setup(
 			format = nil,
 
 			-- Function which orders notification array from most to least important
-    			-- By default orders first by level and then by update timestamp
-    			sort = nil,
-  		},
-
-  		-- Notifications about LSP progress
-  		lsp_progress = {
+			-- By default orders first by level and then by update timestamp
+			sort = nil,
+		},
+		-- Notifications about LSP progress
+		lsp_progress = {
 			-- Whether to enable showing
 			enable = true,
-
-    			-- Duration (in ms) of how long last message should be shown
-    			duration_last = 1000,
+			-- Duration (in ms) of how long last message should be shown
+    			duration_last = 1000
   		},
 
   		-- Window options
@@ -149,6 +148,12 @@ vim.notify = notify.make_notify({
 	WARN = { duration = 4000 },
 	INFO = { duration = 3000 }
 })
+
+local highlight = {
+    "CursorColumn",
+    "Whitespace",
+}
+require("ibl").setup {}
 
 -- Setup transparency effect
 require("transparent").setup({
@@ -501,6 +506,7 @@ require('lspconfig').lua_ls.setup {
           -- Make the server aware of Neovim runtime files
           workspace = {
             checkThirdParty = false,
+	"glebzlat/arduino-nvim", -- Arduino stuff
             library = {
               vim.env.VIMRUNTIME
             }
@@ -525,6 +531,8 @@ nvim_lsp['clangd'].setup {
     usePlaceholders = true,
   }
 }
+
+nvim_lsp['arduino_language_server'].setup({})
 
 -- More keybinds
 vim.keymap.set('n', 'qq',

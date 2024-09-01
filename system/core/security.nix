@@ -1,4 +1,4 @@
-# security tweaks stolen from @fufexan who in turn borrowed it from @hlissner
+{ lib, ... }:
 {
   boot.kernel.sysctl = {
     # The Magic SysRq key is a key combo that allows users connected to the
@@ -51,6 +51,8 @@
     rtkit.enable = true;
 
     # my security prefs
-    sudo.enable = true;
+    sudo.enable = lib.mkForce true;
   };
+
+
 }

@@ -124,7 +124,7 @@
   networking.nftables.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 8080 ];
+    allowedTCPPorts = [ 80 443 ];
   };
 
   security.rtkit.enable = true;

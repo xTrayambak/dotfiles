@@ -22,7 +22,7 @@ proc main {.inline.} =
         silent = false
   else:
     silent = false
-  
+
   let path = getFilename()
   if ssType == "full":
     if execCmd("grim " & path) != 0:

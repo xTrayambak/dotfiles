@@ -44,7 +44,7 @@
           				"▁" 
           				"▂" 
           				"▃" 
-          				"▄" 
+          				"▄"
           				"▅" 
           				"▆" 
           				"▇" 
@@ -69,6 +69,12 @@
 				interval = 1;
 				on-click = "windscribe-cli connect";
 				on-click-right = "windscribe-cli disconnect";
+			};
+			"custom/airplane_mode" = {
+				exec = "~/.scripts/airplane_mode waybar";
+				return-type = "json";
+				interval = 1;
+				on-click = "~/.scripts/airplane_mode toggle";
 			};
 			battery = {
                 		states = {
@@ -104,7 +110,6 @@
 			};
 			network = {
 				format-wifi = "{icon}  {essid}";
-				on-click = "iwgtk";
 				format-icons = [
 					"󰤯"
 					"󰤟"
@@ -122,6 +127,7 @@
 				format-muted = "󰸈";
 				format-source = "";
 				format-source-muted = "";
+				on-click = "pavucontrol";
 				on-hover = "{source}%";
 				on-scroll-up = "volumectl -d +1%";
 				on-scroll-down = "volumectl -d -1%";
@@ -141,6 +147,7 @@
 			"hyprland/window" = {
 				max-length = 80;
 				format = "<span>{}</span>";
+				tooltip = "{}";
 				separate-outputs = true;
 				on-click = "missioncenter";
 			};

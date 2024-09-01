@@ -1,5 +1,7 @@
 import std/[os, osproc, options, json, times, httpclient, strutils]
 
+{.passL: "-lcrypto -lssl".}
+
 const NimblePkgVersion {.strdefine.} = ""
 
 type

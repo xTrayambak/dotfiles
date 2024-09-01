@@ -1,4 +1,5 @@
 import std/[os, logging]
+import colored_logger
 
 proc setupLogging*(prog: string) {.inline.} =
   discard existsOrCreateDir(
@@ -9,5 +10,7 @@ proc setupLogging*(prog: string) {.inline.} =
       open(getCacheDir() / "rice_scripts" / prog & ".log", fmWrite)
     )
   )
+
+  addHandler newColoredLogger()
 
 export logging

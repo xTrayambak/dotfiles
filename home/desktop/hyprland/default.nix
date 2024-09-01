@@ -23,19 +23,27 @@
 	"$selectss" = "/home/${config.home.username}/.scripts/screenshot select";
 	"$screenlock" = "/home/${config.home.username}/.scripts/locker";
 	"$applauncher" = "wofi -H 480 -W 640";
-	"$selectss_silent" = "/home/${config.home.username}/.scripts/screenshot select silent";
-	"$fullscreenss_silent" = "/home/${config.home.username}/.scripts/screenshot full silent";
+	"$selectss_silent" = "/home/${config.home.username}/.scripts/screenshot select yes";
+	"$fullscreenss_silent" = "/home/${config.home.username}/.scripts/screenshot full yes";
 	
 	env = [
-		"HYPRCURSOR_THEME,${config.gtk.cursorTheme.name}"
-		"HYPRCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
+		"XCURSOR_THEME,${config.gtk.cursorTheme.name}"
+		"XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
 		"GTK_THEME,${config.gtk.theme.name}"
+		"AQ_DRM_DEVICES,/dev/dri/card2"
 	];
+
+	"binds:scroll_event_delay" = "80000000";
 
 	# Monitor configuration (1920x1080 display at 144FPS)
 	monitor = [
 		",preferred,auto,1"
 		"eDP-1,1920x1080@144,0x0,1"
+	];
+
+	unbind = [
+		"mouse:272,0"
+		"mouse:273,0"
 	];
 	
 	# Start my bar, wallpaper applier + wallpaper script, notification daemon, OSD and networkmanager applet
@@ -43,6 +51,7 @@
 		"zsh -c waybar"
 		"swww init"
 		"/home/${config.home.username}/.scripts/wallpaper"
+		"/home/${config.home.username}/.scripts/power_saver_userland"
 		"mako"
 		"avizo-service"
 		"emacs --daemon"
@@ -55,6 +64,9 @@
 		kb_layout = "us";
 		follow_mouse = true;
 		accel_profile = "adaptive";
+		sensitivity = 0.5669;
+		scroll_button = -1;
+		force_no_accel = false;
 
 		touchpad = {
 			natural_scroll = true;
@@ -141,33 +153,34 @@
 
 	# Window rules
 	windowrule = [
-		"float, title:^(.*)(Discord)(.*)$"
-		"workspace 4 silent, ^(.*)(Discord)(.*)$"
-		"workspace 4 silent, vesktop"
 		"workspace 5 silent, ^(Proton VPN)$"
-		"tile, title:^(.*)(Discord)(.*)$"
-		"float, Secrets"
-		"workspace 1 silent, ^(Firefox)(.*)$"
-		"workspace 1 silent, ^(.*)(Mozilla Firefox)(.*)$"
-		"opacity 0.899 override, title:^(.*)(Discord)(.*)$"
-		"workspace 4 silent, title:^(.*)(Discord)(.*)$"
-		"move 194 50, title:^(.*)(Discord)(.*)$"
 		"float, blueman"
 		"float, Windscribe"
 		"fullscreen, Xonotic"
-		"fullscreen, robloxplayerbeta.exe"
 		"fullscreen, ^(Minecraft)(.*)$"
 		"immediate, ^(Minecraft)(.*)$"
-		"immediate, robloxplayerbeta.exe"
 		"immediate, Xonotic"
-		"float, title:^(.*)(Discord)(.*)$"
-		"size 1531 1019, title:^(.*)(Discord)(.*)$"
-		"float, Calculator"
-		"float, Nautilus"
-		"float, Wike"
-		"float, title:^(Network Connections)"
-		"float, Usage"
-		"float, Characters"
+	];
+
+	windowrulev2 = [
+		"opacity 0.845 override, class:org.pulseaudio.pavucontrol"
+		"float, class:org.pulseaudio.pavucontrol"
+		"float, class:.blueman-manager-wrapped"
+		"opacity 0.845 override, class:.blueman-manager-wrapped"
+		"opacity 0.899 override, class:vesktop"
+		"workspace 1, class:firefox"
+		"fullscreen, class:org.vinegarhq.Sober"
+		"workspace 3, class:org.vinegarhq.Sober"
+		"immediate, class:org.vinegarhq.Sober"
+		"float, class:org.gnome.Nautilus"
+		"float, class:org.gnome.Calculator"
+		"float, class:org.gnome.Characters"
+		"float, class:io.missioncenter.MissionCenter"
+		"size 1053 719, class:io.missioncenter.MissionCenter"
+		"opacity 0.845, class:io.missioncenter.MissionCenter"
+		"opacity 0.945, class:foot"
+		"float, class:nm-connection-editor"
+		"opacity 0.945, class:nm-connection-editor"
 	];
 
 	# Keybinds
@@ -187,17 +200,33 @@
 		",F8, exec, playerctl previous"
 		",F9, exec, playerctl play-pause"
 		",F10, exec, playerctl next"
+
+		# Wallpaper controls
+		"SUPER_SHIFT, W, exec, /home/${config.home.username}/.scripts/wallpaper_cli change-wallpaper"
+		"SUPER_SHIFT, P, exec, /home/${config.home.username}/.scripts/wallpaper_cli toggle"
+
 		",F11, fullscreen"
 		"$mainMod, Print, exec, $fullscreenss"
+		
+		# Volume controls
 		",XF86AudioMute, exec, volumectl -d toggle-mute"
 		",XF86AudioMicMute, exec, volumectl -d -m toggle-mute"
+		
+		# Calculator button on my keyboard
 		",XF86Calculator, exec, gnome-calculator"
+
 		"SUPER_SHIFT, F, exec, $fullscreenss_silent"
 		"SUPER_SHIFT, S, exec, $selectss_silent"
                 "SUPER_SHIFT, E, exec, emacs"
 		"SUPER_SHIFT, B, exec, firefox"
 		"SUPER_SHIFT, D, exec, vesktop"
 		"SUPER_SHIFT, C, exec, gnome-characters"
+
+		# Moving
+		"SUPER_SHIFT, left, movewindow, l"
+		"SUPER_SHIFT, right, movewindow, r"
+		"SUPER_SHIFT, up, movewindow, u"
+		"SUPER_SHIFT, down, movewindow, d"
 
 		# Global keybinds
 		"SUPER, R, pass, ^(com\.obsproject\.Studio)$"
@@ -242,6 +271,12 @@
 		",XF86AudioRaiseVolume, exec, volumectl -d -u up"
 		",XF86MonBrightnessDown,exec,lightctl -d down"
 		",XF86MonBrightnessUp,exec,lightctl -d up"
+
+		# Resizing
+		"SUPER, left, resizeactive, -15 0"
+		"SUPER, right, resizeactive, 15 0"
+		"SUPER, up, resizeactive, 0 -15"
+		"SUPER, down, resizeactive, 0 15"
 	];
     };
   };

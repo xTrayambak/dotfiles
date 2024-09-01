@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, inputs, ... }:
 {
 	home.file."firefox-gnome-theme" = {
 		target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";

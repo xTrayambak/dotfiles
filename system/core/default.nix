@@ -24,6 +24,8 @@
 		"flakes"
 	];
 
+	nixpkgs.config.allowUnfree = true;
+
 	# Dconf
 	programs.dconf.enable = true;
 	
@@ -46,12 +48,13 @@
 	};
 
 	# Nerd Fonts
-  	fonts.packages = with pkgs; [
-    		fira-code
-    		noto-fonts-cjk-sans
-    		noto-fonts
-		noto-fonts-emoji
-    		(nerdfonts.override {
+  	fonts.packages = [
+    		pkgs.fira-code
+    		pkgs.noto-fonts-cjk-sans
+    		pkgs.noto-fonts
+		pkgs.noto-fonts-emoji
+		pkgs.font-awesome
+    		(pkgs.nerdfonts.override {
       			fonts = [
         			"IBMPlexMono"
 				"JetBrainsMono"
@@ -71,8 +74,8 @@
      			xdg-desktop-portal-hyprland
     		];
 		config = {
-			common.default = [ "gtk" "gnome" ];
-			hyprland.default = [ "gtk" "hyprland" ];
+			common.default = [ "gnome" ];
+			hyprland.default = [ "gnome" "hyprland" ];
 		};
 		xdgOpenUsePortal = true;
  	};

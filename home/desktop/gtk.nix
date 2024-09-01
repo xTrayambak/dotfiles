@@ -22,7 +22,7 @@
     		};
 		iconTheme = {
 			name = "Adwaita";
-			package = pkgs.gnome.adwaita-icon-theme;
+			package = pkgs.adwaita-icon-theme;
 		};
 		font = {
 			name = "JetBrainsMono";
@@ -43,7 +43,6 @@
 	};
 
 	home.packages = with pkgs; [
-		gnome.adwaita-icon-theme
 		libadwaita
 		adwaita-qt
 		adwaita-qt6

@@ -2,4 +2,9 @@
 { ... }:
 {
 	services.fwupd.enable = true;
+
+	nix.optimise = {
+		automatic = true;
+		dates = [ "18:30" ];
+	};
 }

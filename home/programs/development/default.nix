@@ -1,5 +1,6 @@
 {
 	imports = [
+		./arduino.nix
 		./clang.nix
 		./nim.nix
 		./rust.nix
