@@ -51,14 +51,14 @@ proc modeBehaviour(mode: PowerSaverMode): int =
     of Saving:
       info "Entered power saving mode"
       notify("Power Saving", "Your display quality has been reduced to save on battery life alongside the brightness.", 1)
-      setDisplayRefreshRate("eDP-1", [1920, 1080], 60) # hz
+      #setDisplayRefreshRate("eDP-1", [1920, 1080], 60) # hz
       setDisplayBrightness(60)
       setWallpaperState(WallpaperState(paused: false))
       return 800
     of Conservative:
       info "Entered critical/conservative power saving mode"
       notify("Power Saving", "Your battery is very low. Please charge it as soon as you can.", 2)
-      setDisplayRefreshRate("eDP-1", [1920, 1080], 60) # hz
+      #setDisplayRefreshRate("eDP-1", [1920, 1080], 60) # hz
       setDisplayBrightness(30)
       setAnimations(false)
       setWallpaperState(
@@ -68,7 +68,7 @@ proc modeBehaviour(mode: PowerSaverMode): int =
     of None:
       info "Entered AC mode - restoring defaults"
       notify("Power Saving", "Your battery is now charging, restoring display settings.")
-      setDisplayRefreshRate("eDP-1", [1920, 1080], 144) # hz
+      #setDisplayRefreshRate("eDP-1", [1920, 1080], 144) # hz
       setDisplayBrightness(100)
       setAnimations(true)
       setWallpaperState(WallpaperState(paused: false))
