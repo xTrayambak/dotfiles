@@ -1,6 +1,6 @@
 { pkgs, lib, inputs, config, ... }:
 {
-	services.hypridle.enable = true;
+	services.hypridle.enable = false;
 	services.hypridle.settings = {
 		beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
 		lockCmd = lib.getExe config.programs.hyprlock.package;

@@ -11,6 +11,6 @@
     ./wezterm
     ./mako
 
-    ./gtk.nix
+    ./theme.nix
   ];
 }

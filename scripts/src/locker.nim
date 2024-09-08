@@ -18,8 +18,7 @@ proc lockUp {.inline.} =
     "-t 4000"
   )
 
-  # set wallpaper - using one for the night as it'd save energy
-  let wallpaper = getWallpaper(Night)
+  let wallpaper = getWallpaper(readWallpaperState().get())
   info "Chosen wallpaper: " & wallpaper
 
   copyFile(
@@ -45,6 +44,7 @@ proc lockUp {.inline.} =
   )
 
   info "Session has been unlocked."
+  removeFile("/tmp/current-wallpaper")
 
   if wasPreviouslyPlaying:
     info "Restarting all previously running media players"

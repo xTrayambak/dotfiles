@@ -168,10 +168,11 @@
 		"float, class:.blueman-manager-wrapped"
 		"opacity 0.845 override, class:.blueman-manager-wrapped"
 		"opacity 0.899 override, class:vesktop"
+		"workspace 4 silent, class:vesktop"
 		"workspace 1, class:firefox"
-		"fullscreen, class:org.vinegarhq.Sober"
-		"workspace 3, class:org.vinegarhq.Sober"
-		"immediate, class:org.vinegarhq.Sober"
+		"fullscreen, class:sober"
+		"workspace 3, class:sober"
+		"immediate, class:sober"
 		"float, class:org.gnome.Nautilus"
 		"float, class:org.gnome.Calculator"
 		"float, class:org.gnome.Characters"
@@ -181,6 +182,10 @@
 		"opacity 0.945, class:foot"
 		"float, class:nm-connection-editor"
 		"opacity 0.945, class:nm-connection-editor"
+		"opacity 0.845, class:org.gnome.Calculator"
+		"float, title:^(Lucem)$"
+		"opacity 0.845, title:^(Lucem)$"
+		"workspace 3, title:^(Lucem)$"
 	];
 
 	# Keybinds
@@ -204,6 +209,7 @@
 		# Wallpaper controls
 		"SUPER_SHIFT, W, exec, /home/${config.home.username}/.scripts/wallpaper_cli change-wallpaper"
 		"SUPER_SHIFT, P, exec, /home/${config.home.username}/.scripts/wallpaper_cli toggle"
+		"SUPER_SHIFT, S, exec, /home/${config.home.username}/.scripts/wallpaper_cli cycle-time"
 
 		",F11, fullscreen"
 		"$mainMod, Print, exec, $fullscreenss"
@@ -215,8 +221,6 @@
 		# Calculator button on my keyboard
 		",XF86Calculator, exec, gnome-calculator"
 
-		"SUPER_SHIFT, F, exec, $fullscreenss_silent"
-		"SUPER_SHIFT, S, exec, $selectss_silent"
                 "SUPER_SHIFT, E, exec, emacs"
 		"SUPER_SHIFT, B, exec, firefox"
 		"SUPER_SHIFT, D, exec, vesktop"

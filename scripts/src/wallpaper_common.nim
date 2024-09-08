@@ -7,6 +7,7 @@ type
     paused*: bool
     
     useWallpaper*: Option[string]
+    setTimeOfDay*: Option[string]
 
 const
   STATE_PATH* = "/tmp/wallpaper_state"

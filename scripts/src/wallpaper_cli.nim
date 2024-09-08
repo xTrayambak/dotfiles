@@ -62,7 +62,7 @@ proc main {.inline.} =
     setWallpaperState(
       WallpaperState(
         paused: false,
-        useWallpaper: some(getWallpaper())
+        useWallpaper: some(getWallpaper(readWallpaperState().get()))
       )
     )
 
@@ -70,6 +70,33 @@ proc main {.inline.} =
       return
     else:
       notify("Wallpaper", "Your wallpaper has been changed.")
+  of "set-time":
+    assert paramCount() > 1, "expected time of day (morning, afternoon, evening, night)"
+    let time = paramStr(1)
+    assert time in ["morning", "afternoon", "evening", "night"], "Invalid time: " & time
+  
+    var currState = readWallpaperState().get()
+    currState.setTimeOfDay = some(time)
+    setWallpaperState(currState)
+
+    notify("Wallpaper", "Showing wallpapers for the " & time)
+  of "cycle-time":
+    var currState = readWallpaperState().get()
+    var nextTime: string
+    if currState.setTimeOfDay.isNone:
+      nextTime = "morning"
+    else:
+      nextTime = case currState.setTimeOfDay.get()
+      of "morning": "afternoon"
+      of "afternoon": "evening"
+      of "evening": "night"
+      of "night": "morning"
+      else: "morning"
+    
+    notify("Wallpaper", "Showing wallpapers for the " & nextTime)
+    currState.setTimeOfDay = some(nextTime)
+    currState.useWallpaper = none(string)
+    setWallpaperState(currState)
   else:
     quit "invalid command: " & paramStr(1)
 

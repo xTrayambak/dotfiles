@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-  		(vesktop.override { withSystemVencord = false; })
+	home.packages = with pkgs; [
+		(vesktop.override { withSystemVencord = false; })
 		blender
 		obs-studio
 		zathura	
@@ -12,17 +12,16 @@
 		gnome.gnome-control-center
 		gnome-calendar
 		pavucontrol
-		dino
 		valent
 		snapshot
 		loupe
 		duf
 		godot_4
-		chromium
 		amdgpu_top
 		qbittorrent
 		kcachegrind
 		mission-center
+		chromium
 		blueman
 		nautilus
 	];

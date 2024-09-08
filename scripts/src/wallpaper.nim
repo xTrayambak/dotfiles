@@ -18,7 +18,7 @@ type
     Night
     None
 
-proc getWallpaper*(fromTime: TimeOfDay = None): string {.inline.} =
+proc getWallpaper*(state: WallpaperState, fromTime: TimeOfDay = None): string {.inline.} =
   var 
     files: seq[string]
     morning, afternoon, evening, night: seq[string]
@@ -54,22 +54,30 @@ proc getWallpaper*(fromTime: TimeOfDay = None): string {.inline.} =
   of Night:
     return sample night
   of None: discard
+  
+  if state.setTimeOfDay.isNone:
+    let hour = now().hour()
 
-  let hour = now().hour()
-
-  case hour
-  of {1 .. 5}, {19 .. 24}:
-    #echo "Picking a night wallpaper."
-    return sample night
-  of {6 .. 11}:
-    #echo "Picking a morning wallpaper."
-    return sample morning
-  of {12 .. 15}:
-    #echo "Picking an afternoon wallpaper."
-    return sample afternoon
-  of {16 .. 18}:
-    #echo "Picking an evening wallpaper."
-    return sample evening
+    case hour
+    of {1 .. 5}, {19 .. 24}:
+      #echo "Picking a night wallpaper."
+      return sample night
+    of {6 .. 11}:
+      #echo "Picking a morning wallpaper."
+      return sample morning
+    of {12 .. 15}:
+      #echo "Picking an afternoon wallpaper."
+      return sample afternoon
+    of {16 .. 18}:
+      #echo "Picking an evening wallpaper."
+      return sample evening
+  else:
+    case state.setTimeOfDay.get()
+    of "night": return sample night
+    of "morning": return sample morning
+    of "afternoon": return sample afternoon
+    of "evening": return sample evening
+    else: return getWallpaper(default WallpaperState)
 
 proc swww(wallpaper: string, step: int = 2) {.inline.} =
   discard execCmd(
@@ -78,6 +86,8 @@ proc swww(wallpaper: string, step: int = 2) {.inline.} =
 
 proc randWallpaperLoop {.inline.} =
   var prev: string
+  var prevTime: string
+
   while true:
     let ostate = readWallpaperState()
     
@@ -86,19 +96,25 @@ proc randWallpaperLoop {.inline.} =
 
     let state = ostate.get()
     if state.paused:
-      info "We're paused - sleeping for a minute."
-      sleep(60 * 60)
+      info "We're paused - sleeping for five minutes."
+      sleep(60 * 60 * 5)
       continue
     
-    if timeRemaining <= 0f or (state.useWallpaper.isSome and state.useWallpaper.get() != prev):
+    #echo "state: " & state.setTimeOfDay.get()
+    #echo "prevTime: " & prevTime
+    #echo "bool: " & $(state.setTimeOfDay.isSome and state.setTimeOfDay.get() != prevTime)
+    if timeRemaining <= 0f or (state.useWallpaper.isSome and state.useWallpaper.get() != prev) or (state.setTimeOfDay.isSome and state.setTimeOfDay.get() != prevTime):
       let wallpaper = block:
         var x = if state.useWallpaper.isSome:
           state.useWallpaper.get()
         else:
-          getWallpaper()
-      
+          getWallpaper(state)
+
+        if state.setTimeOfDay.isSome:
+          prevTime = state.setTimeOfDay.get()
+
         while x == prev and state.useWallpaper.isNone:
-          x = getWallpaper()
+          x = getWallpaper(state)
         
         x
       
@@ -110,7 +126,7 @@ proc randWallpaperLoop {.inline.} =
       timeRemaining -= (epoch - prevEpoch)
       prevEpoch = epoch
 
-    sleep(20)
+    sleep(240)
 
 proc main {.inline.} =
   setupLogging("wallpaper")
@@ -127,9 +143,9 @@ proc main {.inline.} =
     randWallpaperLoop()
   of "rand":
     if paramCount() < 2:
-      echo getWallpaper()
+      echo getWallpaper(readWallpaperState().get())
     else:
-      echo getWallpaper(parseEnum(paramStr(2), None))
+      echo getWallpaper(readWallpaperState().get(), parseEnum(paramStr(2), None))
   else:
     discard
 

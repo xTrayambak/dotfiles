@@ -9,7 +9,7 @@
 			supportedFilesystems = [ "ext4" ];
 		};
 
-		kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+		kernelPackages = lib.mkForce pkgs.linuxPackages_zen;
 		consoleLogLevel = 3;
 
 		kernelParams = [
