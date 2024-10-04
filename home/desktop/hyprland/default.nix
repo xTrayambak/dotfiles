@@ -7,6 +7,7 @@
     swww
     networkmanagerapplet
   ];
+
   imports = [
     ./hypridle.nix
     ./hyprlock.nix
@@ -17,12 +18,12 @@
     settings = {
 	# Variables
     	"$mainMod" = "SUPER";
-	"$term" = "foot";
-	"$filemanager" = "nautilus";
+	"$term" = "${pkgs.foot}/bin/foot";
+	"$filemanager" = "${pkgs.nautilus}/bin/nautilus";
 	"$fullscreenss" = "/home/${config.home.username}/.scripts/screenshot full";
 	"$selectss" = "/home/${config.home.username}/.scripts/screenshot select";
 	"$screenlock" = "/home/${config.home.username}/.scripts/locker";
-	"$applauncher" = "wofi -H 480 -W 640";
+	"$applauncher" = "${pkgs.wofi}/bin/wofi -H 480 -W 640";
 	"$selectss_silent" = "/home/${config.home.username}/.scripts/screenshot select yes";
 	"$fullscreenss_silent" = "/home/${config.home.username}/.scripts/screenshot full yes";
 	
@@ -48,15 +49,16 @@
 	
 	# Start my bar, wallpaper applier + wallpaper script, notification daemon, OSD and networkmanager applet
 	exec-once = [
-		"zsh -c waybar"
-		"swww init"
+		"${pkgs.waybar}/bin/waybar" # "zsh -c waybar"
+		"${pkgs.swww}/bin/swww-daemon"
 		"/home/${config.home.username}/.scripts/wallpaper"
 		"/home/${config.home.username}/.scripts/power_saver_userland"
-		"mako"
-		"avizo-service"
-		"emacs --daemon"
-		"blueman-applet"
-		"nm-applet"
+		"${pkgs.mako}/bin/mako"
+		"${pkgs.avizo}/bin/avizo-service"
+		"${pkgs.emacs}/bin/emacs --daemon"
+		"${pkgs.blueman}/bin/blueman-applet"
+		"${pkgs.networkmanagerapplet}/bin/nm-applet"
+		"${pkgs.kdeconnect}/bin/kdeconnect-indicator"
 	];
 
 	# Input settings
@@ -153,9 +155,7 @@
 
 	# Window rules
 	windowrule = [
-		"workspace 5 silent, ^(Proton VPN)$"
 		"float, blueman"
-		"float, Windscribe"
 		"fullscreen, Xonotic"
 		"fullscreen, ^(Minecraft)(.*)$"
 		"immediate, ^(Minecraft)(.*)$"
@@ -171,6 +171,8 @@
 		"workspace 4 silent, class:vesktop"
 		"workspace 1, class:firefox"
 		"fullscreen, class:sober"
+		"float, class:sober_services"
+		"pin, class:sober_services"
 		"workspace 3, class:sober"
 		"immediate, class:sober"
 		"float, class:org.gnome.Nautilus"
@@ -202,9 +204,9 @@
 		"SUPER, D, exec, $applauncher"
 		",Print, exec, $selectss"
 		"$mainMod, L, exec, $screenlock"
-		",F8, exec, playerctl previous"
-		",F9, exec, playerctl play-pause"
-		",F10, exec, playerctl next"
+		",F8, exec, ${pkgs.playerctl}/bin/playerctl previous"
+		",F9, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+		",F10, exec, ${pkgs.playerctl}/bin/playerctl next"
 
 		# Wallpaper controls
 		"SUPER_SHIFT, W, exec, /home/${config.home.username}/.scripts/wallpaper_cli change-wallpaper"
@@ -215,16 +217,15 @@
 		"$mainMod, Print, exec, $fullscreenss"
 		
 		# Volume controls
-		",XF86AudioMute, exec, volumectl -d toggle-mute"
-		",XF86AudioMicMute, exec, volumectl -d -m toggle-mute"
+		",XF86AudioMute, exec, ${pkgs.avizo}/bin/volumectl -d toggle-mute"
+		",XF86AudioMicMute, exec, ${pkgs.avizo}/bin/volumectl -d -m toggle-mute"
 		
 		# Calculator button on my keyboard
-		",XF86Calculator, exec, gnome-calculator"
+		",XF86Calculator, exec, ${pkgs.gnome-calculator}/bin/gnome-calculator"
 
-                "SUPER_SHIFT, E, exec, emacs"
-		"SUPER_SHIFT, B, exec, firefox"
-		"SUPER_SHIFT, D, exec, vesktop"
-		"SUPER_SHIFT, C, exec, gnome-characters"
+                "SUPER_SHIFT, E, exec, ${pkgs.emacs}/bin/emacs"
+		"SUPER_SHIFT, B, exec, ${pkgs.firefox}/bin/firefox"
+		"SUPER_SHIFT, D, exec, ${pkgs.vesktop}/bin/vesktop"
 
 		# Moving
 		"SUPER_SHIFT, left, movewindow, l"
@@ -271,10 +272,10 @@
 
 	# Holdable buttons
 	binde = [
-		",XF86AudioLowerVolume, exec, volumectl -d -u down"
-		",XF86AudioRaiseVolume, exec, volumectl -d -u up"
-		",XF86MonBrightnessDown,exec,lightctl -d down"
-		",XF86MonBrightnessUp,exec,lightctl -d up"
+		",XF86AudioLowerVolume, exec, ${pkgs.avizo}/bin/volumectl -d -u down"
+		",XF86AudioRaiseVolume, exec, ${pkgs.avizo}/bin/volumectl -d -u up"
+		",XF86MonBrightnessDown,exec, ${pkgs.avizo}/bin/lightctl -d down"
+		",XF86MonBrightnessUp,exec, ${pkgs.avizo}/bin/lightctl -d up"
 
 		# Resizing
 		"SUPER, left, resizeactive, -15 0"

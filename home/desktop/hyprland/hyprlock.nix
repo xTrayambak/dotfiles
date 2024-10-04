@@ -56,9 +56,9 @@ in {
 
         				valign = "center";
         				halign = "center";
-      				}
-      				{
-      					monitor = "";
+				}
+				{
+					monitor = "";
 					text = ''cmd[update:3600000] echo $(/home/${config.home.username}/.scripts/pretty_date lock_screen)'';
 					font_size = 24;
 					color = "rgb(255, 255, 255)";

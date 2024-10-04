@@ -8,7 +8,7 @@ proc isWifiConnected: bool {.inline.} =
 
 proc main* {.inline.} =
   if isWifiConnected():
-    echo "󰤨 "
+    echo "󰤨  "
     quit 0
 
   if isWiredConnected():

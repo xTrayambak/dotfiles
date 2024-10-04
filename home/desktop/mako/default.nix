@@ -12,6 +12,7 @@
 		enable = true;
 		anchor = "top-center";
 		borderRadius = 8;
+		layer = "overlay"; # make sure that fullscreen windows can't hide notifs
 		font = "JetBrainsMono 11";
 		defaultTimeout = 4000;
 		borderSize = 2;

@@ -6,7 +6,7 @@
 		package = inputs.waybar.packages.${pkgs.system}.waybar;
 		style = builtins.readFile ./style.css;
 		settings.mainBar = {
-			height = 32;
+			height = 36;
 			spacing = 0;
 			layer = "top";
 			position = "top";
@@ -95,8 +95,8 @@
 				interval = 1;
 			};
 			bluetooth = {
-				format = "󰂱 {device_alias}";
-				format-connected = "󰂱 ";
+				format = "";
+				format-connected = "󰂱 {device_alias}";
 				# tooltip-format = "{device_alias}";
 				tooltip-format-connected = "{device_enumerate}";
 				tooltip-format-enumerate-connected = "{device_alias}";

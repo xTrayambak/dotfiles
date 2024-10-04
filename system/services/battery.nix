@@ -1,5 +1,10 @@
 { ... }:
 {
+	powerManagement = {
+		enable = true;
+		powertop.enable = false;
+		cpuFreqGovernor = "ondemand";
+	};
 	services.tlp = {
 		enable = true;
 		settings = {
@@ -22,14 +27,17 @@
         		STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
 			
 			RADEON_DPM_PERF_LEVEL_ON_AC = "auto";
-			RADEON_DPM_PERF_LEVEL_ON_BAT = "auto";
-			RADEON_POWER_PROFILE_ON_AC = "high";
-			RADEON_POWER_PROFILE_ON_BAT = "low";
+			RADEON_DPM_PERF_LEVEL_ON_BAT = "low";
+			RADEON_POWER_PROFILE_ON_AC = "performance";
+			RADEON_POWER_PROFILE_ON_BAT = "battery";
 
 			PCIE_ASPM_ON_AC = "performance";
 			PCIE_ASPM_ON_BAT = "powersupersave";
 
-			USB_AUTOSUSPEND = 1;
+			WIFI_PWR_ON_AC = "off";
+			WIFI_PWR_ON_BAT = "on";
+
+			USB_AUTOSUSPEND = 0;
 
 			DISK_APM_LEVEL_ON_AC = "254 254";
 			DISK_APM_LEVEL_ON_BAT = "80 80";

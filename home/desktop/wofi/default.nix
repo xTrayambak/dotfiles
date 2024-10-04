@@ -9,9 +9,11 @@
       show = "drun";
       prompt = "Search";
       filter_rate = 128;
+      layer = "overlay";
       allow_markup = true;
       no_actions = true;
       halign = "fill";
+      matching = "fuzzy";
       orientation = "vertical";
       content_halign = "fill";
       insensitive = true;

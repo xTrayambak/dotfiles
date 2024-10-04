@@ -1,8 +1,6 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
-	imports = [ inputs.flatpaks.homeManagerModules.nix-flatpak ];
-
 	home.packages = [
 		# pkgs.prismlauncher
 		pkgs.mangohud
@@ -10,7 +8,7 @@
 		# pkgs.steam
 		pkgs.bottles
 	];
-	
+
 	# radioactive shit. whoever wrote this deserves to stub their toe on a lego because it's intentionally bad.
 	#services.flatpak = {
 	#	enable = true;

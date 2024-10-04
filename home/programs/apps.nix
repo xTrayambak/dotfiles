@@ -8,16 +8,14 @@
 		zathura	
 		gnome-calculator
 		gnome-secrets
-		gnome.gnome-characters
-		gnome.gnome-control-center
 		gnome-calendar
 		pavucontrol
-		valent
 		snapshot
 		loupe
 		duf
 		godot_4
 		amdgpu_top
+		libreoffice
 		qbittorrent
 		kcachegrind
 		mission-center

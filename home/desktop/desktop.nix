@@ -10,6 +10,7 @@
     ./eww
     ./wezterm
     ./mako
+    ./kdeconnect
 
     ./theme.nix
   ];
