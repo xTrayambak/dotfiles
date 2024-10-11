@@ -8,6 +8,7 @@
     ./avizo
     ./fusuma
     ./eww
+    ./rofi
     ./wezterm
     ./mako
     ./kdeconnect

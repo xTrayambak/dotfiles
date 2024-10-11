@@ -23,7 +23,7 @@
 	"$fullscreenss" = "/home/${config.home.username}/.scripts/screenshot full";
 	"$selectss" = "/home/${config.home.username}/.scripts/screenshot select";
 	"$screenlock" = "/home/${config.home.username}/.scripts/locker";
-	"$applauncher" = "${pkgs.wofi}/bin/wofi -H 480 -W 640";
+	"$applauncher" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
 	"$selectss_silent" = "/home/${config.home.username}/.scripts/screenshot select yes";
 	"$fullscreenss_silent" = "/home/${config.home.username}/.scripts/screenshot full yes";
 	
@@ -55,7 +55,6 @@
 		"/home/${config.home.username}/.scripts/power_saver_userland"
 		"${pkgs.mako}/bin/mako"
 		"${pkgs.avizo}/bin/avizo-service"
-		"${pkgs.emacs}/bin/emacs --daemon"
 		"${pkgs.blueman}/bin/blueman-applet"
 		"${pkgs.networkmanagerapplet}/bin/nm-applet"
 		"${pkgs.kdeconnect}/bin/kdeconnect-indicator"
@@ -147,6 +146,8 @@
 		"ignorezero, notifications"
 		"ignorezero, wofi"
 		"blur, avizo"
+		"blur, rofi"
+		"ignorezero, rofi"
 		"ignorezero, avizo"
 		"blur, waybar"
 		"ignorealpha 0.23, waybar"
@@ -219,6 +220,10 @@
 		# Volume controls
 		",XF86AudioMute, exec, ${pkgs.avizo}/bin/volumectl -d toggle-mute"
 		",XF86AudioMicMute, exec, ${pkgs.avizo}/bin/volumectl -d -m toggle-mute"
+
+		# Power mode switchers
+		"SUPER_SHIFT, G, exec, /home/${config.home.username}/.scripts/power_saver_userland performance"
+		"SUPER_SHIFT, N, exec, /home/${config.home.username}/.scripts/power_saver_userland ac"
 		
 		# Calculator button on my keyboard
 		",XF86Calculator, exec, ${pkgs.gnome-calculator}/bin/gnome-calculator"
