@@ -80,7 +80,7 @@ proc getWallpaper*(state: WallpaperState, fromTime: TimeOfDay = None): string {.
     else: return getWallpaper(default WallpaperState)
 
 proc swww(wallpaper: string, step: int = 2) {.inline.} =
-  discard execCmd(
+  echo execCmd(
     "swww img --transition-type random --transition-step " & $step & " --transition-fps 144 " & wallpaper
   )
 
@@ -100,9 +100,7 @@ proc randWallpaperLoop {.inline.} =
       sleep(60 * 60 * 5)
       continue
     
-    #echo "state: " & state.setTimeOfDay.get()
-    #echo "prevTime: " & prevTime
-    #echo "bool: " & $(state.setTimeOfDay.isSome and state.setTimeOfDay.get() != prevTime)
+    if state.setTimeOfDay.isSome: echo "state: " & state.setTimeOfDay.get()
     if timeRemaining <= 0f or (state.useWallpaper.isSome and state.useWallpaper.get() != prev) or (state.setTimeOfDay.isSome and state.setTimeOfDay.get() != prevTime):
       let wallpaper = block:
         var x = if state.useWallpaper.isSome:
@@ -120,6 +118,7 @@ proc randWallpaperLoop {.inline.} =
       
       prev = wallpaper
       swww(wallpaper)
+      echo wallpaper
       timeRemaining = float(rand(30 .. 60) * 60 * 60)
     else:
       let epoch = epochTime()

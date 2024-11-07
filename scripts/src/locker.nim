@@ -27,16 +27,21 @@ proc lockUp {.inline.} =
   )
   
   info "Pausing any media players that might be running"
-  discard execCmd(
-    "playerctl pause"
-  )
-  
+
+  when defined(release):
+    discard execCmd(
+      "playerctl pause"
+    )
+
   info "Telling wallpaper script to stop shuffling around in order to save resources"
   setWallpaperState(
     WallpaperState(
       paused: true
     )
   )
+
+  info "Forcing volume to 0%"
+  discard execCmd("volumectl mute") # for the silly apps that play sounds even after pausing players (like games)
 
   info "Executing lock"
   discard execCmd(
@@ -45,6 +50,9 @@ proc lockUp {.inline.} =
 
   info "Session has been unlocked."
   removeFile("/tmp/current-wallpaper")
+
+  info "Unmuting speakers"
+  discard execCmd("volumectl unmute")
 
   if wasPreviouslyPlaying:
     info "Restarting all previously running media players"

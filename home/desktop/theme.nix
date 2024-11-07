@@ -13,8 +13,8 @@
 	gtk = {
 		enable = true;
 		cursorTheme = {
-			name = "Adwaita";
-			size = 8;
+			name = "BreezeX-RosePine-Linux";
+			size = 32;
 		};
 		theme = {
       			name = "Colloid-Dark";
@@ -55,5 +55,21 @@
 		adwaita-qt
 		adwaita-qt6
 		colloid-kde
+    		fira-code
+    		noto-fonts-cjk-sans
+    		noto-fonts
+		noto-fonts-emoji
+		font-awesome
+    		(nerdfonts.override {
+      			fonts = [
+        			"IBMPlexMono"
+				"JetBrainsMono"
+				"ProFont"
+				"Ubuntu"
+				"AnonymousPro"
+				"RobotoMono"
+				"Iosevka"
+      			];
+    		})
 	];
 }

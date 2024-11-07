@@ -6,7 +6,7 @@
 
 window#waybar 
 {
-    background-color: rgba(59, 66, 82, 0.0);
+    background-color: rgba(11, 240, 15, 0.0);
     border-radius: 0px;
     color: #FFFFFF;
     transition-property: background-color;
@@ -32,7 +32,7 @@ window#waybar
 {
     padding: 0 10px;
     margin: 3px 0;
-    color: rgba(46, 52, 64, 0.4998);
+    color: rgba(11, 11, 13, 0.4998);
     border-radius: 10px;
 }
 
@@ -40,7 +40,7 @@ window#waybar
 {
 	padding: 0 10px;
 	margin: 0 0;
-	color: rgba(46, 52, 64, 0.4998);
+	color: rgba(11, 11, 13, 0.4998);
 	border-radius: 10px;
 }
 
@@ -91,13 +91,13 @@ window#waybar
 #custom-reboot,
 #custom-power
 {
-    background-color: rgba(46, 52, 64, 0.4998);
+    background-color: rgba(11, 11, 13, 0.4998);
     color: #FFFFFF;
 }
 
 #tray menu
 {
-	opacity: 0.4998;
+	opacity: 1.0;
 }
 
 #custom-quit,

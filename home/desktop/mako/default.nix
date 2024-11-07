@@ -1,6 +1,4 @@
 {
-  lib,
-  config,
   pkgs,
   ...
 }: 
@@ -16,16 +14,18 @@
 		font = "JetBrainsMono 11";
 		defaultTimeout = 4000;
 		borderSize = 2;
-		backgroundColor = "#1e1e2e4d";
+		backgroundColor = "#0b0b0d66";
+		height = 400;
+		width = 450;
 		extraConfig = ''
 [urgency=normal]
 border-color=#a3be8c
 
 [urgency=low]
-border-color=#b48ead
+border-color=#a3be8c
 
 [urgency=high]
-border-color=#bf616a
+border-color=#ee5353
 default-timeout=0
 '';
 	};

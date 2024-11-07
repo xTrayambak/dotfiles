@@ -90,9 +90,9 @@
                 		format-icons = ["" "" "" "" ""];
             		};
 			clock = {
-				format = "󰥔  {:%a %d %H:%M:%S}";
+				format = "󰥔  {:%a %d %H:%M}";
 				tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-				interval = 1;
+				interval = 60;
 			};
 			bluetooth = {
 				format = "";

@@ -7,10 +7,10 @@
  **/
 
 * {
-    background:     rgba(18, 18, 18, 70%);
-    background-alt: rgba(18, 18, 18, 70%);
-    foreground:     rgba(33, 33, 33, 80%);
-    selected:       rgba(33, 33, 33, 80%);
+    background:     rgba(18, 18, 18, 60%);
+    background-alt: rgba(18, 18, 18, 60%);
+    foreground:     rgba(33, 33, 33, 70%);
+    selected:       rgba(33, 33, 33, 70%);
     active:         #A3BE8CFF;
     urgent:         #BF616AFF;
     text-color:     #fff;

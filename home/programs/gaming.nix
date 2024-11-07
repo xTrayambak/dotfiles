@@ -2,7 +2,7 @@
 
 {
 	home.packages = [
-		# pkgs.prismlauncher
+		pkgs.prismlauncher
 		pkgs.mangohud
 		pkgs.xonotic
 		# pkgs.steam

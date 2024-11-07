@@ -211,6 +211,7 @@ null_ls.register({
 
 -- Setup barbar
 local barbar = require("barbar.api")
+local state = require("barbar.state")
 require("barbar").setup({
   animation = true,
   auto_hide = true,
@@ -226,8 +227,6 @@ require("barbar").setup({
   },	
 })
 
-local buffer_register = 0
-
 vim.keymap.set('n', 'bc', function()
 		barbar.close_all_but_current()	
 	end
@@ -239,17 +238,12 @@ vim.keymap.set('n', 'br', function()
 )
 
 vim.keymap.set('n', 'bn', function()
-		buffer_register = buffer_register + 1
-		barbar.goto_buffer(buffer_register)
+		barbar.buffer_next()
 	end
 )
 
 vim.keymap.set('n', 'bp', function()
-		buffer_register = buffer_register - 1
-		if buffer_register < 0 then
-			buffer_register = 0
-		end
-		barbar.goto_buffer(buffer_register)
+		
 	end
 )
 

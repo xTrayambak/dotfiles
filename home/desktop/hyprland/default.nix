@@ -28,8 +28,10 @@
 	"$fullscreenss_silent" = "/home/${config.home.username}/.scripts/screenshot full yes";
 	
 	env = [
-		"XCURSOR_THEME,${config.gtk.cursorTheme.name}"
+		"HYPRCURSOR_THEME,rose-pine-hyprcursor"
+		"HYPRCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
 		"XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
+		"XCURSOR_THEME,${config.gtk.cursorTheme.name}"
 		"GTK_THEME,${config.gtk.theme.name}"
 		"AQ_DRM_DEVICES,/dev/dri/card2"
 	];
@@ -43,8 +45,8 @@
 	];
 
 	unbind = [
-		"mouse:272,0"
-		"mouse:273,0"
+		"mouse:mouse_up,0"
+		"mouse:mouse_down,0"
 	];
 	
 	# Start my bar, wallpaper applier + wallpaper script, notification daemon, OSD and networkmanager applet
@@ -57,7 +59,6 @@
 		"${pkgs.avizo}/bin/avizo-service"
 		"${pkgs.blueman}/bin/blueman-applet"
 		"${pkgs.networkmanagerapplet}/bin/nm-applet"
-		"${pkgs.kdeconnect}/bin/kdeconnect-indicator"
 	];
 
 	# Input settings
@@ -152,6 +153,7 @@
 		"blur, waybar"
 		"ignorealpha 0.23, waybar"
 		"blurpopups, waybar"
+		"animation fadeIn, avizo"
 	];
 
 	# Window rules
@@ -168,13 +170,14 @@
 		"float, class:org.pulseaudio.pavucontrol"
 		"float, class:.blueman-manager-wrapped"
 		"opacity 0.845 override, class:.blueman-manager-wrapped"
-		"opacity 0.899 override, class:vesktop"
+		"opacity 0.799 override, class:vesktop"
 		"workspace 4 silent, class:vesktop"
 		"workspace 1, class:firefox"
 		"fullscreen, class:sober"
 		"float, class:sober_services"
 		"pin, class:sober_services"
 		"workspace 3, class:sober"
+		"workspace 3, class:sober_services"
 		"immediate, class:sober"
 		"float, class:org.gnome.Nautilus"
 		"float, class:org.gnome.Calculator"
@@ -189,6 +192,7 @@
 		"float, title:^(Lucem)$"
 		"opacity 0.845, title:^(Lucem)$"
 		"workspace 3, title:^(Lucem)$"
+		"opacity 0.0 override,title:^(vesktop)$"
 	];
 
 	# Keybinds
@@ -228,9 +232,9 @@
 		# Calculator button on my keyboard
 		",XF86Calculator, exec, ${pkgs.gnome-calculator}/bin/gnome-calculator"
 
-                "SUPER_SHIFT, E, exec, ${pkgs.emacs}/bin/emacs"
-		"SUPER_SHIFT, B, exec, ${pkgs.firefox}/bin/firefox"
-		"SUPER_SHIFT, D, exec, ${pkgs.vesktop}/bin/vesktop"
+                # "SUPER_SHIFT, E, exec, ${pkgs.emacs}/bin/emacs"
+		# "SUPER_SHIFT, B, exec, ${pkgs.firefox}/bin/firefox"
+		# "SUPER_SHIFT, D, exec, ${pkgs.vesktop}/bin/vesktop"
 
 		# Moving
 		"SUPER_SHIFT, left, movewindow, l"
@@ -243,6 +247,9 @@
 		"SUPER, P, pass, ^(com\.obsproject\.Studio)$"
 		"SUPER, M, pass, ^(com\.obsproject\.Studio)$"
 		"SUPER, N, pass, ^(com\.obsproject\.Studio)$"
+
+		# Notification destroyer 8000
+		"SUPER_SHIFT, D, exec, ${pkgs.mako}/bin/makoctl dismiss"
 
 		# Workspace switching
 		"$mainMod, 1, workspace, 1"

@@ -1,8 +1,10 @@
 { pkgs, ... }:
 
 {
+	imports = [
+		./discord
+	];
 	home.packages = with pkgs; [
-		(vesktop.override { withSystemVencord = false; })
 		blender
 		obs-studio
 		zathura	

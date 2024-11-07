@@ -13,7 +13,7 @@ bin = @[
   "wallpaper_dumb", "tlp_root",
   "tlp_tray", "tlp_cli",
   "power_saver_userland", "airplane_mode",
-  "wallpaper_cli"
+  "wallpaper_cli", "music"
 ]
 
 import std/distros

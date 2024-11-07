@@ -7,6 +7,7 @@ type
     None
     Saving
     Conservative
+    Performance
 
 proc getPowerSaverMode(charging: bool, percentage: int): PowerSaverMode {.inline.} =
   if charging: return None
@@ -46,33 +47,47 @@ var prevMode = getPowerSaverMode(
   readStr(path / "status") in ["Charging", "Full"], int((readInt(path / "energy_now") / readInt(path / "energy_full")) * 100f) 
 )
 
+proc setPPDMode*(mode: string) {.inline.} =
+  discard execCmd(findExe("powerprofilesctl") & " set " & mode)
+
 proc modeBehaviour(mode: PowerSaverMode): int =
   case mode
     of Saving:
       info "Entered power saving mode"
-      notify("Power Saving", "Your display quality has been reduced to save on battery life alongside the brightness.", 1)
-      #setDisplayRefreshRate("eDP-1", [1920, 1080], 60) # hz
-      setDisplayBrightness(60)
+      notify("Power Saving", "Performance has been reduced to save on battery life alongside the brightness.", 1)
+      setDisplayRefreshRate("eDP-1", [1920, 1080], 144) # hz
+      setDisplayBrightness(80)
+      setPPDMode("power-saver")
       setWallpaperState(WallpaperState(paused: false))
       return 800
     of Conservative:
       info "Entered critical/conservative power saving mode"
       notify("Power Saving", "Your battery is very low. Please charge it as soon as you can.", 2)
-      #setDisplayRefreshRate("eDP-1", [1920, 1080], 60) # hz
+      setDisplayRefreshRate("eDP-1", [1920, 1080], 60) # hz
       setDisplayBrightness(30)
       setAnimations(false)
+      setPPDMode("power-saver")
       setWallpaperState(
         WallpaperState(paused: false)
       )
       return 4000 # Slow down polling to save on battery
-    of None:
-      info "Entered AC mode - restoring defaults"
-      notify("Power Saving", "Your battery is now charging, restoring display settings.")
-      #setDisplayRefreshRate("eDP-1", [1920, 1080], 144) # hz
+    of Performance:
+      info "Entering performance mode"
+      notify("Power Saving", "Entering high-performance mode")
       setDisplayBrightness(100)
       setAnimations(true)
+      setPPDMode("performance")
       setWallpaperState(WallpaperState(paused: false))
-      40
+      return 40
+    of None:
+      info "Entered AC mode - restoring defaults"
+      notify("Power Saving", "Your battery is now charging, restoring system settings.")
+      setDisplayRefreshRate("eDP-1", [1920, 1080], 144) # hz
+      setDisplayBrightness(100)
+      setPPDMode("balanced")
+      setAnimations(true)
+      setWallpaperState(WallpaperState(paused: false))
+      return 40
 
 proc heartbeat: int {.inline.} =
   let
@@ -81,7 +96,18 @@ proc heartbeat: int {.inline.} =
     percentage = int((current / maximum) * 100f)
     status = readStr(path / "status")
 
-  let mode = getPowerSaverMode(status == "Charging" or status == "Full", percentage) 
+  let mode = 
+    case readFile(getHomeDir() / ".cache" / ".power_force_state")
+    of "performance":
+      Performance
+    of "power_saving":
+      Saving
+    of "conservative":
+      Conservative
+    of "ac":
+      None
+    else:
+      getPowerSaverMode(status == "Charging" or status == "Full", percentage) 
   
   if mode != prevMode:
     if prevMode == Conservative and mode == Saving:
@@ -93,8 +119,22 @@ proc heartbeat: int {.inline.} =
   else:
     40
 
+proc writePowerState*(state: PowerSaverMode) =
+  writeFile(
+    getHomeDir() / ".cache" / ".power_force_state",
+    case state
+    of Performance: "performance"
+    of Saving: "power_saving"
+    of Conservative: "conservative"
+    of None: "ac"
+  )
+
 proc main {.inline.} =
   setupLogging "power_saver_userland"
+
+  if paramCount() > 0:
+    writeFile(getHomeDir() / ".cache" / ".power_force_state", paramStr(1))
+    quit(0)
   
   discard modeBehaviour(prevMode)
   while true:

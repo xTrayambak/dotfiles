@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, inputs, ... }:
 {
 	imports = [
 		./boot.nix
@@ -43,6 +43,8 @@
 			man-pages
 			glib
 			gsettings-desktop-schemas
+			inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+			rose-pine-cursor
 		];
 		shellAliases = {};
 	};
