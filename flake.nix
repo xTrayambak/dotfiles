@@ -12,10 +12,6 @@
     waybar.url = "github:Alexays/waybar";
     lanzaboote.url = "github:nix-community/lanzaboote";
     nix-gaming.url = "github:fufexan/nix-gaming";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
     nixpak = {
       url = "github:nixpak/nixpak";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +23,7 @@
     nixpkgs, home-manager, 
     hyprland, nur, lanzaboote,
     waybar, nix-gaming, nixpak, 
-    rose-pine-hyprcursor, hyprland-plugins, ... } @ inputs: {
+    rose-pine-hyprcursor, ... } @ inputs: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = {
