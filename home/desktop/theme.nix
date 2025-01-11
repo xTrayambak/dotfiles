@@ -55,21 +55,14 @@
 		adwaita-qt
 		adwaita-qt6
 		colloid-kde
-    		fira-code
-    		noto-fonts-cjk-sans
-    		noto-fonts
+		fira-code
+		noto-fonts-cjk-sans
+		noto-fonts
 		noto-fonts-emoji
 		font-awesome
-    		(nerdfonts.override {
-      			fonts = [
-        			"IBMPlexMono"
-				"JetBrainsMono"
-				"ProFont"
-				"Ubuntu"
-				"AnonymousPro"
-				"RobotoMono"
-				"Iosevka"
-      			];
-    		})
+		nerd-fonts.jetbrains-mono
+		nerd-fonts.ubuntu
+		nerd-fonts.zed-mono
+		nerd-fonts.roboto-mono
 	];
 }

@@ -5,6 +5,7 @@
     grim
     slurp
     swww
+    ydotool
     networkmanagerapplet
   ];
 
@@ -15,6 +16,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    plugins = [
+	inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+    ];
     settings = {
 	# Variables
     	"$mainMod" = "SUPER";
@@ -33,6 +37,7 @@
 		"XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
 		"XCURSOR_THEME,${config.gtk.cursorTheme.name}"
 		"GTK_THEME,${config.gtk.theme.name}"
+		"GSK_RENDERER,ngl" # I have weird artifacting with the Vulkan backend on my AMD GPU
 		"AQ_DRM_DEVICES,/dev/dri/card2"
 	];
 
@@ -53,7 +58,7 @@
 	exec-once = [
 		"${pkgs.waybar}/bin/waybar" # "zsh -c waybar"
 		"${pkgs.swww}/bin/swww-daemon"
-		"/home/${config.home.username}/.scripts/wallpaper"
+		"/home/${config.home.username}/.scripts/wallpaper_dumb"
 		"/home/${config.home.username}/.scripts/power_saver_userland"
 		"${pkgs.mako}/bin/mako"
 		"${pkgs.avizo}/bin/avizo-service"
@@ -98,10 +103,10 @@
 			popups = true;
 		};
 
-		drop_shadow = true;
-		shadow_range = 4;
-		shadow_render_power = 3;
-		"col.shadow" = "rgba(0b0e07d1)";
+		# drop_shadow = true;
+		# shadow_range = 4;
+		# shadow_render_power = 3;
+		# "col.shadow" = "rgba(0b0e07d1)";
 	};
 
 	animations = {
@@ -117,8 +122,8 @@
 			"borderangle, 1, 8, default"
 			"layersIn, 1, 5, default, slidevert"
 			"layersOut, 1, 5, default, slidevert"
-			"workspaces, 1, 5, myBezier, slidevert"
-			"specialWorkspace, 1, 5, myBezier, slidevert"
+			"workspaces, 1, 5, myBezier"
+			"specialWorkspace, 1, 5, myBezier"
 		];
 	};
 
@@ -154,6 +159,13 @@
 		"ignorealpha 0.23, waybar"
 		"blurpopups, waybar"
 		"animation fadeIn, avizo"
+		"blur, lucem"
+		"blur, logout_dialog"
+		"ignorezero, logout_dialog"
+		"animation fadeIn, logout_dialog"
+		"ignorealpha 0.23, lucem"
+		"blur, basket"
+		"ignorezero, basket"
 	];
 
 	# Window rules
@@ -171,17 +183,19 @@
 		"float, class:.blueman-manager-wrapped"
 		"opacity 0.845 override, class:.blueman-manager-wrapped"
 		"opacity 0.799 override, class:vesktop"
+		"opacity 0.845 override, class:org.gnome.World.Secrets"
+		"opacity 0.845 override, class:org.gnome.Settings"
 		"workspace 4 silent, class:vesktop"
 		"workspace 1, class:firefox"
 		"fullscreen, class:sober"
 		"float, class:sober_services"
-		"pin, class:sober_services"
 		"workspace 3, class:sober"
 		"workspace 3, class:sober_services"
 		"immediate, class:sober"
-		"float, class:org.gnome.Nautilus"
+		# "float, class:org.gnome.Nautilus"
 		"float, class:org.gnome.Calculator"
 		"float, class:org.gnome.Characters"
+		"opacity 0.845 override, class:chrome-cifhbcnohmdccbgoicgdjpfamggdegmo-Default" # Teams
 		"float, class:io.missioncenter.MissionCenter"
 		"size 1053 719, class:io.missioncenter.MissionCenter"
 		"opacity 0.845, class:io.missioncenter.MissionCenter"
@@ -192,7 +206,7 @@
 		"float, title:^(Lucem)$"
 		"opacity 0.845, title:^(Lucem)$"
 		"workspace 3, title:^(Lucem)$"
-		"opacity 0.0 override,title:^(vesktop)$"
+		"workspace 3, class:sober"
 	];
 
 	# Keybinds
@@ -216,7 +230,7 @@
 		# Wallpaper controls
 		"SUPER_SHIFT, W, exec, /home/${config.home.username}/.scripts/wallpaper_cli change-wallpaper"
 		"SUPER_SHIFT, P, exec, /home/${config.home.username}/.scripts/wallpaper_cli toggle"
-		"SUPER_SHIFT, S, exec, /home/${config.home.username}/.scripts/wallpaper_cli cycle-time"
+		# "SUPER_SHIFT, S, exec, /home/${config.home.username}/.scripts/wallpaper_cli cycle-time"
 
 		",F11, fullscreen"
 		"$mainMod, Print, exec, $fullscreenss"
@@ -250,6 +264,8 @@
 
 		# Notification destroyer 8000
 		"SUPER_SHIFT, D, exec, ${pkgs.mako}/bin/makoctl dismiss"
+
+		"SUPER, E, exec, ${pkgs.wlogout}/bin/wlogout"
 
 		# Workspace switching
 		"$mainMod, 1, workspace, 1"
@@ -295,6 +311,18 @@
 		"SUPER, up, resizeactive, 0 -15"
 		"SUPER, down, resizeactive, 0 15"
 	];
+
+	plugin = {
+		hyprexpo = {
+			columns = 3;
+			gap_size = 5;
+			workspace_method = "center current";
+			enable_gesture = true;
+			gesture_fingers = 3;
+			gesture_distance = 300;
+			gesture_positive = false;
+		};
+	};
     };
   };
 }

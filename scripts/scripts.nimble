@@ -30,3 +30,5 @@ after build:
 
 requires "https://github.com/xTrayambak/tray >= 0.1.0"
 requires "jsony >= 1.1.5"
+
+requires "pretty >= 0.2.0"

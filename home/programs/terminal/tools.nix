@@ -12,7 +12,6 @@
     gh
     git
     hyperfine
-    cava
     python3
     arp-scan
     meson

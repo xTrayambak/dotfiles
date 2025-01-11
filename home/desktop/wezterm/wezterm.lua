@@ -1,8 +1,8 @@
 local wezterm = require('wezterm')
 local config  = {}
 
-config.font = wezterm.font('JetBrainsMono')
-config.enable_wayland = false -- :rip:
+-- config.font = wezterm.font('JetBrainsMono')
+config.enable_wayland = true -- :rip:
 config.tiling_desktop_environments = {
 	'Wayland Hyprland'
 }

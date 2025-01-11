@@ -40,7 +40,7 @@
 
 		misc = {
 			drmFix = true;
-			disableWebgl = false;
+			disableWebgl = true;
 
 			bookmarks = [
 				{
@@ -54,7 +54,7 @@
 					URL = "https://discourse.nixos.org";
 					Placement = "toolbar";
 					Folder = "Forums";
-				},
+				}
 				{
 					Title = "Pastebin";
 					URL = "https://bin.disroot.org/";

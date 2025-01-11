@@ -7,16 +7,12 @@
 			"video"
 			"libvirtd"
 			"input"
+			"gamemode"
 			"networkmanager"
 			"tray"
 		];
 		initialPassword = "deinemutteristlecker";
 		shell = pkgs.zsh;
-		packages = with pkgs; [
-			wpa_supplicant
-			wl-clipboard
-			killall
-		];
 	};
 
 	environment = {

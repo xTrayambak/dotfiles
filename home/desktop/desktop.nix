@@ -6,7 +6,6 @@
     ./waybar
     ./avizo
     ./fusuma
-    ./eww
     ./rofi
     ./wezterm
     ./mako

@@ -20,7 +20,8 @@
 		libreoffice
 		qbittorrent
 		kcachegrind
-		mission-center
+		gnome-control-center
+		# mission-center
 		chromium
 		blueman
 		nautilus

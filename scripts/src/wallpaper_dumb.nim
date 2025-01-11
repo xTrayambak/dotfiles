@@ -1,12 +1,14 @@
 ## Dumb wallpaper script - it doesn't care about the time; just displays things
-import std/[os, osproc, random, posix]
-import ./batinfo
+import std/[os, times, options, osproc, random, posix]
+import ./[wallpaper_common, batinfo]
+import pkg/pretty
 
-proc getWallpaper(prev: string): string {.inline.} =
+proc getWallpaper*(prev: string): string {.inline.} =
   var photos: seq[string]
 
-  for kind, path in walkDir("/home" / $getpwuid(geteuid()).pwName / "Wallpapers"):
+  for kind, path in walkDir("/home" / $getpwuid(geteuid()).pwName / ".wallpapers"):
     if kind != pcFile: continue
+    echo path
 
     if path.splitFile().ext in [".jpg", ".png", ".jpeg", ".gif"]:
       photos.add(path)
@@ -36,19 +38,47 @@ proc swww(wallpaper: string, step: int = 2, dontAnimate: bool = false) {.inline.
 
 proc randWallpaperLoop {.inline.} =
   var prev: string
+  var timeRemainingSecs = 0'f64
+  var prevEpoch = epochTime()
+
   while true:
     let
+      ostate = readWallpaperState()
       path = getBatteryPath()
       maximum = readInt(path / "energy_full")
       current = readInt(path / "energy_now")
       percentage = int((current / maximum) * 100f) 
+
+    if ostate.isNone:
+      continue
+    
+    let epoch = epochTime()
+    timeRemainingSecs -= (epoch - prevEpoch)
+    prevEpoch = epoch
+
+    let state = ostate.get()
+    if state.paused:
+      timeRemainingSecs = 60
+      continue
     
     if percentage < 40:
       echo "Not changing wallpaper to conserve battery"
-      sleep rand(30..60) * 60 * 60
-    
-    swww(getWallpaper(prev), dontAnimate = percentage < 70)
-    sleep rand(30..60) * 60 * 60
+      timeRemainingSecs = 60
+      return
+
+    if timeRemainingSecs <= 0 or (state.useWallpaper.isSome and state.useWallpaper.get() != prev):
+      echo timeRemainingSecs
+      prev = state.useWallpaper.get()
+
+      let wallpaper = if state.useWallpaper.isSome:
+        state.useWallpaper.get()
+      else:
+        getWallpaper(prev)
+
+      echo wallpaper
+      swww(wallpaper, dontAnimate = percentage < 70)
+      prev = wallpaper
+      timeRemainingSecs = float(rand(10 .. 20) * 60)
 
 proc main {.inline.} =
   randomize()

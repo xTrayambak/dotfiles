@@ -1,5 +1,5 @@
 import std/[os, random, osproc, options]
-import ./[wallpaper_common, wallpaper]
+import ./[wallpaper_common, wallpaper_dumb]
 
 proc notify(title, msg: string, urgencyVal: int = 0) {.inline.} =
   let urgency =
@@ -62,7 +62,7 @@ proc main {.inline.} =
     setWallpaperState(
       WallpaperState(
         paused: false,
-        useWallpaper: some(getWallpaper(readWallpaperState().get()))
+        useWallpaper: some(getWallpaper(""))
       )
     )
 
@@ -70,7 +70,7 @@ proc main {.inline.} =
       return
     else:
       notify("Wallpaper", "Your wallpaper has been changed.")
-  of "set-time":
+  #[of "set-time":
     assert paramCount() > 1, "expected time of day (morning, afternoon, evening, night)"
     let time = paramStr(1)
     assert time in ["morning", "afternoon", "evening", "night"], "Invalid time: " & time
@@ -96,7 +96,7 @@ proc main {.inline.} =
     notify("Wallpaper", "Showing wallpapers for the " & nextTime)
     currState.setTimeOfDay = some(nextTime)
     currState.useWallpaper = none(string)
-    setWallpaperState(currState)
+    setWallpaperState(currState)]#
   else:
     quit "invalid command: " & paramStr(1)
 

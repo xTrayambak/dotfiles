@@ -1,5 +1,5 @@
 { config, ... }: let
-  font_family = "JetBrainsMono";
+  font_family = "JetBrainsMono Nerd Font";
 in {
 	programs.hyprlock = {
 		enable = true;
@@ -102,7 +102,7 @@ in {
       				{
         				monitor = "";
         				text = "$TIME";
-        				font_size = 90;
+        				font_size = 160;
         				color = "rgb(255, 255, 255)";
 					inherit font_family;
 
@@ -118,7 +118,7 @@ in {
 					color = "rgb(255, 255, 255)";
 					inherit font_family;
 
-					position = "0, 218";
+					position = "0, 195";
 
 					valign = "center";
 					halign = "center";
@@ -130,7 +130,7 @@ in {
 					color = "rgb(255, 255, 255)";
 					inherit font_family;
 
-					position = "0, 184";
+					position = "0, 157";
 
 					valign = "center";
 		 			halign = "center";

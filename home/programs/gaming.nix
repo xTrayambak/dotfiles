@@ -5,8 +5,10 @@
 		pkgs.prismlauncher
 		pkgs.mangohud
 		pkgs.xonotic
-		# pkgs.steam
+		pkgs.steam
+		pkgs.wine-staging
 		pkgs.bottles
+		pkgs.wl-clipboard
 	];
 
 	# radioactive shit. whoever wrote this deserves to stub their toe on a lego because it's intentionally bad.

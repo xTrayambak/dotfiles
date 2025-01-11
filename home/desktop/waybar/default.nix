@@ -26,7 +26,7 @@
 				"bluetooth"
         			"clock"
 			];
-			cava = {
+			/* cava = {
         			framerate = 90;
         			autosens = 1;
         			bars = 24;
@@ -50,7 +50,7 @@
           				"▇" 
           				"█" 
         			];
-      			};
+      			}; */
 			tray = {
 				spacing = 4;
 			};
@@ -149,7 +149,7 @@
 				format = "<span>{}</span>";
 				tooltip = "{}";
 				separate-outputs = true;
-				on-click = "missioncenter";
+				on-click = "${pkgs.foot}/bin/foot ${pkgs.btop}/bin/btop";
 			};
 		};
 	};

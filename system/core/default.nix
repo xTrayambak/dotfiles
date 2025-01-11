@@ -50,23 +50,16 @@
 	};
 
 	# Nerd Fonts
-  	fonts.packages = [
-    		pkgs.fira-code
-    		pkgs.noto-fonts-cjk-sans
-    		pkgs.noto-fonts
-		pkgs.noto-fonts-emoji
-		pkgs.font-awesome
-    		(pkgs.nerdfonts.override {
-      			fonts = [
-        			"IBMPlexMono"
-				"JetBrainsMono"
-				"ProFont"
-				"Ubuntu"
-				"AnonymousPro"
-				"RobotoMono"
-				"Iosevka"
-      			];
-    		})
+  	fonts.packages = with pkgs; [
+    		fira-code
+    		noto-fonts-cjk-sans
+    		noto-fonts
+		noto-fonts-emoji
+		font-awesome
+		nerd-fonts.jetbrains-mono
+		nerd-fonts.ubuntu
+		nerd-fonts.zed-mono
+		nerd-fonts.roboto-mono
   	];
 
   	xdg.portal = {

@@ -93,6 +93,8 @@ local function notify(title, content)
 	vim.fn.system("notify-send --icon=neovim --expire-time=36000 \""..title.."\" \""..content.."\"")
 end
 
+vim.cmd("set clipboard=unnamedplus")
+
 -- Setup alignment helper
 require("mini.align").setup(
 	{
@@ -238,12 +240,12 @@ vim.keymap.set('n', 'br', function()
 )
 
 vim.keymap.set('n', 'bn', function()
-		barbar.buffer_next()
+		vim.cmd("BufferNext")
 	end
 )
 
 vim.keymap.set('n', 'bp', function()
-		
+		vim.cmd("BufferPrevious")
 	end
 )
 
