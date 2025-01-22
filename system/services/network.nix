@@ -16,6 +16,11 @@
 			];
 		};
 
+		extraHosts = ''
+			0.0.0.0 x.com
+			0.0.0.0 twitter.com
+		'';
+
 		nameservers = [ "192.168.68.214" ];
 	};
 }
