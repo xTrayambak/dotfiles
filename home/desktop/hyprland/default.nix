@@ -20,7 +20,7 @@
     settings = {
 	# Variables
     	"$mainMod" = "SUPER";
-	"$term" = "${pkgs.foot}/bin/foot";
+	"$term" = "${pkgs.wezterm}/bin/wezterm";
 	"$filemanager" = "${pkgs.nautilus}/bin/nautilus";
 	"$fullscreenss" = "/home/${config.home.username}/.scripts/screenshot full";
 	"$selectss" = "/home/${config.home.username}/.scripts/screenshot select";
@@ -54,7 +54,7 @@
 	
 	# Start my bar, wallpaper applier + wallpaper script, notification daemon, OSD and networkmanager applet
 	exec-once = [
-		"${pkgs.waybar}/bin/waybar" # "zsh -c waybar"
+		"${pkgs.waybar}/bin/waybar"
 		"${pkgs.swww}/bin/swww-daemon"
 		"/home/${config.home.username}/.scripts/wallpaper_dumb"
 		"/home/${config.home.username}/.scripts/power_saver_userland"
@@ -197,7 +197,7 @@
 		"float, class:io.missioncenter.MissionCenter"
 		"size 1053 719, class:io.missioncenter.MissionCenter"
 		"opacity 0.845, class:io.missioncenter.MissionCenter"
-		"opacity 0.945, class:foot"
+		"opacity 0.945, class:wezterm"
 		"float, class:nm-connection-editor"
 		"opacity 0.945, class:nm-connection-editor"
 		"opacity 0.845, class:org.gnome.Calculator"
@@ -237,10 +237,9 @@
 		",XF86AudioMute, exec, ${pkgs.avizo}/bin/volumectl -d toggle-mute"
 		",XF86AudioMicMute, exec, ${pkgs.avizo}/bin/volumectl -d -m toggle-mute"
 
-		# Power mode switchers
-		"SUPER_SHIFT, G, exec, /home/${config.home.username}/.scripts/power_saver_userland performance"
-		"SUPER_SHIFT, N, exec, /home/${config.home.username}/.scripts/power_saver_userland ac"
-		
+		# Mission Center
+		",XF86Launch2, exec, ${pkgs.mission-center}/bin/missioncenter"
+
 		# Calculator button on my keyboard
 		",XF86Calculator, exec, ${pkgs.gnome-calculator}/bin/gnome-calculator"
 

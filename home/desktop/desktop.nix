@@ -1,11 +1,12 @@
 { ... }:
 {
   imports = [
-    ./foot
+    # ./foot
     ./hyprland
     ./waybar
     ./avizo
     ./fusuma
+    ./wlogout
     ./rofi
     ./wezterm
     ./mako

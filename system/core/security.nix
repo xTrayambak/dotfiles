@@ -53,6 +53,4 @@
     # my security prefs
     sudo.enable = lib.mkForce true;
   };
-
-
 }

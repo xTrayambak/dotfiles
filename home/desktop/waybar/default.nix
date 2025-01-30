@@ -149,7 +149,6 @@
 				format = "<span>{}</span>";
 				tooltip = "{}";
 				separate-outputs = true;
-				on-click = "${pkgs.foot}/bin/foot ${pkgs.btop}/bin/btop";
 			};
 		};
 	};

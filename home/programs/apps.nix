@@ -10,6 +10,7 @@
 		zathura	
 		gnome-calculator
 		gnome-secrets
+		amberol
 		gnome-calendar
 		pavucontrol
 		snapshot
@@ -21,7 +22,8 @@
 		qbittorrent
 		kcachegrind
 		gnome-control-center
-		# mission-center
+		mission-center
+		smartmontools
 		chromium
 		blueman
 		nautilus
