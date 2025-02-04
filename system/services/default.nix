@@ -8,6 +8,7 @@
 		./gnome-services.nix
 		./virtualization.nix
 		./power.nix
+		./display-manager.nix
 		./gamemode.nix
 		./printing.nix
 		./warp.nix

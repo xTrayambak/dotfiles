@@ -55,11 +55,11 @@ proc modeBehaviour(mode: PowerSaverMode): int =
     of Saving:
       info "Entered power saving mode"
       notify("Power Saving", "Performance has been reduced to save on battery life alongside the brightness.", 1)
-      setDisplayRefreshRate("eDP-1", [1920, 1080], 144) # hz
-      setDisplayBrightness(80)
+      setDisplayRefreshRate("eDP-1", [1920, 1080], 60) # hz
+      setDisplayBrightness(60)
       setPPDMode("power-saver")
       setWallpaperState(WallpaperState(paused: false))
-      return 800
+      return 4000
     of Conservative:
       info "Entered critical/conservative power saving mode"
       notify("Power Saving", "Your battery is very low. Please charge it as soon as you can.", 2)
@@ -70,7 +70,7 @@ proc modeBehaviour(mode: PowerSaverMode): int =
       setWallpaperState(
         WallpaperState(paused: false)
       )
-      return 4000 # Slow down polling to save on battery
+      return 8000 # Slow down polling to save on battery
     of Performance:
       info "Entering performance mode"
       notify("Power Saving", "Entering high-performance mode")
@@ -97,17 +97,7 @@ proc heartbeat: int {.inline.} =
     status = readStr(path / "status")
 
   let mode = 
-    case readFile(getHomeDir() / ".cache" / ".power_force_state")
-    of "performance":
-      Performance
-    of "power_saving":
-      Saving
-    of "conservative":
-      Conservative
-    of "ac":
-      None
-    else:
-      getPowerSaverMode(status == "Charging" or status == "Full", percentage) 
+    getPowerSaverMode(status == "Charging" or status == "Full" or status == "Not Charging", percentage) 
   
   if mode != prevMode:
     if prevMode == Conservative and mode == Saving:

@@ -10,7 +10,7 @@
 			verbose = false;
 		};
 
-		kernelPackages = lib.mkForce pkgs.linuxPackages_zen;
+		kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
 		consoleLogLevel = 0;
 
 		kernelParams = [

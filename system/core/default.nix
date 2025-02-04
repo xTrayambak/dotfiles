@@ -66,7 +66,7 @@
     		enable = true;
     		extraPortals = with pkgs; [
       			xdg-desktop-portal-gtk
-     			xdg-desktop-portal-hyprland
+     			# xdg-desktop-portal-hyprland
     		];
 		config = {
 			common.default = [ "gnome" ];
@@ -74,6 +74,10 @@
 		};
 		xdgOpenUsePortal = true;
  	};
+
+	environment.variables = {
+		GSK_RENDERER = "ngl"; # I have weird artifacting with the Vulkan backend on my GPU
+	};
 
 	services.flatpak.enable = true;
 

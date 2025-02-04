@@ -19,7 +19,7 @@
     plugins = [];
     settings = {
 	# Variables
-    	"$mainMod" = "SUPER";
+	"$mainMod" = "SUPER";
 	"$term" = "${pkgs.wezterm}/bin/wezterm";
 	"$filemanager" = "${pkgs.nautilus}/bin/nautilus";
 	"$fullscreenss" = "/home/${config.home.username}/.scripts/screenshot full";
@@ -35,8 +35,8 @@
 		"XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
 		"XCURSOR_THEME,${config.gtk.cursorTheme.name}"
 		"GTK_THEME,${config.gtk.theme.name}"
-		"GSK_RENDERER,ngl" # I have weird artifacting with the Vulkan backend on my AMD GPU
 		"AQ_DRM_DEVICES,/dev/dri/card2"
+		"GSK_RENDERER,ngl"
 	];
 
 	"binds:scroll_event_delay" = "80000000";
@@ -44,7 +44,7 @@
 	# Monitor configuration (1920x1080 display at 144FPS)
 	monitor = [
 		",preferred,auto,1"
-		"eDP-1,1920x1080@144,0x0,1"
+		"eDP-1,1920x1080@60,0x0,1"
 	];
 
 	unbind = [
@@ -68,7 +68,7 @@
 	input = {
 		kb_layout = "us";
 		follow_mouse = true;
-		accel_profile = "adaptive";
+		accel_profile = "flat";
 		sensitivity = 0.5669;
 		scroll_button = -1;
 		force_no_accel = false;
