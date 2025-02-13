@@ -50,29 +50,28 @@
 	};
 
 	# Nerd Fonts
-  	fonts.packages = with pkgs; [
-    		fira-code
-    		noto-fonts-cjk-sans
-    		noto-fonts
+	fonts.packages = with pkgs; [
+		fira-code
+		noto-fonts-cjk-sans
+		noto-fonts
 		noto-fonts-emoji
 		font-awesome
 		nerd-fonts.jetbrains-mono
 		nerd-fonts.ubuntu
 		nerd-fonts.zed-mono
 		nerd-fonts.roboto-mono
-  	];
+	];
 
-  	xdg.portal = {
-    		enable = true;
-    		extraPortals = with pkgs; [
-      			xdg-desktop-portal-gtk
-     			# xdg-desktop-portal-hyprland
-    		];
+	xdg.portal = {
+		enable = true;
+		extraPortals = with pkgs; [
+			xdg-desktop-portal-gtk
+		];
 		config = {
-			common.default = [ "gnome" ];
-			hyprland.default = [ "gnome" "hyprland" ];
+			common.default = [ "gtk" ];
+			hyprland.default = [ "gtk" "hyprland" ];
 		};
-		xdgOpenUsePortal = true;
+		xdgOpenUsePortal = false;
  	};
 
 	environment.variables = {

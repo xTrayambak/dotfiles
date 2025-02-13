@@ -44,7 +44,7 @@
 	# Monitor configuration (1920x1080 display at 144FPS)
 	monitor = [
 		",preferred,auto,1"
-		"eDP-1,1920x1080@60,0x0,1"
+		"eDP-1,1920x1080@144,0x0,1"
 	];
 
 	unbind = [
@@ -68,7 +68,7 @@
 	input = {
 		kb_layout = "us";
 		follow_mouse = true;
-		accel_profile = "flat";
+		accel_profile = "adaptive";
 		sensitivity = 0.5669;
 		scroll_button = -1;
 		force_no_accel = false;
@@ -154,7 +154,7 @@
 		"ignorezero, rofi"
 		"ignorezero, avizo"
 		"blur, waybar"
-		"ignorealpha 0.23, waybar"
+		"ignorealpha 0.8, waybar"
 		"blurpopups, waybar"
 		"animation fadeIn, avizo"
 		"blur, lucem"

@@ -6,11 +6,11 @@
 			wayland = true;
 		};
 		desktopManager.gnome = {
-			enable = true;
+			enable = false;
 		};
 	};
 
-	environment.gnome.excludePackages = with pkgs; [
+	/* environment.gnome.excludePackages = with pkgs; [
 		atomix
 		cheese
 		epiphany
@@ -23,6 +23,10 @@
 		gnome-tour
 		totem
 	];
+
+	environment.systemPackages = with pkgs.gnomeExtensions; [
+		blur-my-shell
+    	]; */
 
 	programs.hyprland = {
 		enable = true;

@@ -21,6 +21,7 @@
 			# 0.0.0.0 twitter.com
 		'';
 
-		nameservers = [ "192.168.68.214" ];
+		#nameservers = [ "192.168.68.214" ];
+		nameservers = ["1.1.1.1"];
 	};
 }

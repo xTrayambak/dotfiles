@@ -6,7 +6,6 @@
     ./zsh
     ./btop
     ./defaults.nix
-    ./gnome-extensions.nix
     ./development
     ./browser
     ./terminal/tools.nix
