@@ -7,13 +7,15 @@
     userEmail = "xtrayambak@gmail.com";
   };
 
-  #programs.gh = {
-  #  enable = true;
-  #  settings = {
-  #    editor = "nvim";
-  #    git_protocol = "ssh";
-  #  };
-  #};
+  programs.gh = {
+    enable = true;
+    settings = {
+      editor = "nvim";
+    };
+    gitCredentialHelper = {
+      enable = true;
+    };
+  };
 
   imports = lib.filter lib.pathExists [ ../../private.nix ];
 }
