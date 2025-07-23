@@ -6,7 +6,7 @@
 		source = (
 			fetchTarball {
 				url = "https://github.com/rafaelmardojai/firefox-gnome-theme/archive/master.tar.gz";
-				sha256 = "1xxd40dv0z8bj29krbrvhqiy1z3ysynj205pac22yy7004f6wp3v";
+				sha256 = "0hfhl2fd7wl5yrma8kf91xy40hd6vhygshsakg7drzbjs58hgbnj";
 			}
 		);
 	};

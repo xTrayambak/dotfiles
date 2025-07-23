@@ -17,14 +17,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs = { 
     nixpkgs, home-manager, 
     hyprland, nur, lanzaboote,
     waybar, nix-gaming, nixpak, 
-    rose-pine-hyprcursor, ... } @ inputs: {
-    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+    rose-pine-hyprcursor, zen-browser, ... } @ inputs: {
+    # defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = {
       "tray" = home-manager.lib.homeManagerConfiguration {

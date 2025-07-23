@@ -25,7 +25,6 @@ plugins = {
 	"navarasu/onedark.nvim", -- Theme
 	"nvimtools/none-ls.nvim",
 	"neovim/nvim-lspconfig", -- Nvim LSPConfig
-	"andweeb/presence.nvim", -- Discord RPC
 	-- Tabs
 	{'romgrk/barbar.nvim',
     		dependencies = {
@@ -405,7 +404,7 @@ math.randomseed(os.clock())
 local qIdx = math.floor(math.random() * #quotes) + 1
 local rpcKillSwitch = "/home/"..os.getenv("USER").."/.neovim-no-rpc"
 
-local presence = require("presence")
+--[[local presence = require("presence")
 presence.setup({
 	-- General options
     	auto_update         = true,
@@ -430,9 +429,9 @@ presence.setup({
     	line_number_text    = "Line %s out of %s",        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
 })
 
---[[if fileExists(rpcKillSwitch) ~= true then -- sneak 100
+if fileExists(rpcKillSwitch) ~= true then -- sneak 100
 	presence.cancel()
-end--]]
+end
 
 vim.keymap.set('n', 'rd', function()
 		if fileExists(rpcKillSwitch) ~= true then
@@ -449,7 +448,7 @@ vim.keymap.set('n', 'rd', function()
 		end
 	end,
 	{}
-)
+)--]]
 
 -- LSP and autocompletion
 local cmp = require("cmp")

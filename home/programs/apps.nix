@@ -20,11 +20,9 @@
 		amdgpu_top
 		libreoffice
 		qbittorrent
-		kcachegrind
 		gnome-control-center
 		mission-center
 		smartmontools
-		chromium
 		blueman
 		nautilus
 	];

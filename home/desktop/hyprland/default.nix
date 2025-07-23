@@ -34,7 +34,7 @@
 		"HYPRCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
 		"XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
 		"XCURSOR_THEME,${config.gtk.cursorTheme.name}"
-		"GTK_THEME,${config.gtk.theme.name}"
+		"GTK_THEME,Adwaita-dark"
 		"AQ_DRM_DEVICES,/dev/dri/card2"
 		"GSK_RENDERER,ngl"
 	];
@@ -56,8 +56,8 @@
 	exec-once = [
 		"${pkgs.waybar}/bin/waybar"
 		"${pkgs.swww}/bin/swww-daemon"
-		"/home/${config.home.username}/.scripts/wallpaper_dumb"
-		"/home/${config.home.username}/.scripts/power_saver_userland"
+		# "/home/${config.home.username}/.scripts/wallpaper_dumb"
+		# "/home/${config.home.username}/.scripts/power_saver_userland"
 		"${pkgs.mako}/bin/mako"
 		"${pkgs.avizo}/bin/avizo-service"
 		"${pkgs.blueman}/bin/blueman-applet"

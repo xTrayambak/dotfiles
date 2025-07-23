@@ -8,7 +8,7 @@
 			phyton = "python3";
 
 			nix-switch = "sudo nixos-rebuild switch --flake path:/home/${config.home.username}/.config/home-manager#box";
-			hm-switch = "nix run /home/${config.home.username}/.config/home-manager -- switch";
+			hm-switch = "home-manager switch --flake /home/${config.home.username}/.config/home-manager#${config.home.username} ";
 			all-switch = "nix-switch && hm-switch";
 			upgrade-flake = "ROLLBACK=$(pwd) cd /home/${config.home.username}/.config/home-manager && nix flake update && cd $ROLLBACK";
 			neofetch = "fastfetch";

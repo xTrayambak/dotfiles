@@ -4,7 +4,8 @@
 		./boot.nix
 		./security.nix
 		./users.nix
-		./lanzaboote.nix
+#		./lanzaboote.nix
+		./boot.nix
 		./chores.nix
 	];
 

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
 	home.packages = with pkgs; [
-		emacs29-pgtk
+		emacs30-pgtk
 		tree-sitter
 	];
 	xdg.configFile = {

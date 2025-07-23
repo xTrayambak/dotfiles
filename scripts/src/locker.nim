@@ -1,7 +1,7 @@
 ## small interface over hyprlock
 
 import std/[os, random, options, strutils, osproc]
-import ./[wallpaper, wallpaper_common, logcore]
+import ./[wallpaper_dumb, wallpaper_common, logcore]
 
 proc lockUp {.inline.} =
   setupLogging("locker")
@@ -18,7 +18,7 @@ proc lockUp {.inline.} =
     "-t 4000"
   )
 
-  let wallpaper = getWallpaper(readWallpaperState().get())
+  let wallpaper = getWallpaper("")
   info "Chosen wallpaper: " & wallpaper
 
   copyFile(
