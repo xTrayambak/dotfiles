@@ -34,9 +34,9 @@
 		"HYPRCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
 		"XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
 		"XCURSOR_THEME,${config.gtk.cursorTheme.name}"
-		"GTK_THEME,Adwaita-dark"
 		"AQ_DRM_DEVICES,/dev/dri/card2"
 		"GSK_RENDERER,ngl"
+		"ADW_DISABLE_PORTAL,1"
 	];
 
 	"binds:scroll_event_delay" = "80000000";
@@ -56,7 +56,7 @@
 	exec-once = [
 		"${pkgs.waybar}/bin/waybar"
 		"${pkgs.swww}/bin/swww-daemon"
-		# "/home/${config.home.username}/.scripts/wallpaper_dumb"
+		"/home/${config.home.username}/.scripts/wallpaper_dumb"
 		# "/home/${config.home.username}/.scripts/power_saver_userland"
 		"${pkgs.mako}/bin/mako"
 		"${pkgs.avizo}/bin/avizo-service"
@@ -168,11 +168,11 @@
 
 	# Window rules
 	windowrule = [
-		"float, blueman"
-		"fullscreen, Xonotic"
-		"fullscreen, ^(Minecraft)(.*)$"
-		"immediate, ^(Minecraft)(.*)$"
-		"immediate, Xonotic"
+		# "float, blueman"
+		# "fullscreen, Xonotic"
+		# "fullscreen, ^(Minecraft)(.*)$"
+		# "immediate, ^(Minecraft)(.*)$"
+		# "immediate, Xonotic"
 	];
 
 	windowrulev2 = [

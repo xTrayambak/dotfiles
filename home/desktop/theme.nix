@@ -5,7 +5,6 @@
     		settings = {
       			"org/gnome/desktop/interface" = {
         			color-scheme = "prefer-dark";
-				gtk-theme = "Adwaita-dark";
       			};
 			"org/gnome/shell" = {
 				disable-user-extensions = false;
@@ -22,9 +21,10 @@
 			name = "BreezeX-RosePine-Linux";
 			size = 32;
 		};
-/*		theme = {
+		theme = {
       			name = "Adwaita-dark";
-    		};*/
+			package = pkgs.gnome-themes-extra;
+    		};
 		iconTheme = {
 			name = "Adwaita";
 			package = pkgs.adwaita-icon-theme;
@@ -56,6 +56,7 @@
 	}; */
 
 	home.packages = with pkgs; [
+		dconf
 		libadwaita
 		adwaita-qt
 		adwaita-qt6

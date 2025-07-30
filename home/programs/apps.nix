@@ -18,6 +18,7 @@
 		duf
 		godot_4
 		amdgpu_top
+		fractal
 		libreoffice
 		qbittorrent
 		gnome-control-center

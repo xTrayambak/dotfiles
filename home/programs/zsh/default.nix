@@ -18,7 +18,7 @@
     			plugins = [ "git" ];
     			theme = "robbyrussell";
   		};
-		initExtra = ''
+		initContent = ''
 # I can't find a way to add these to my path with Nix. Aw shucks.
 export PATH="/home/$USER/.nimble/bin:$PATH"
 export SUDO_PROMPT="[] $USER: "

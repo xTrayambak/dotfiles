@@ -1,12 +1,10 @@
 { inputs, pkgs, ... }: {
-	services.xserver = {
+	services.xserver.enable = false;
+	services.displayManager = {
 		enable = true;
-		displayManager.gdm = {
+		gdm = {
 			enable = true;
 			wayland = true;
-		};
-		desktopManager.gnome = {
-			enable = false;
 		};
 	};
 

@@ -12,7 +12,7 @@
     gh
     git
     hyperfine
-    python3
+    python314
     arp-scan
     meson
     ninja
@@ -28,5 +28,11 @@
     htop
     imagemagick_light
     senpai
+
+    stegseek
+    exiftool
+    binwalk
+    steghide
+    zsteg
   ];
 }

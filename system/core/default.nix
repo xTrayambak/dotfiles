@@ -4,8 +4,8 @@
 		./boot.nix
 		./security.nix
 		./users.nix
-#		./lanzaboote.nix
-		./boot.nix
+		./lanzaboote.nix
+#		./boot.nix
 		./chores.nix
 	];
 
@@ -27,9 +27,6 @@
 
 	nixpkgs.config.allowUnfree = true;
 
-	# Dconf
-	programs.dconf.enable = true;
-	
 	# Enable zsh
 	programs.zsh = {
 		# Make sure that nothing can disable zsh or we're majestically screwed.

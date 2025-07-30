@@ -207,3 +207,8 @@ window#privacy.empty #privacy
 {
     background-color: transparent;
 }
+
+#hyprland-window
+{
+	font-family: AdwaitaSans, Nerd Font;
+}

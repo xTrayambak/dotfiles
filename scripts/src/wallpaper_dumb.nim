@@ -68,7 +68,9 @@ proc randWallpaperLoop {.inline.} =
 
     if timeRemainingSecs <= 0 or (state.useWallpaper.isSome and state.useWallpaper.get() != prev):
       echo timeRemainingSecs
-      prev = state.useWallpaper.get()
+      prev = if state.useWallpaper.isSome:
+        state.useWallpaper.get()
+      else: ""
 
       let wallpaper = if state.useWallpaper.isSome:
         state.useWallpaper.get()
