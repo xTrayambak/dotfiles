@@ -55,7 +55,8 @@ plugins = {
 	},
 	"xiyaowong/transparent.nvim",
 	"NvChad/nvterm",
-	"nvimdev/dashboard-nvim"
+	"nvimdev/dashboard-nvim",
+	"stevearc/conform.nvim"
 }
 
 -- Initialize lazy
@@ -297,35 +298,6 @@ vim.keymap.set('n', 'tt', function()
 	{}
 )
 
-vim.keymap.set('n', 'nb', function()
-		term.send("nimble build", "float")
-	end,
-	{}
-)
-
-vim.keymap.set('n', 'nr', function()
-		term.send("nimble run", "float")
-	end,
-	{}
-)
-
--- Dashboard
---[[require('dashboard').setup(
-	{
-		theme = 'doom',
-		config = {
-			header = {},
-			center = {
-				{
-					icon = '',
-					icon_hl = 'group',
-					desc = 'Hello'
-				}
-			}
-		}
-	}
-)--]]
-
 -- Setup my status bar
 require('lualine').setup {
   options = {
@@ -389,66 +361,6 @@ require("nvim-treesitter.configs").setup({
     additional_vim_regex_highlighting = false,
   },
 })
-
--- Discord rich presence
-local quotes = {
-	"Those who can, do. Those who cannot, complain.",
-	"Any sufficiently advanced technology is indistinguishable from magic.",
-	"The only way of discovering the limits of the possible is to venture a little way past them into the impossible.",
-	"Premature optimization is the root of all evil.",
-	"A primary cause of complexity is that software vendors uncritically adopt almost any feature that users want.",
-	"Expected a quote here? Tough luck."
-}
-
-math.randomseed(os.clock())
-local qIdx = math.floor(math.random() * #quotes) + 1
-local rpcKillSwitch = "/home/"..os.getenv("USER").."/.neovim-no-rpc"
-
---[[local presence = require("presence")
-presence.setup({
-	-- General options
-    	auto_update         = true,
-    	neovim_image_text   = quotes[qIdx],
-    	--main_image          = "neovim-mark-flat",                   -- Main image display (either "neovim" or "file")
-    	--client_id           = "1145710737055039660",
-    	log_level           = nil,                        -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
-    	debounce_timeout    = 10,                         -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
-    	enable_line_number  = true,                      -- Displays the current line number instead of the current project
-    	blacklist           = {},                         -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
-    	buttons             = true,                       -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
-    	file_assets         = {},                         -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
-    	show_time           = true,                       -- Show the timer
-
-    		-- Rich Presence text options
-    	editing_text        = "Editing %s",               -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
-    	file_explorer_text  = "Browsing",              -- Format string rendered when browsing e file explorer (either string or function(file_explorer_name: string): string)
-    	git_commit_text     = "Committing changes",       -- Format string rendered when committing changes in git (either string or function(filename: string): string)
-    	plugin_manager_text = "Managing plugins",         -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
-    	reading_text        = "Reading %s",               -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
-    	workspace_text      = "Working on %s",            -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
-    	line_number_text    = "Line %s out of %s",        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
-})
-
-if fileExists(rpcKillSwitch) ~= true then -- sneak 100
-	presence.cancel()
-end
-
-vim.keymap.set('n', 'rd', function()
-		if fileExists(rpcKillSwitch) ~= true then
-			local f = io.open(rpcKillSwitch, "w")
-			assert(f, "Can't open: "..rpcKillSwitch)
-			f:write("sneak 100")
-			
-			presence.cancel()
-			vim.notify("Discord RPC has been disabled.")
-		else
-			os.remove(rpcKillSwitch)
-			presence.connect()
-			vim.notify("Discord RPC has been enabled.")
-		end
-	end,
-	{}
-)--]]
 
 -- LSP and autocompletion
 local cmp = require("cmp")
@@ -536,3 +448,14 @@ vim.keymap.set('n', 'qq',
 	end,
 	{}
 )
+
+-- Formatters
+require("conform").setup({
+  formatters_by_ft = {
+    nim = { "nph" },
+  },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback"
+  }
+})

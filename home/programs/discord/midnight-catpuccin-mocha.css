@@ -16,7 +16,8 @@
 
 /* customize things here */
 :root {
-	--font: 'JetBrainsMono';
+	--font: 'AdwaitaSans';
+	--font-primary: 'AdwaitaSans';
 
 	/* top left corner text */
 	--corner-text: 'I use NixOS btw';
