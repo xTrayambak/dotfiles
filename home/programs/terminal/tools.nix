@@ -1,4 +1,9 @@
-{ inputs, lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
@@ -21,6 +26,7 @@
     file
     ngrok
     mpv
+    cloudflared
     ani-cli
 
     zip
