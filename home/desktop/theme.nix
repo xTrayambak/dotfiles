@@ -61,7 +61,6 @@
     libadwaita
     adwaita-qt
     adwaita-qt6
-    colloid-kde
     fira-code
     adwaita-fonts
     noto-fonts-cjk-sans

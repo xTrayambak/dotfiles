@@ -10,6 +10,8 @@
     zathura
     gnome-calculator
     gnome-secrets
+    spotube
+    gnome-control-center
     amberol
     gnome-calendar
     pavucontrol
@@ -22,6 +24,7 @@
     fractal
     libreoffice
     fragments
+    simple-scan
     mission-center
     smartmontools
     blueman

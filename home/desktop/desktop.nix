@@ -6,11 +6,12 @@
     ./waybar
     ./avizo
     ./fusuma
-    ./wlogout
+    # ./wlogout
     ./rofi
     ./wezterm
     ./mako
 
     ./theme.nix
+    ./input.nix
   ];
 }

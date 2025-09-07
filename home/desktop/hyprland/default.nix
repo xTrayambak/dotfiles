@@ -264,7 +264,7 @@
         # Notification destroyer 8000
         "SUPER_SHIFT, D, exec, ${pkgs.mako}/bin/makoctl dismiss"
 
-        "SUPER, E, exec, ${pkgs.wlogout}/bin/wlogout"
+        # "SUPER, E, exec, ${pkgs.wlogout}/bin/wlogout"
 
         # Workspace switching
         "$mainMod, 1, workspace, 1"

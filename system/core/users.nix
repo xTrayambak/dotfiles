@@ -10,6 +10,9 @@
       "gamemode"
       "networkmanager"
       "tray"
+      "docker"
+      "scanner"
+      "lp"
     ];
     initialPassword = "deinemutteristlecker";
     shell = pkgs.zsh;
