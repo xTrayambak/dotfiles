@@ -30,7 +30,7 @@
       "$fullscreenss" = "/home/${config.home.username}/.scripts/screenshot full";
       "$selectss" = "/home/${config.home.username}/.scripts/screenshot select";
       "$screenlock" = "/home/${config.home.username}/.scripts/locker";
-      "$applauncher" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
+      "$applauncher" = "${pkgs.rofi}/bin/rofi -show drun";
       "$selectss_silent" = "/home/${config.home.username}/.scripts/screenshot select yes";
       "$fullscreenss_silent" = "/home/${config.home.username}/.scripts/screenshot full yes";
 
@@ -41,6 +41,9 @@
         "XCURSOR_THEME,${config.gtk.cursorTheme.name}"
         "AQ_DRM_DEVICES,/dev/dri/card2"
         "GSK_RENDERER,ngl"
+        "GTK_IM_MODULE,fcitx"
+        "QT_IM_MODULE,fcitx"
+        "SDL_IM_MODULE,fcitx"
         "ADW_DISABLE_PORTAL,1"
       ];
 
@@ -137,10 +140,10 @@
 
       #master.new_is_master = true;
 
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_fingers = 3;
-      };
+      #gestures = {
+      #  workspace_swipe = true;
+      #  workspace_swipe_fingers = 3;
+      #};
 
       misc = {
         vrr = true;

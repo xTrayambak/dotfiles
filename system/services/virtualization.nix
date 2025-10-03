@@ -6,5 +6,5 @@
   ];
   #virtualisation.virtualbox.host.enable = true;
   #virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 }

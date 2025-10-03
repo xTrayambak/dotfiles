@@ -7,7 +7,10 @@
     pkgs.xonotic
     pkgs.steam
     pkgs.wine-staging
-    pkgs.bottles
+    pkgs.lutris
+    pkgs.winetricks
+    # pkgs.bottles
+    (pkgs.bottles.override { removeWarningPopup = true; })
     pkgs.wl-clipboard
 
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin

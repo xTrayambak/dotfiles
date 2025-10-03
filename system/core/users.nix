@@ -12,11 +12,14 @@
       "tray"
       "docker"
       "scanner"
+      "wireshark"
       "lp"
     ];
     initialPassword = "deinemutteristlecker";
     shell = pkgs.zsh;
   };
+
+  programs.wireshark.enable = true;
 
   environment = {
     # Launch hyprland upon login (tty1 only)

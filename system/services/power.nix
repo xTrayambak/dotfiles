@@ -1,9 +1,9 @@
 {
-	services = {
-		logind.extraConfig = ''
-		HandlePowerKey=suspend
-		'';
+  services = {
+    #		logind.extraConfig = ''
+    #		HandlePowerKey=suspend
+    #		'';
 
-		upower.enable = true;
-	};
+    upower.enable = true;
+  };
 }

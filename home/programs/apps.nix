@@ -12,7 +12,7 @@
     gnome-secrets
     spotube
     gnome-control-center
-    amberol
+    # amberol
     gnome-calendar
     pavucontrol
     snapshot

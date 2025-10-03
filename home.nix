@@ -1,11 +1,12 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   imports = [
-	./home/default.nix
+    ./home/default.nix
   ];
 
   nixpkgs = {
     overlays = [
-    	inputs.nur.overlay
+      inputs.nur.overlay
     ];
     config = {
       allowUnfree = true;
@@ -21,7 +22,8 @@
       fastfetch
     ];
     sessionPath = [
-    	"~/.nimble/bin"
+      "~/.nimble/bin"
+      "~/.local/share/neo/bin"
     ];
     stateVersion = "24.05";
   };
