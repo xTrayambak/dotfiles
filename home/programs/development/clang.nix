@@ -1,14 +1,15 @@
 { pkgs, ... }:
 
 {
-	home.packages = with pkgs; [
-		gcc
-		libclang
-		gdb
-		just
-		gnumake
-		pkg-config
-		valgrind
-		lld
-  	];
+  home.packages = with pkgs; [
+    gcc
+    libclang
+    gdb
+    just
+    meson
+    gnumake
+    pkg-config
+    valgrind
+    lld
+  ];
 }

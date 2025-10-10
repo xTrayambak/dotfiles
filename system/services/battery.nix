@@ -34,7 +34,7 @@
 			RADEON_DPM_PERF_LEVEL_ON_BAT = "auto";
 
 			PCIE_ASPM_ON_AC = "performance";
-			PCIE_ASPM_ON_BAT = "powersupersave";
+			PCIE_ASPM_ON_BAT = "performance";
 
 			WIFI_PWR_ON_AC = "off";
 			WIFI_PWR_ON_BAT = "on";

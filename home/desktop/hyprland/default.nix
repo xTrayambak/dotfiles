@@ -39,7 +39,7 @@
         "HYPRCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
         "XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
         "XCURSOR_THEME,${config.gtk.cursorTheme.name}"
-        "AQ_DRM_DEVICES,/dev/dri/card2"
+        # "AQ_DRM_DEVICES,/dev/dri/card2"
         "GSK_RENDERER,ngl"
         "GTK_IM_MODULE,fcitx"
         "QT_IM_MODULE,fcitx"

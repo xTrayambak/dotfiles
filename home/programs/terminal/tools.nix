@@ -19,7 +19,7 @@
     hyperfine
     python314
     arp-scan
-    meson
+    pciutils
     ninja
     cmatrix
     fd
