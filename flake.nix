@@ -42,11 +42,16 @@
       hyprland-plugins,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+    in
     {
+      packages.${system}.scripts = (pkgs.callPackage ./scripts { });
 
       homeConfigurations = {
         "tray" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs { system = "x86_64-linux"; };
+          inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [
             ./home.nix
@@ -55,7 +60,7 @@
       };
       nixosConfigurations = {
         "box" = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           specialArgs = { inherit inputs; };
           modules = [ ./sys.nix ];
         };

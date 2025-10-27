@@ -27,12 +27,12 @@
       "$mainMod" = "SUPER";
       "$term" = "${pkgs.wezterm}/bin/wezterm";
       "$filemanager" = "${pkgs.nautilus}/bin/nautilus";
-      "$fullscreenss" = "/home/${config.home.username}/.scripts/screenshot full";
-      "$selectss" = "/home/${config.home.username}/.scripts/screenshot select";
-      "$screenlock" = "/home/${config.home.username}/.scripts/locker";
+      "$fullscreenss" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot full";
+      "$selectss" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot select";
+      "$screenlock" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/locker";
       "$applauncher" = "${pkgs.rofi}/bin/rofi -show drun";
-      "$selectss_silent" = "/home/${config.home.username}/.scripts/screenshot select yes";
-      "$fullscreenss_silent" = "/home/${config.home.username}/.scripts/screenshot full yes";
+      "$selectss_silent" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot select yes";
+      "$fullscreenss_silent" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot full yes";
 
       env = [
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
@@ -71,8 +71,6 @@
       exec-once = [
         "${pkgs.waybar}/bin/waybar"
         "${pkgs.swww}/bin/swww-daemon"
-        # "/home/${config.home.username}/.scripts/wallpaper_dumb"
-        # "/home/${config.home.username}/.scripts/power_saver_userland"
         "${pkgs.mako}/bin/mako"
         "${pkgs.avizo}/bin/avizo-service"
         "${pkgs.blueman}/bin/blueman-applet"

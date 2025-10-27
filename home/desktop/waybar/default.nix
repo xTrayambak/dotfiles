@@ -79,26 +79,13 @@
         spacing = 4;
       };
       "custom/weather" = {
-        exec = "~/.scripts/wttr waybar NOIDA";
+        exec = "${inputs.self.packages.${pkgs.system}.scripts}/bin/wttr waybar NOIDA";
         "return-type" = "json";
-        on-click = "~/.scripts/wttr notify NOIDA";
-        on-click-right = "~/.scripts/wttr refresh NOIDA notify";
+        on-click = "${inputs.self.packages.${pkgs.system}.scripts}/bin/wttr notify NOIDA";
+        on-click-right = "${inputs.self.packages.${pkgs.system}.scripts}/bin/wttr refresh NOIDA notify";
         interval = 10;
         format = "{}";
         tooltip = false;
-      };
-      "custom/vpn" = {
-        exec = "~/.scripts/waybar_vpn utun420";
-        return-type = "json";
-        interval = 1;
-        on-click = "windscribe-cli connect";
-        on-click-right = "windscribe-cli disconnect";
-      };
-      "custom/airplane_mode" = {
-        exec = "~/.scripts/airplane_mode waybar";
-        return-type = "json";
-        interval = 1;
-        on-click = "~/.scripts/airplane_mode toggle";
       };
       battery = {
         states = {

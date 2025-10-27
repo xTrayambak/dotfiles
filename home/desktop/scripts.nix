@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = [
-    (pkgs.callPackage ../../scripts { })
+    inputs.self.packages.${pkgs.system}.scripts
   ];
 }
