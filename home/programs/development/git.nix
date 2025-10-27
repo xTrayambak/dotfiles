@@ -3,8 +3,12 @@
 {
   programs.git = {
     enable = true;
-    userName = "xTrayambak";
-    userEmail = "xtrayambak@gmail.com";
+    settings = {
+      user = {
+        name = "xTrayambak";
+        email = "xtrayambak@gmail.com";
+      };
+    };
   };
 
   programs.gh = {

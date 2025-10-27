@@ -47,6 +47,13 @@
         "ADW_DISABLE_PORTAL,1"
       ];
 
+      permission = [
+        "*, plugin, deny"
+        "*, keyboard, ask"
+        "*, screencopy, ask"
+        "${pkgs.grim}/bin/grim, screencopy, allow"
+      ];
+
       "binds:scroll_event_delay" = "80000000";
 
       # Monitor configuration (1920x1080 display at 144FPS)
@@ -107,8 +114,15 @@
           passes = 3;
           ignore_opacity = true;
           popups = true;
+          popups_ignorealpha = 0.0;
         };
 
+        shadow = {
+          enabled = true;
+          range = 4;
+          render_power = 3;
+          color = "rgba(0b0e07d1)";
+        };
         # drop_shadow = true;
         # shadow_range = 4;
         # shadow_render_power = 3;
@@ -119,7 +133,7 @@
         enabled = true;
         bezier = [
           "myBezier, 0.05, 0.9, 0.1, 1.05"
-          "workspaceSwitch, .37,.04,.6,.92"
+          # "workspaceSwitch, .37,.04,.6,.92"
         ];
         animation = [
           "windows, 1, 5, myBezier"
@@ -162,7 +176,7 @@
         "ignorezero, rofi"
         "ignorezero, avizo"
         "blur, waybar"
-        "ignorealpha 0.8, waybar"
+        # "ignorealpha 0.15, waybar"
         "blurpopups, waybar"
         "animation fadeIn, avizo"
         "blur, logout_dialog"

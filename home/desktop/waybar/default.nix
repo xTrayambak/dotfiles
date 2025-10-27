@@ -6,10 +6,10 @@
     package = inputs.waybar.packages.${pkgs.system}.waybar;
     style = builtins.readFile ./style.css;
     settings.mainBar = {
-      height = 36;
+      height = 48;
       spacing = 0;
       layer = "top";
-      position = "top";
+      position = "bottom";
       modules-left = [
         "wireplumber"
         "battery"
@@ -180,7 +180,7 @@
       };
       "hyprland/window" = {
         max-length = 80;
-        format = "<span>{}</span>";
+        format = "{}";
         tooltip = "{}";
         separate-outputs = true;
         on-click = "missioncenter";

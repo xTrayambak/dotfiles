@@ -23,27 +23,37 @@
     };
   };
 
-  outputs = { 
-    nixpkgs, home-manager, 
-    hyprland, nur, lanzaboote,
-    waybar, nix-gaming, nixpak, 
-    rose-pine-hyprcursor, zen-browser, ... } @ inputs: {
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      hyprland,
+      nur,
+      lanzaboote,
+      waybar,
+      nix-gaming,
+      nixpak,
+      rose-pine-hyprcursor,
+      zen-browser,
+      ...
+    }@inputs:
+    {
 
-    homeConfigurations = {
-      "tray" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
-	extraSpecialArgs = { inherit inputs; };
-        modules = [
-	  ./home.nix
-	];
+      homeConfigurations = {
+        "tray" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { system = "x86_64-linux"; };
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+            ./home.nix
+          ];
+        };
+      };
+      nixosConfigurations = {
+        "box" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [ ./sys.nix ];
+        };
       };
     };
-    nixosConfigurations = {
-      "box" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-	specialArgs = { inherit inputs; };
-	modules = [ ./sys.nix ];
-      };
-    };
-  };
 }
