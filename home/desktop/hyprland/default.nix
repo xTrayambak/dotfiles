@@ -21,7 +21,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    plugins = [ ];
+    plugins = [ ]; # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ];
     settings = {
       # Variables
       "$mainMod" = "SUPER";
@@ -40,7 +40,7 @@
         "XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
         "XCURSOR_THEME,${config.gtk.cursorTheme.name}"
         # "AQ_DRM_DEVICES,/dev/dri/card2"
-        "GSK_RENDERER,ngl"
+        "GSK_RENDERER,vulkan"
         "GTK_IM_MODULE,fcitx"
         "QT_IM_MODULE,fcitx"
         "SDL_IM_MODULE,fcitx"
@@ -71,7 +71,7 @@
       exec-once = [
         "${pkgs.waybar}/bin/waybar"
         "${pkgs.swww}/bin/swww-daemon"
-        "/home/${config.home.username}/.scripts/wallpaper_dumb"
+        # "/home/${config.home.username}/.scripts/wallpaper_dumb"
         # "/home/${config.home.username}/.scripts/power_saver_userland"
         "${pkgs.mako}/bin/mako"
         "${pkgs.avizo}/bin/avizo-service"
@@ -337,6 +337,12 @@
           gesture_fingers = 3;
           gesture_distance = 300;
           gesture_positive = false;
+        };
+        hyprbars = {
+          bar_height = 32;
+          bar_text_size = 12;
+          bar_text_font = "AdwaitaSans";
+          on_double_click = "hyprctl dispatch fullscreen 1";
         };
       };
     };

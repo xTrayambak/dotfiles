@@ -101,7 +101,7 @@ window#waybar
 
 #tray menu
 {
-	opacity: 1.0;
+	background-color: rgba(11, 11, 13, 0.49);
 }
 
 #custom-quit,
@@ -148,6 +148,12 @@ window#waybar
 #pulseaudio,
 #wireplumber
 {
+	border-radius: 0px 0px 0px 10px;
+	margin-left: 0px;
+}
+
+#custom-weather
+{
 	border-radius: 10px 0px 0px 10px;
 	margin-left: 10px;
 }
@@ -158,7 +164,6 @@ window#waybar
 	margin-left: 10px;
 }
 
-#custom-weather,
 #custom-vpn, 
 #bluetooth,
 #custom-airplane_mode

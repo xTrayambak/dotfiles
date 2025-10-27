@@ -11,8 +11,6 @@
       layer = "top";
       position = "bottom";
       modules-left = [
-        "wireplumber"
-        "battery"
         "custom/weather"
         "temperature"
         "privacy"
@@ -23,7 +21,8 @@
       modules-right = [
         "tray"
         "network"
-        "bluetooth"
+        "wireplumber"
+        "battery"
         "clock"
       ];
       /*
@@ -54,12 +53,13 @@
         			};
       */
       wireplumber = {
-        format = "{icon}  {volume}%";
+        format = "{icon}";
         format-muted = "󰸈";
         format-source = "";
         format-source-muted = "";
         on-click = "pavucontrol";
         on-hover = "{source}%";
+        tooltip-format = "{volume}%";
         on-scroll-up = "volumectl -d +1%";
         on-scroll-down = "volumectl -d -1%";
         format-icons = {
@@ -106,9 +106,10 @@
           warning = 30;
           critical = 15;
         };
-        format = "{icon}  {capacity}%";
-        format-charging = "  {capacity}%";
-        format-plugged = " {capacity}% ";
+        format = "{icon}";
+        format-charging = " ";
+        format-plugged = " ";
+        tooltip-format = "{capacity}%";
         format-alt = "{icon} {time}";
         update-interval = 60;
         format-icons = [
@@ -120,7 +121,7 @@
         ];
       };
       clock = {
-        format = "󰥔  {:%a %d %H:%M}";
+        format = "{:%a %d %H:%M}";
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         interval = 60;
       };
@@ -143,7 +144,7 @@
         interval = 10;
       };
       network = {
-        format-wifi = "{icon}  {essid}";
+        format-wifi = "{icon}";
         format-icons = [
           "󰤯"
           "󰤟"
@@ -151,7 +152,7 @@
           "󰤥"
           "󰤨"
         ];
-        tooltip-format = "↑ {bandwidthUpBytes} ↓ {bandwidthDownBytes}";
+        tooltip-format = "{essid}";
         format-ethernet = "󰈁";
         format-disconnected = "󰤫";
         format-disabled = "󰤭";

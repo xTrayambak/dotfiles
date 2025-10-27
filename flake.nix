@@ -21,6 +21,10 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs =
@@ -35,6 +39,7 @@
       nixpak,
       rose-pine-hyprcursor,
       zen-browser,
+      hyprland-plugins,
       ...
     }@inputs:
     {
