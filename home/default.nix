@@ -1,6 +1,7 @@
 {
-	imports = [
-		./desktop/desktop.nix
-		./programs/programs.nix
-	];
+  imports = [
+    ./desktop/desktop.nix
+    ./desktop/scripts.nix
+    ./programs/programs.nix
+  ];
 }

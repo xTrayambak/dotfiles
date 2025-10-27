@@ -1,0 +1,16 @@
+[package]
+name = "scripts"
+version = "1.0.0"
+license = "GPL-2.0-only"
+kind = "Binary"
+backend = "C"
+binaries = ["player_notifs", "power_saver_userland", "wttr", "locker", "netinfo", "waybar_vpn", "wallpaper_dumb", "tlp_tray", "pretty_date", "tlp_root", "wallpaper_cli", "power_saver", "tlp_cli", "screenshot", "wallpaper", "batinfo", "music", "airplane_mode"]
+
+[toolchain]
+version = ""
+
+[dependencies]
+jsony = ">= 1.1.5"
+colored_logger = ">= 0.1.0"
+"https://github.com/xTrayambak/tray" = ">= 0.1.0"
+pretty = ">= 0.2.0"
