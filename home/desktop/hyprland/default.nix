@@ -165,63 +165,75 @@
 
       # Layer rules
       layerrule = [
-        "blur, wofi"
-        "blur, notifications"
-        "ignorezero, notifications"
-        "ignorezero, wofi"
-        "blur, avizo"
-        "blur, rofi"
-        "ignorezero, rofi"
-        "ignorezero, avizo"
-        "blur, waybar"
-        # "ignorealpha 0.15, waybar"
-        "blurpopups, waybar"
-        "animation fadeIn, avizo"
-        "blur, logout_dialog"
-        "ignorezero, logout_dialog"
-        "animation fadeIn, logout_dialog"
-        "ignorealpha 0.23, lucem"
-        "blur, basket"
-        "ignorezero, basket"
+        {
+          name = "rofi";
+          ignore_alpha = "0";
+          blur = "on";
+          "match:namespace" = "^(rofi)";
+        }
+        {
+          name = "notifications";
+          blur = "on";
+          ignore_alpha = "0";
+          "match:namespace" = "^(notifications)";
+        }
+        {
+          name = "avizo";
+          blur = "on";
+          animation = "fadeIn";
+          "match:namespace" = "^(avizo)";
+        }
+        {
+          name = "waybar";
+          blur = "on";
+          blur_popups = "on";
+          "match:namespace" = "^(waybar)";
+        }
       ];
 
       # Window rules
       windowrule = [
-        # "float, blueman"
-        # "fullscreen, Xonotic"
-        # "fullscreen, ^(Minecraft)(.*)$"
-        # "immediate, ^(Minecraft)(.*)$"
-        # "immediate, Xonotic"
-      ];
-
-      windowrulev2 = [
-        "opacity 0.845 override, class:org.pulseaudio.pavucontrol"
-        "float, class:org.pulseaudio.pavucontrol"
-        "float, class:.blueman-manager-wrapped"
-        "opacity 0.845 override, class:.blueman-manager-wrapped"
-        "opacity 0.799 override, class:vesktop"
-        "opacity 0.845 override, class:org.gnome.World.Secrets"
-        "opacity 0.845 override, class:org.gnome.Settings"
-        "workspace 4 silent, class:vesktop"
-        "float, class:org.gnome.World.Secrets"
-        "size 560 780, class:org.gnome.World.Secrets"
-        "workspace 1, class:firefox"
-        "fullscreen, class:sober"
-        "float, class:sober_services"
-        "workspace 3, class:sober"
-        "workspace 3, class:sober_services"
-        "immediate, class:sober"
-        # "float, class:org.gnome.Nautilus"
-        "float, class:org.gnome.Calculator"
-        "float, class:org.gnome.Characters"
-        "float, class:io.missioncenter.MissionCenter"
-        "size 1053 719, class:io.missioncenter.MissionCenter"
-        "opacity 0.845, class:io.missioncenter.MissionCenter"
-        "opacity 0.945, class:wezterm"
-        "float, class:nm-connection-editor"
-        "opacity 0.945, class:nm-connection-editor"
-        "opacity 0.845, class:org.gnome.Calculator"
-        "workspace 3, class:sober"
+        {
+          name = "vesktop";
+          opacity = "0.799 override";
+          workspace = "4 silent";
+          "match:class" = "vesktop";
+        }
+        {
+          name = "sober";
+          fullscreen = "";
+          immediate = "";
+          workspace = "3";
+          "match:class" = "sober";
+        }
+        {
+          name = "zen";
+          workspace = "1";
+          "match:class" = "firefox";
+        }
+        {
+          name = "calc";
+          float = "";
+          "match:class" = "org.gnome.Calculator";
+        }
+        # "float, class:org.gnome.World.Secrets"
+        # "size 560 780, class:org.gnome.World.Secrets"
+        # "workspace 1, class:firefox"
+        # "fullscreen, class:sober"
+        # "float, class:sober_services"
+        # "workspace 3, class:sober"
+        # "workspace 3, class:sober_services"
+        # "immediate, class:sober"
+        # "float, class:org.gnome.Calculator"
+        # "float, class:org.gnome.Characters"
+        # "float, class:io.missioncenter.MissionCenter"
+        # "size 1053 719, class:io.missioncenter.MissionCenter"
+        # "opacity 0.845, class:io.missioncenter.MissionCenter"
+        # "opacity 0.945, class:wezterm"
+        # "float, class:nm-connection-editor"
+        # "opacity 0.945, class:nm-connection-editor"
+        # "opacity 0.845, class:org.gnome.Calculator"
+        # "workspace 3, class:sober"
       ];
 
       # Keybinds
@@ -231,7 +243,7 @@
         "SUPER, T, exec, $term"
         "SUPER, Return, exec, $term"
         "SUPER, F, exec, $filemanager"
-        "SUPER_SHIFT, T, killactive"
+        "SUPER_SHIFT, Q, killactive"
         "SUPER_SHIFT, R, exec, hyprctl reload"
         "SUPER_ALT, T, exec, hyprctl kill"
         "SUPER, V, togglefloating"

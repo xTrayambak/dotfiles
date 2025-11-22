@@ -160,7 +160,7 @@ window#waybar
 
 #privacy
 {
-	background-color: green;
+	background-color: #3679C6;
 	border-radius: 10px 10px 10px 10px;
 	margin-left: 10px;
 	margin-right: 10px;

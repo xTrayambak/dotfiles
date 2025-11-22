@@ -13,7 +13,7 @@
     (pkgs.bottles.override { removeWarningPopup = true; })
     pkgs.wl-clipboard
 
-    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    # inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
   ];
 
   # radioactive shit. whoever wrote this deserves to stub their toe on a lego because it's intentionally bad.

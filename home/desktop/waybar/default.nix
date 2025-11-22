@@ -13,13 +13,13 @@
       modules-left = [
         "custom/weather"
         "temperature"
-        "privacy"
       ];
       modules-center = [
         "hyprland/window"
       ];
       modules-right = [
         "tray"
+        "privacy"
         "network"
         "wireplumber"
         "battery"
