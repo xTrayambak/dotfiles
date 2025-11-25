@@ -5,6 +5,7 @@
     settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
+        gtk-theme = "Adwaita-dark";
       };
       "org/gnome/shell" = {
         disable-user-extensions = false;
@@ -17,6 +18,7 @@
 
   gtk = {
     enable = true;
+    gtk4.colorScheme = "dark";
     cursorTheme = {
       name = "BreezeX-RosePine-Linux";
       size = 32;

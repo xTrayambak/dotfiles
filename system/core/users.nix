@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   users.users.tray = {
     isNormalUser = true;
@@ -33,7 +33,6 @@
       QT_QPA_PLATFORM = "wayland";
       XWAYLAND_NO_GLAMOR = "0";
       __GLX_VENDOR_LIBRARY_NAME = "amd";
-      XDG_CURRENT_DESKTOP = "GNOME";
     };
     variables = {
       EDITOR = "nvim";

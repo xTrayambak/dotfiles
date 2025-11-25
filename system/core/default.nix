@@ -65,23 +65,34 @@
     nerd-fonts.roboto-mono
   ];
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gnome
-    ];
-    config = {
-      common.default = [ "gnome" ];
-      hyprland.default = [
-        "gnome"
-        "hyprland"
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
       ];
+      configPackages = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+      ];
+      config = {
+        common = {
+          default = [
+            "gnome"
+            "hyprland"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.Settings" = "gnome";
+        };
+      };
+      xdgOpenUsePortal = false;
     };
-    xdgOpenUsePortal = false;
   };
 
   environment.variables = {
-    GSK_RENDERER = "ngl"; # I have weird artifacting with the Vulkan backend on my GPU
+    GSK_RENDERER = "vulkan"; # I have weird artifacting with the Vulkan backend on my GPU
+    ADW_DISABLE_PORTAL = "1";
   };
 
   services.flatpak.enable = true;

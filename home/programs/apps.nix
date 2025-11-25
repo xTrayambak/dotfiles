@@ -10,9 +10,8 @@
     zathura
     gnome-calculator
     gnome-secrets
-    spotube
     gnome-control-center
-    # amberol
+    amberol
     gnome-calendar
     pavucontrol
     snapshot

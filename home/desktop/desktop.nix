@@ -7,8 +7,8 @@
     ./avizo
     ./fusuma
     # ./wlogout
-    ./rofi
     ./wezterm
+    ./fuzzel
     ./mako
 
     ./theme.nix

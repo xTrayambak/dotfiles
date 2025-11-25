@@ -7,6 +7,7 @@
     pkgs.xonotic
     pkgs.steam
     pkgs.wine-staging
+    pkgs.gpu-screen-recorder
     pkgs.lutris
     pkgs.winetricks
     # pkgs.bottles

@@ -30,7 +30,7 @@
       "$fullscreenss" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot full";
       "$selectss" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot select";
       "$screenlock" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/locker";
-      "$applauncher" = "${pkgs.rofi}/bin/rofi -show drun";
+      "$applauncher" = "${pkgs.fuzzel}/bin/fuzzel";
       "$selectss_silent" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot select yes";
       "$fullscreenss_silent" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot full yes";
 
@@ -166,10 +166,10 @@
       # Layer rules
       layerrule = [
         {
-          name = "rofi";
+          name = "fuzzel";
           ignore_alpha = "0";
           blur = "on";
-          "match:namespace" = "^(rofi)";
+          "match:namespace" = "^(fuzzel)";
         }
         {
           name = "notifications";
@@ -208,7 +208,7 @@
         }
         {
           name = "zen";
-          workspace = "1";
+          workspace = "1 silent";
           "match:class" = "firefox";
         }
         {
