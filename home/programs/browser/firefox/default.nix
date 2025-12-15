@@ -16,14 +16,19 @@
     		source = ./custom.css;
     	};
   */
+
+  home.file."startpage-search" = {
+    target = ".zen/";
+  };
   programs.firefox = {
     enable = true;
     package = inputs.zen-browser.packages.${pkgs.system}.default;
     profiles = {
       default = {
         extraConfig = ''
-
-          	'';
+          user_pref("browser.search.defaultenginename", "Startpage");
+          user_pref("browser.search.selectedEngine", "Startpage");
+                    	'';
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           i-dont-care-about-cookies

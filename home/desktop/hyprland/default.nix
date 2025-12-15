@@ -251,9 +251,10 @@
         "SUPER, D, exec, $applauncher"
         ",Print, exec, $selectss"
         "$mainMod, L, exec, $screenlock"
-        ",F8, exec, ${pkgs.playerctl}/bin/playerctl previous"
-        ",F9, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
-        ",F10, exec, ${pkgs.playerctl}/bin/playerctl next"
+        ",XF86AudioStop, exec, ${pkgs.playerctl}/bin/playerctl pause"
+        ",XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+        ",XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+        ",XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
 
         # Wallpaper controls
         "SUPER_SHIFT, W, exec, /home/${config.home.username}/.scripts/wallpaper_cli change-wallpaper"

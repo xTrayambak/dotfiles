@@ -1,7 +1,8 @@
 {
-	imports = [
-		./firefox
-		./luakit
-		./tor.nix
-	];
+  imports = [
+    ./firefox
+    ./luakit
+    ./epiphany
+    ./tor.nix
+  ];
 }

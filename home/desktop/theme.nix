@@ -7,12 +7,6 @@
         color-scheme = "prefer-dark";
         gtk-theme = "Adwaita-dark";
       };
-      "org/gnome/shell" = {
-        disable-user-extensions = false;
-        enabled-extensions = with pkgs.gnomeExtensions; [
-          blur-my-shell.extensionUuid
-        ];
-      };
     };
   };
 

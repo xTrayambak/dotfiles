@@ -14,5 +14,7 @@
     ./warp.nix
     ./polkit.nix
     ./scheduler.nix
+
+    ./desktop
   ];
 }
