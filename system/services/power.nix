@@ -1,8 +1,9 @@
 {
   services = {
-    #		logind.extraConfig = ''
-    #		HandlePowerKey=suspend
-    #		'';
+    logind.settings.Login = {
+      HandlePowerKey = "lock";
+      HandleLidSwitch = "suspend";
+    };
 
     upower.enable = true;
   };

@@ -7,6 +7,9 @@
         color-scheme = "prefer-dark";
         gtk-theme = "Adwaita-dark";
       };
+      "org/gnome/epiphany/web" = {
+        enable-webextensions = true;
+      };
     };
   };
 

@@ -16,10 +16,6 @@
     		source = ./custom.css;
     	};
   */
-
-  home.file."startpage-search" = {
-    target = ".zen/";
-  };
   programs.firefox = {
     enable = true;
     package = inputs.zen-browser.packages.${pkgs.system}.default;
