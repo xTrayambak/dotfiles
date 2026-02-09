@@ -9,6 +9,8 @@
     obs-studio
     zathura
     gnome-calculator
+    wireshark
+    ghidra-bin
     gnome-secrets
     gnome-control-center
     amberol
@@ -28,5 +30,6 @@
     smartmontools
     blueman
     nautilus
+    authenticator
   ];
 }

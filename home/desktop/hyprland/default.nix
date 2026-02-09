@@ -339,24 +339,6 @@
         "SUPER, up, resizeactive, 0 -15"
         "SUPER, down, resizeactive, 0 15"
       ];
-
-      plugin = {
-        hyprexpo = {
-          columns = 3;
-          gap_size = 5;
-          workspace_method = "center current";
-          enable_gesture = true;
-          gesture_fingers = 3;
-          gesture_distance = 300;
-          gesture_positive = false;
-        };
-        hyprbars = {
-          bar_height = 32;
-          bar_text_size = 12;
-          bar_text_font = "AdwaitaSans";
-          on_double_click = "hyprctl dispatch fullscreen 1";
-        };
-      };
     };
   };
 }

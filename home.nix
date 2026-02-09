@@ -22,7 +22,6 @@
       fastfetch
     ];
     sessionPath = [
-      "~/.nimble/bin"
       "~/.local/share/neo/bin"
     ];
     stateVersion = "24.05";

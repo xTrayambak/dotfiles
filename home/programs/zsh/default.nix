@@ -20,7 +20,7 @@
     };
     initContent = ''
       # I can't find a way to add these to my path with Nix. Aw shucks.
-      export PATH="/home/$USER/.nimble/bin:/home/$USER/.local/share/neo/bin:$PATH"
+      export PATH="/home/$USER/.local/share/neo/bin:$PATH"
       export SUDO_PROMPT="[] $USER: "
       		'';
   };

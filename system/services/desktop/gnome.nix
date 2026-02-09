@@ -11,5 +11,6 @@
   ];
   environment.systemPackages = with pkgs.gnomeExtensions; [
     blur-my-shell
+    paperwm
   ];
 }

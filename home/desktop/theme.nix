@@ -10,6 +10,13 @@
       "org/gnome/epiphany/web" = {
         enable-webextensions = true;
       };
+      "org/gnome/desktop/wm/preferences" = {
+        focus-mode = "sloppy";
+        auto-raise = false;
+      };
+      "org/gnome/mutter" = {
+        focus-change-on-pointer-rest = false;
+      };
     };
   };
 

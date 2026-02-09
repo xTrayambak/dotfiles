@@ -20,6 +20,7 @@
     python314
     arp-scan
     pciutils
+    fscrypt-experimental
     ninja
     cmatrix
     fd

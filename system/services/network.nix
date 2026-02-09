@@ -11,7 +11,7 @@
         443
         8080
       ];
-      allowedUDPPorts = [ ];
+      allowedUDPPorts = [ 6769 ];
       allowedTCPPortRanges = [
       ];
       allowedUDPPortRanges = [
@@ -21,6 +21,7 @@
     extraHosts = ''
       0.0.0.0 x.com
       0.0.0.0 twitter.com
+      0.0.0.0 facebook.com
             		'';
 
     #nameservers = [ "192.168.68.214" ];

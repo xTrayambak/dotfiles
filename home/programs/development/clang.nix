@@ -5,6 +5,8 @@
     gcc
     libclang
     gdb
+    lldb
+    libllvm
     just
     meson
     gnumake
