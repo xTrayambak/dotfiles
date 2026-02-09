@@ -8,8 +8,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    waybar.url = "github:Alexays/waybar";
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # waybar.url = "github:Alexays/waybar";
     lanzaboote.url = "github:nix-community/lanzaboote";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nixpak = {
@@ -21,25 +21,20 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
-      hyprland,
+      # hyprland,
       nur,
       lanzaboote,
-      waybar,
+      # waybar,
       nix-gaming,
       nixpak,
       rose-pine-hyprcursor,
       zen-browser,
-      hyprland-plugins,
       ...
     }@inputs:
     let
