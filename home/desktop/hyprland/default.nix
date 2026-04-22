@@ -35,7 +35,6 @@
       "$fullscreenss_silent" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot full yes";
 
       env = [
-        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
         "HYPRCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
         "XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
         "XCURSOR_THEME,${config.gtk.cursorTheme.name}"

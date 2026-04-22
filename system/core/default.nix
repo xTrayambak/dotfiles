@@ -46,8 +46,6 @@
       man-pages
       glib
       gsettings-desktop-schemas
-      inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-      rose-pine-cursor
     ];
     shellAliases = { };
   };
@@ -91,7 +89,7 @@
   };
 
   environment.variables = {
-    GSK_RENDERER = "vulkan"; # I have weird artifacting with the Vulkan backend on my GPU
+    GSK_RENDERER = "vulkan";
     ADW_DISABLE_PORTAL = "1";
   };
 

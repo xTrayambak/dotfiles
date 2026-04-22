@@ -9,6 +9,7 @@
         email = "xtrayambak@gmail.com";
       };
     };
+    signing.format = "openpgp";
   };
 
   programs.gh = {

@@ -23,9 +23,6 @@
 
   environment = {
     # Launch hyprland upon login (tty1 only)
-    loginShellInit = ''
-      			[ "$TTY" = /dev/tty1 ] && dbus-run-session Hyprland
-      		'';
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       SDL_VIDEODRIVER = "wayland";

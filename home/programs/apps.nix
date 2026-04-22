@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -15,6 +15,8 @@
     gnome-control-center
     amberol
     gnome-calendar
+    gimp
+    tenacity
     pavucontrol
     snapshot
     loupe
@@ -31,5 +33,6 @@
     blueman
     nautilus
     authenticator
+    inputs.nitty.packages.${pkgs.system}.default
   ];
 }

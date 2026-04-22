@@ -380,66 +380,11 @@ local on_attach = function(client, bufnr)
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
--- Setup lspconfig.
-local nvim_lsp = require('lspconfig')
-
 -- setup languages 
--- Nim
-nvim_lsp['nimls'].setup {
-  cmd = {'nimlsp'},
-  -- on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {},
-  init_options = {
-    usePlaceholders = true,
-  }
-}
-
--- Nix
-nvim_lsp['nil_ls'].setup {}
-
--- Lua
-require('lspconfig').lua_ls.setup {
-  on_init = function(client)
-    local path = client.workspace_folders[1].name
-    if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
-      client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
-        Lua = {
-          runtime = {
-            -- Tell the language server which version of Lua you're using
-            -- (most likely LuaJIT in the case of Neovim)
-            version = 'LuaJIT'
-          },
-          -- Make the server aware of Neovim runtime files
-          workspace = {
-            checkThirdParty = false,
-	"glebzlat/arduino-nvim", -- Arduino stuff
-            library = {
-              vim.env.VIMRUNTIME
-            }
-            -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-            -- library = vim.api.nvim_get_runtime_file("", true)
-          }
-        }
-      })
-
-      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-    end
-    return true
-  end
-}
-
--- C/C++
-nvim_lsp['clangd'].setup {
-  cmd = {'clangd'},
-  capabilities = capabilities,
-  settings = {},
-  init_options = {
-    usePlaceholders = true,
-  }
-}
-
-nvim_lsp['arduino_language_server'].setup({})
+vim.lsp.enable("nimls") -- Nim
+vim.lsp.enable("nil_ls") -- Nix
+vim.lsp.enable("clangd") -- C/C++
+vim.lsp.enable("rust_analyzer") -- Rust
 
 -- More keybinds
 vim.keymap.set('n', 'qq',
@@ -453,7 +398,7 @@ vim.keymap.set('n', 'qq',
 require("conform").setup({
   formatters_by_ft = {
     nim = { "nph" },
-    clang = { "" }
+    clang = { }
   },
   format_on_save = {
     timeout_ms = 500,

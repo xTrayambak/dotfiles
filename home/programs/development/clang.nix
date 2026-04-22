@@ -9,6 +9,7 @@
     libllvm
     just
     meson
+    zig
     gnumake
     pkg-config
     valgrind

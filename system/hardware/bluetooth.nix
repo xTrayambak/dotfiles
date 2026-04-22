@@ -2,16 +2,19 @@
 
 { pkgs, ... }:
 {
-	hardware.bluetooth = {
-		enable = true;
-		powerOnBoot = true;
-		package = pkgs.bluez;
-		settings = {
-			General = {
-				Experimental = true;
-			};
-		};
-	};
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    package = pkgs.bluez;
+    settings = {
+      General = {
+        Experimental = true;
+      };
+    };
+  };
 
-	environment.systemPackages = with pkgs; [ bluez bluez-tools ];
+  environment.systemPackages = with pkgs; [
+    bluez
+    bluez-tools
+  ];
 }

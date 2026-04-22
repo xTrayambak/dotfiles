@@ -10,8 +10,9 @@
     pkgs.gpu-screen-recorder
     pkgs.lutris
     pkgs.winetricks
+    pkgs.osu-lazer
     # pkgs.bottles
-    (pkgs.bottles.override { removeWarningPopup = true; })
+    # (pkgs.bottles.override { removeWarningPopup = true; })
     pkgs.wl-clipboard
 
     # inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin

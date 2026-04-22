@@ -1,12 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ ... }:
 {
-	programs.git.enable = true;
-	programs.neovim = {
-		enable = true;
-		defaultEditor = true;
-		viAlias = true;
-		vimAlias = true;
-		vimdiffAlias = true;
-		extraLuaConfig = builtins.readFile ./init.lua;
-	};
+  programs.git.enable = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    initLua = builtins.readFile ./init.lua;
+
+    withRuby = false;
+    withNodeJs = false;
+    withPython3 = false;
+  };
 }

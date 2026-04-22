@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   dconf = {
     enable = true;
@@ -13,6 +13,7 @@
       "org/gnome/desktop/wm/preferences" = {
         focus-mode = "sloppy";
         auto-raise = false;
+        button-layout = "appmenu:close";
       };
       "org/gnome/mutter" = {
         focus-change-on-pointer-rest = false;
@@ -22,10 +23,9 @@
 
   gtk = {
     enable = true;
-    gtk4.colorScheme = "dark";
-    cursorTheme = {
-      name = "BreezeX-RosePine-Linux";
-      size = 32;
+    gtk4 = {
+      colorScheme = "dark";
+      theme = null;
     };
     theme = {
       name = "Adwaita-dark";
