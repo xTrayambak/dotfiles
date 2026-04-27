@@ -12,6 +12,7 @@
     wireshark
     ghidra-bin
     gnome-secrets
+    google-chrome
     gnome-control-center
     amberol
     gnome-calendar
