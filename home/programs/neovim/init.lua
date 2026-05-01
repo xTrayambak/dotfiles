@@ -249,6 +249,11 @@ vim.keymap.set('n', 'bp', function()
 	end
 )
 
+vim.keymap.set('n', 'qw', function()
+		vim.cmd("wincmd w")
+	end
+)
+
 vim.keymap.set('n', 'df', function()
 		local file = vim.api.nvim_buf_get_name(0)
 		if fileExists(file) then

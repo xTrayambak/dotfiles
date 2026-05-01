@@ -73,7 +73,6 @@
         "${pkgs.swww}/bin/swww-daemon"
         "${pkgs.mako}/bin/mako"
         "${pkgs.avizo}/bin/avizo-service"
-        "${pkgs.blueman}/bin/blueman-applet"
         "${pkgs.networkmanagerapplet}/bin/nm-applet"
       ];
 

@@ -27,6 +27,7 @@
   environment.systemPackages = with pkgs.gnomeExtensions; [
     blur-my-shell
     rounded-window-corners-reborn
+    status-icons
     paperwm
   ];
 }

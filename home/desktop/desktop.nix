@@ -12,6 +12,5 @@
     # ./mako
 
     ./theme.nix
-    ./input.nix
   ];
 }

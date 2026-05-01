@@ -31,7 +31,6 @@
     simple-scan
     mission-center
     smartmontools
-    blueman
     nautilus
     authenticator
     inputs.nitty.packages.${pkgs.system}.default

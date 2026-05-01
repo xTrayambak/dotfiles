@@ -1,10 +1,7 @@
 { pkgs, ... }:
 {
   services.displayManager = {
-    sddm = {
-      enable = false;
-      wayland.enable = false;
-    };
+    plasma-login-manager.enable = false;
   };
 
   services.desktopManager.plasma6 = {

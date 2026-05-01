@@ -6,6 +6,7 @@
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
         gtk-theme = "Adwaita-dark";
+        cursor-theme = "Adwaita";
       };
       "org/gnome/epiphany/web" = {
         enable-webextensions = true;
