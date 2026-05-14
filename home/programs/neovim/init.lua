@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 plugins = {
-	"nvim-treesitter/nvim-treesitter", -- Treesitter highlighting
+	{ "nvim-treesitter/nvim-treesitter", tag = "v0.10.0", lazy = false, build = ":TSUpdate" }, -- Treesitter highlighting
 	"alaviss/nim.nvim",               -- Nim LSP plugin
 	"nvim-tree/nvim-web-devicons",    -- Web devicons
 	"ms-jpq/coq_nvim", -- Autocomplete

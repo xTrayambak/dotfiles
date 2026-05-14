@@ -12,15 +12,11 @@
     ripgrep
     fzf
     jq
-    playerctl
-    moreutils
     gh
     git
     hyperfine
-    python314
     arp-scan
     pciutils
-    fscrypt-experimental
     ninja
     cmatrix
     fd
@@ -29,13 +25,15 @@
     mpv
     cloudflared
     ani-cli
+    amdgpu_top
 
     zip
     unzip
     htop
     imagemagick_light
     senpai
-
+    
+    # Stuff I use for cryptic hunts
     stegseek
     exiftool
     binwalk

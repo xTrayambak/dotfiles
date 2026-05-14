@@ -7,10 +7,10 @@
     # ./avizo
     # ./fusuma
     # ./wlogout
-    ./wezterm
     # ./fuzzel
     # ./mako
+    ./wezterm
 
-    ./theme.nix
+    # ./theme.nix
   ];
 }
