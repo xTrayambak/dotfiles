@@ -7,6 +7,10 @@
     ];
     initialPassword = "deinemutteristlecker";
     shell = pkgs.bash;
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHZW9/8yqiusIbHXpntZigTstZY5d7G8FzqcH5HbzVjG xtrayambak@gmail.com"
+    ];
   };
 
   environment.variables = {
