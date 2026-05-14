@@ -25,6 +25,7 @@
     systemPackages = with pkgs; [
       vim
       git
+      htop
     ];
     shellAliases = {
       "nix-switch" = "sudo nixos-rebuild switch --flake /etc/nixos#lab";
