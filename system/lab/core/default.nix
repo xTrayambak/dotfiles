@@ -21,6 +21,8 @@
   nixpkgs.config.allowUnfree = true;
   programs.bash.enable = lib.mkForce true;
 
+  security.polkit.enable = true;
+
   environment = {
     systemPackages = with pkgs; [
       vim
