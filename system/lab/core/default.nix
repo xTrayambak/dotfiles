@@ -21,9 +21,14 @@
   nixpkgs.config.allowUnfree = true;
   programs.bash.enable = lib.mkForce true;
 
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      vim
+    ];
+    shellAliases = {
+      "nix-switch" = "sudo nixos-rebuild switch --flake /etc/nixos#lab";
+    };
+  };
 
   system.stateVersion = lib.mkForce "25.11";
   time.timeZone = lib.mkDefault "Asia/Kolkata";
