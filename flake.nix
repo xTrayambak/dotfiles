@@ -57,10 +57,18 @@
         };
       };
       nixosConfigurations = {
-        "box" = nixpkgs.lib.nixosSystem {
+        # Laptop
+        box = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
-          modules = [ ./sys.nix ];
+          modules = [ ./system/box ];
+        };
+
+        # Homelab
+        lab = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [ ./system/lab ];
         };
       };
     };
