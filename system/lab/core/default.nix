@@ -32,7 +32,7 @@
     ];
     shellAliases = {
       "nix-switch" = "sudo nixos-rebuild switch --flake /etc/nixos#lab";
-      "pull-conf" = "sudo git -C /etc/nixos pull origin refactor-1";
+      "pull-conf" = "sudo git -C /etc/nixos pull origin";
     };
   };
 
