@@ -29,6 +29,7 @@
       git
       htop
       duf
+      fastfetch
     ];
     shellAliases = {
       "nix-switch" = "sudo nixos-rebuild switch --flake /etc/nixos#lab";
