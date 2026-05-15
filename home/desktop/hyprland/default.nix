@@ -9,7 +9,7 @@
   home.packages = with pkgs; [
     grim
     slurp
-    swww
+    awww
     ydotool
     networkmanagerapplet
   ];
@@ -33,11 +33,12 @@
       "$applauncher" = "${pkgs.fuzzel}/bin/fuzzel";
       "$selectss_silent" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot select yes";
       "$fullscreenss_silent" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot full yes";
+      "$settings" = "XDG_CURRENT_DESKTOP=GNOME ${pkgs.gnome-control-center}/bin/gnome-control-center";
 
       env = [
-        "HYPRCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
-        "XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
-        "XCURSOR_THEME,${config.gtk.cursorTheme.name}"
+        # "HYPRCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
+        # "XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
+        # "XCURSOR_THEME,${config.gtk.cursorTheme.name}"
         # "AQ_DRM_DEVICES,/dev/dri/card2"
         "GSK_RENDERER,vulkan"
         "GTK_IM_MODULE,fcitx"
@@ -70,7 +71,7 @@
       # Start my bar, wallpaper applier + wallpaper script, notification daemon, OSD and networkmanager applet
       exec-once = [
         "${pkgs.waybar}/bin/waybar"
-        "${pkgs.swww}/bin/swww-daemon"
+        "${pkgs.awww}/bin/awww-daemon"
         "${pkgs.mako}/bin/mako"
         "${pkgs.avizo}/bin/avizo-service"
         "${pkgs.networkmanagerapplet}/bin/nm-applet"
@@ -142,11 +143,6 @@
           "workspaces, 1, 5, myBezier"
           "specialWorkspace, 1, 5, myBezier"
         ];
-      };
-
-      dwindle = {
-        pseudotile = false;
-        preserve_split = true;
       };
 
       #master.new_is_master = true;

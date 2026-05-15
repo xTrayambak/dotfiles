@@ -1,7 +1,7 @@
 local wezterm = require('wezterm')
 local config  = {}
 
-config.font = wezterm.font('JetBrainsMono')
+config.font = wezterm.font('JetBrainsMono Nerd Font')
 config.enable_wayland = true
 config.max_fps = 144
 config.animation_fps = 144

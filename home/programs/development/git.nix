@@ -22,5 +22,7 @@
     };
   };
 
+  home.packages = [ pkgs.forgejo-cli ];
+
   imports = lib.filter lib.pathExists [ ../../private.nix ];
 }
