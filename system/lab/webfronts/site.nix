@@ -9,6 +9,7 @@ in
 {
   systemd = {
     services.traysite = {
+      enable = true;
       description = "Zola thingmajig";
       serviceConfig = {
         Type = "oneshot";
