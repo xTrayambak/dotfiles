@@ -1,6 +1,6 @@
 {
   services.cockpit = {
-    enable = true;
+    enable = false;
     openFirewall = true;
     port = 9090;
     settings = {
@@ -10,7 +10,6 @@
       };
       Session = {
         IdleTimeout = 0;
-        Banner = "/etc/issue";
       };
     };
   };
