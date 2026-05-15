@@ -22,6 +22,103 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [ ]; # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ];
+    /*
+      configType = "lua";
+      extraConfig = ''
+                          -- My hyprland lua config. This is actually so nice :3
+
+                          hl.monitor({
+                          	output = "",
+                          	mode = "1920x1080@144",
+                          	position = "0x0",
+                          	scale = 1
+                          })
+
+                          local terminal = "${pkgs.wezterm}/bin/wezterm"
+                          local fileManager = "${pkgs.nautilus}/bin/nautilus"
+                          local screenshotTool = "${
+                            inputs.self.packages.${pkgs.system}.scripts
+                          }/bin/screenshot"
+                          local appLauncher = "${pkgs.fuzzel}/bin/fuzzel"
+                          local settings = "XDG_CURRENT_DESKTOP=GNOME ${pkgs.gnome-control-center}/bin/gnome-control-center"
+
+                          function takeFullScreenshot()
+                            hl.dsp.exec_cmd(screenshotTool + " full")
+                          end
+
+                          function takeSelectionScreenshot()
+                            hl.dsp.exec_cmd(screenshotTool + " select")
+                          end
+
+                          function setupEnvironmentVars()
+                            local envVars = {
+                    		["GSK_RENDERER"] = "vulkan",
+                    		["ADW_DISABLE_PORTAL"] = "1"
+                    	}
+
+                    	for key, value in envVars do
+                    	  print(key + " = " + value)
+                    	  hl.env(key, value)
+                    	end
+                          end
+
+                          setupEnvironmentVars()
+
+                          hl.config({
+                          	general = {
+                    	  gaps_in = 4,
+                    	  gaps_out = 10.5,
+                    	  border_size = 2,
+                    	  col = {
+                    	    active_border = "rgba(595959aa)",
+                    	    inactive_border = "rgba(595959aa)",
+                    	  },
+                    	  allow_tearing = true,
+                    	  layout = "dwindle"
+                    	},
+
+                    	decoration = {
+                    	  rounding = 10,
+                    	  blur = {
+                    	    enabled = true,
+                    	    size = 6,
+                    	    passes = 3,
+                    	    ignore_opacity = true,
+                    	    popups = true,
+                    	    popups_ignorealpha = 0.0
+                    	  },
+                    	  shadow = {
+                    	    enabled = true,
+                    	    range = 4,
+                    	    render_power = 3,
+                    	    color = "rgba(0b0e07d1)"
+                    	  }
+                    	},
+                    	animations = {
+                    	  enabled = true
+                    	},
+              	misc = {
+              	  force_default_wallpaper = 0
+              	}
+                          })
+
+          hl.curve("myBezier", points = [ {0.05, 0.9}, {0.1, 1.05} ])
+
+          hl.animation({ leaf = "windows", enabled = true, speed = 5, bezier = "myBezier" })
+          hl.animation({ leaf = "windowsOut", enabled = true, speed = 5, bezier = "myBezier" })
+          hl.animation({ leaf = "layersIn", enabled = true, speed = 5, bezier = "default", style = "slidevert" })
+          hl.animation({ leaf = "layersOut", enabled = true, speed = 5, bezier = "default", style = "slidevert" })
+          hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "myBezier" })
+
+        hl.config({ dwindle = { preserve_split = true } })
+
+              hl.gesture({
+                  fingers = 3,
+                  direction = "horizontal",
+                  action = "workspace"
+              })
+      '';
+    */
     settings = {
       # Variables
       "$mainMod" = "SUPER";
