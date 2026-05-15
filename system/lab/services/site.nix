@@ -25,29 +25,29 @@ in
         Unit = "rebuild-traysite.service";
       };
     };
+  };
 
-    services.nginx = {
-      enable = true;
-      recommendedGzipSettings = true;
-      recommendedOptimisation = true;
-      recommendedProxySettings = true;
-      recommendedTlsSettings = true;
+  services.nginx = {
+    enable = true;
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
 
-      virtualHosts."xtrayambak.xyz" = {
-        listen = [
-          {
-            addr = "127.0.0.1";
-            port = 8080;
-          }
-        ];
-        root = "/home/tray/.traysite-out";
+    virtualHosts."xtrayambak.xyz" = {
+      listen = [
+        {
+          addr = "127.0.0.1";
+          port = 8080;
+        }
+      ];
+      root = "/home/tray/.traysite-out";
 
-        locations."/" = {
-          index = "index.html";
-          extraConfig = ''
-            try_files $uri $uri/index.html =404;
-          '';
-        };
+      locations."/" = {
+        index = "index.html";
+        extraConfig = ''
+          try_files $uri $uri/index.html =404;
+        '';
       };
     };
   };
