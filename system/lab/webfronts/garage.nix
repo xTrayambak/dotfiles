@@ -12,6 +12,7 @@
         }
       ];
       metadata_dir = "/pool/garage/meta";
+      rpc_bind_addr = "[::]:3901";
     };
   };
 }
