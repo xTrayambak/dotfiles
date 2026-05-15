@@ -4,7 +4,7 @@
     ./clang.nix
     ./nim.nix
     ./rust.nix
-    # ./git.nix
+    ./git.nix
     ./nix.nix
   ];
 }

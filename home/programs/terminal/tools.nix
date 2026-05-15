@@ -12,6 +12,9 @@
     ripgrep
     fzf
     jq
+    playerctl
+    moreutils
+    python314
     gh
     git
     hyperfine
@@ -32,7 +35,7 @@
     htop
     imagemagick_light
     senpai
-    
+
     # Stuff I use for cryptic hunts
     stegseek
     exiftool
