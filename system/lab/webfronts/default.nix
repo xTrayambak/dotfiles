@@ -1,6 +1,6 @@
 {
   imports = [
-    ./minio.nix
+    ./garage.nix
     ./forgejo.nix
     ./site.nix
   ];
