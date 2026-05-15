@@ -1,7 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 {
   services.garage = {
     enable = true;
+    package = pkgs.garage;
     settings = {
       data_dir = [
         {
