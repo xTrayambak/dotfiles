@@ -12,6 +12,7 @@
     ripgrep
     fzf
     jq
+    wl-clipboard
     playerctl
     moreutils
     python314

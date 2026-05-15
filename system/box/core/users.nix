@@ -20,6 +20,7 @@
   };
 
   programs.wireshark.enable = true;
+  programs.hyprland.enable = true;
 
   environment = {
     # Launch hyprland upon login (tty1 only)
