@@ -8,6 +8,7 @@
       enable = true;
       allowedTCPPorts = [
         22 # SSH
+        3000 # forgejo
       ];
       allowedUDPPorts = [ ];
       allowedTCPPortRanges = [
