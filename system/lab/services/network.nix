@@ -8,7 +8,6 @@
       enable = true;
       allowedTCPPorts = [
         22 # SSH
-        9090 # Cockpit
       ];
       allowedUDPPorts = [ ];
       allowedTCPPortRanges = [
