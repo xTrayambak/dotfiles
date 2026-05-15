@@ -9,7 +9,7 @@
         email = "xtrayambak@gmail.com";
       };
     };
-    extraConfig = {
+    settings = {
       credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
     };
     signing.format = "openpgp";

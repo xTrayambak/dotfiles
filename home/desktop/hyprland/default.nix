@@ -22,6 +22,7 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [ ]; # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ];
+    configType = "hyprlang";
     /*
       configType = "lua";
       extraConfig = ''
@@ -133,9 +134,9 @@
       "$settings" = "XDG_CURRENT_DESKTOP=GNOME ${pkgs.gnome-control-center}/bin/gnome-control-center";
 
       env = [
-        # "HYPRCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
-        # "XCURSOR_SIZE,${toString config.gtk.cursorTheme.size}"
-        # "XCURSOR_THEME,${config.gtk.cursorTheme.name}"
+        "HYPRCURSOR_SIZE,16" # ${toString config.gtk.cursorTheme.size}"
+        "XCURSOR_SIZE,16" # ${toString config.gtk.cursorTheme.size}"
+        "XCURSOR_THEME,Adwaita" # ${config.gtk.cursorTheme.name}"
         # "AQ_DRM_DEVICES,/dev/dri/card2"
         "GSK_RENDERER,vulkan"
         "GTK_IM_MODULE,fcitx"
