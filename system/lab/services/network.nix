@@ -11,10 +11,8 @@
         3000 # forgejo
       ];
       allowedUDPPorts = [ ];
-      allowedTCPPortRanges = [
-      ];
-      allowedUDPPortRanges = [
-      ];
+      allowedTCPPortRanges = [ ];
+      allowedUDPPortRanges = [ ];
     };
 
     extraHosts = "";
