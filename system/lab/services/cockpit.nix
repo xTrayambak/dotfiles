@@ -1,6 +1,7 @@
 {
   services.cockpit = {
     enable = true;
+    openFirewall = true;
     port = 9090;
     settings = {
       WebService = {
@@ -9,6 +10,7 @@
       };
       Session = {
         IdleTimeout = 0;
+        Banner = "/etc/issue";
       };
     };
   };
