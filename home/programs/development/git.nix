@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       user = {
-        name = "xTrayambak";
+        name = "tray";
         email = "xtrayambak@gmail.com";
       };
     };
