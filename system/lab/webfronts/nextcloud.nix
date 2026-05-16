@@ -5,7 +5,7 @@
     home = "/pool/nextcloud";
     hostName = "nc.xtrayambak.xyz";
     https = false;
-    maxUploadSize = "100GB";
+    maxUploadSize = "100G";
     configureRedis = true;
     poolSettings = {
       pm = "dynamic";
