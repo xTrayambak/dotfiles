@@ -16,6 +16,7 @@
         ENABLE_ROBOTS_TXT = true;
         ENABLE_CAPTCHA = true;
       };
+      federation.ENABLED = true;
     };
 
     lfs.enable = true;
