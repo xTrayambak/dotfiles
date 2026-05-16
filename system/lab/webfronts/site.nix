@@ -1,9 +1,9 @@
 { pkgs, ... }:
 let
   rebuildScript = pkgs.writeShellScriptBin "rebuild-traysite" ''
-    cd /home/tray/.traysite
+    cd /home/zola/.traysite
     ${pkgs.git}/bin/git pull origin main
-    ${pkgs.zola}/bin/zola build --output-dir /home/tray/.traysite-out
+    ${pkgs.zola}/bin/zola build --output-dir /home/zola/.traysite-out
   '';
 in
 {
@@ -42,7 +42,7 @@ in
           port = 8080;
         }
       ];
-      root = "/home/tray/.traysite-out";
+      root = "/home/zola/.traysite-out";
 
       locations."/" = {
         index = "index.html";
