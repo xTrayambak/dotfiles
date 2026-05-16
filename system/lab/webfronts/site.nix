@@ -3,7 +3,7 @@ let
   rebuildScript = pkgs.writeShellScriptBin "rebuild-traysite" ''
     cd /home/zola/.traysite
     ${pkgs.git}/bin/git pull origin main
-    ${pkgs.zola}/bin/zola build --output-dir /home/zola/.traysite-out
+    ${pkgs.zola}/bin/zola build --output-dir /home/zola/.traysite-out --force
   '';
 in
 {
