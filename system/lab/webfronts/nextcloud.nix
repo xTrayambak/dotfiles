@@ -17,6 +17,10 @@
       "pm.status_path" = "/status";
     };
 
+    database = {
+      createLocally = true;
+    };
+
     config = {
       dbtype = "pgsql";
       adminuser = "admin";
