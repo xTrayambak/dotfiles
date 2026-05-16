@@ -13,7 +13,7 @@ in
       description = "Zola thingmajig";
       serviceConfig = {
         Type = "oneshot";
-        User = "tray";
+        User = "zola";
         ExecStart = "${rebuildScript}/bin/rebuild-traysite";
       };
     };
