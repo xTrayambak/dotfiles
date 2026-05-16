@@ -1,10 +1,10 @@
-{ ... }:
+{ config, pkgs, ... }:
 {
   services.nextcloud = {
     enable = true;
     home = "/pool/nextcloud";
     hostName = "nc.xtrayambak.xyz";
-    https = false;
+    https = true;
     maxUploadSize = "100G";
     configureRedis = true;
     /*
@@ -39,6 +39,11 @@
 
     phpOptions = {
       "opcache.interned_strings_buffer" = "16";
+    };
+
+    extraAppsEnable = true;
+    extraApps = {
+      inherit (config.services.nextcloud.package.packages.apps) memories;
     };
   };
 
