@@ -17,7 +17,8 @@ proc lockUp() {.inline.} =
   #   "-t 4000"
   # )
 
-  let wallpaper = getHomeDir() / ".wallpapers/martin-adams-LuH6F1tgdB8-unsplash.jpg"
+  let wallpaper =
+    getHomeDir() / "Wallpapers" / "courtney-kenady-h5ZPU1hU5CM-unsplash.jpg"
     # getWallpaper("")
   info "Chosen wallpaper: " & wallpaper
 
