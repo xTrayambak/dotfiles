@@ -23,6 +23,7 @@
       extraGroups = [ ];
       shell = pkgs.bash;
       openssh.authorizedKeys.keys = [ ];
+      initialPassword = "test";
     };
   };
 }
