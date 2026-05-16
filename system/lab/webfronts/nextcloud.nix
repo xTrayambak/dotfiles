@@ -19,6 +19,8 @@
 
     config = {
       dbtype = "pgsql";
+      adminuser = "admin";
+      adminpassFile = "/home/tray/.config/nextcloud/admin-password";
     };
 
     caching = {
