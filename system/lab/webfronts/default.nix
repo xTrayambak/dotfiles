@@ -1,7 +1,8 @@
 {
   imports = [
-    ./garage.nix
+    # ./garage.nix
     ./forgejo.nix
+    ./nextcloud.nix
     ./site.nix
   ];
 }
