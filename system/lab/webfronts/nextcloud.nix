@@ -41,4 +41,9 @@
       "opcache.interned_strings_buffer" = "16";
     };
   };
+
+  systemd.tmpfiles.rules = [
+    "d /pool/nextcloud 0750 nextcloud nextcloud - -"
+    "Z /pool/nextcloud 0750 nextcloud nextcloud - -"
+  ];
 }
