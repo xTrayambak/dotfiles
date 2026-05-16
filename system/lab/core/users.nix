@@ -14,10 +14,6 @@
       ];
     };
 
-    environment.variables = {
-      EDITOR = "vim";
-    };
-
     zola = {
       isNormalUser = true;
       extraGroups = [ ];
