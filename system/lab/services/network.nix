@@ -18,7 +18,7 @@
     extraHosts = "";
 
     #nameservers = [ "192.168.68.214" ];
-    # nameservers = [ "1.1.1.1" ];
+    nameservers = [ "1.1.1.1" ];
   };
 
   services.avahi = {

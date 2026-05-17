@@ -8,9 +8,20 @@
       "dc2eb3da-46ba-48fe-a641-86a6831754bf" = {
         credentialsFile = "/home/tray/.cloudflared/dc2eb3da-46ba-48fe-a641-86a6831754bf.json";
         ingress = {
+          ## Personal services
+          # Forgejo (3000)
           "git.xtrayambak.xyz" = "http://localhost:3000";
+
+          # Uptime Kuma (3001)
           "status.xtrayambak.xyz" = "http://localhost:3001";
+
+          # Redlib (3002)
           "rl.xtrayambak.xyz" = "http://localhost:3002";
+
+          # Chhoto (3003)
+          "links.xtrayambak.xyz" = "http://localhost:3003";
+
+          # Nextcloud (80 because nginx hates me)
           "nc.xtrayambak.xyz" = "http://localhost:80";
         };
         default = "http_status:404";
