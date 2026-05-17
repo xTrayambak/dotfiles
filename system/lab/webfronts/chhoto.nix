@@ -14,4 +14,12 @@
       site_url = "links.xtrayambak.xyz";
     };
   };
+
+  systemd = {
+    services.chhoto-url.serviceConfig.User = "chhoto-url";
+    tmpfiles.rules = [
+      "d /pool/chhoto 0750 chhoto-url chhoto-url - -"
+      "Z /pool/nextcloud 0750 chhoto-url chhoto-url - -"
+    ];
+  };
 }
