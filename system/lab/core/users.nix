@@ -21,5 +21,13 @@
       openssh.authorizedKeys.keys = [ ];
       initialPassword = "test";
     };
+
+    chhoto-url = {
+      isNormalUser = true;
+      extraGroups = [ ];
+      shell = pkgs.bash;
+      openssh.authorizedKeys.keys = [ ];
+      initialPassword = "test";
+    };
   };
 }
