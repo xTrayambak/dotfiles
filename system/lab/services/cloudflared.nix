@@ -10,6 +10,7 @@
         ingress = {
           "git.xtrayambak.xyz" = "http://localhost:3000";
           "status.xtrayambak.xyz" = "http://localhost:3001";
+          "rl.xtrayambak.xyz" = "http://localhost:3002";
           "nc.xtrayambak.xyz" = "http://localhost:80";
         };
         default = "http_status:404";
