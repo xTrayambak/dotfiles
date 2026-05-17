@@ -10,7 +10,8 @@
       try_longer_slugs = true;
       public_mode = false;
       disable_frontend = false;
-      db_url = "/pool/chhoto/urls.sqlite";
+      # FIXME: For some reason, it just refuses to use the HDD.
+      # db_url = "/pool/chhoto/urls.sqlite";
       site_url = "links.xtrayambak.xyz";
     };
   };
