@@ -58,5 +58,6 @@ in
     "A+ /home/zola/.traysite-out - - - - u:nginx:X,g:nginx:X,d:u:nginx:rX,d:g:nginx:rX"
   ];
 
+  systemd.services.nginx.serviceConfig.User = "zola";
   systemd.services.nginx.serviceConfig.ProtectHome = "read-only";
 }
