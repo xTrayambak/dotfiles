@@ -1,4 +1,4 @@
-{ }:
+{ ... }:
 {
   services.librechat = {
     enable = true;
