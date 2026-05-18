@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   home.packages = [
     inputs.nitty.packages.${pkgs.system}.default
@@ -8,7 +8,7 @@
     enable = true;
     executable = false;
     force = true;
-    source = ./.;
+    source = ./configs;
     recursive = true;
   };
 }
