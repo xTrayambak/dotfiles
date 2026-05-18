@@ -693,11 +693,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779073247,
-        "narHash": "sha256-xJ2GuuzDH061QbbovnLEU3ISG41d7SFsIstiMJXKZt0=",
+        "lastModified": 1779076128,
+        "narHash": "sha256-jWx2c9gpOC27YSelqaq9dE87agXSPr3v4zv1yE307mU=",
         "owner": "xTrayambak",
         "repo": "nitty",
-        "rev": "11b7f9e37a3ece835c910d86b726a6ab8f3d5acd",
+        "rev": "5a856134d3c1c4b9354a14035c5ab745b32535e8",
         "type": "github"
       },
       "original": {

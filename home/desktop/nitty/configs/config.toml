@@ -5,7 +5,7 @@ background = "#5050500A"
 
 [font]
 name = "JetBrainsMono Nerd Font"
-size = 16.0
+size = 18.0
 
 [user]
 shell = "zsh"

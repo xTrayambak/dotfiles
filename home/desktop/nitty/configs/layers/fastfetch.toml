@@ -1,0 +1,8 @@
+[surface]
+layer = "background"
+anchors = ["bottom", "right", "top", "left"]
+size = [0, 0]
+keyboard_interactivity = "on_demand"
+
+[exec]
+cmd = "zsh"
