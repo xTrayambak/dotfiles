@@ -24,6 +24,9 @@
           # Invidious (3004)
           "yt.xtrayambak.xyz" = "http://localhost:3004";
 
+          # traysite (3005)
+          "www.xtrayambak.xyz" = "http://localhost:3005";
+
           # Nextcloud (80 because nginx hates me)
           "nc.xtrayambak.xyz" = "http://localhost:80";
         };
