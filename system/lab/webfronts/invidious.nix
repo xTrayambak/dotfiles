@@ -14,7 +14,7 @@ in
       createLocally = true;
     };
 
-    extraSettingsFile = ./invidious.yml;
+    extraSettingsFile = "/etc/nixos/system/lab/webfronts/invidious.yml";
     settings.invidious_companion_key = invidiousCompanionSecret;
     sig-helper.enable = false; # Deprecated
   };
