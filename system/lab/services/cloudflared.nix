@@ -16,10 +16,13 @@
           "status.xtrayambak.xyz" = "http://localhost:3001";
 
           # Redlib (3002)
-          "rl.xtrayambak.xyz" = "http://localhost:3002";
+          # "rl.xtrayambak.xyz" = "http://localhost:3002";
 
           # Chhoto (3003)
-          "links.xtrayambak.xyz" = "http://localhost:3003";
+          # "links.xtrayambak.xyz" = "http://localhost:3003";
+
+          # Invidious (3004)
+          "yt.xtrayambak.xyz" = "http://localhost:3004";
 
           # Nextcloud (80 because nginx hates me)
           "nc.xtrayambak.xyz" = "http://localhost:80";
