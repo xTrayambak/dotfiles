@@ -27,6 +27,11 @@ in
       admins = [ ];
       captcha_enabled = false;
       login_enabled = true;
+      invidious_companion = [
+        {
+          private_url = "http://localhost:8282/companion";
+        }
+      ];
     };
 
     sig-helper.enable = false; # Deprecated
