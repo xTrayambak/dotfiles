@@ -14,8 +14,24 @@ in
       createLocally = true;
     };
 
+    settings = {
+      registration_enabled = false;
+      db = {
+        username = "invidious";
+        dbname = "invidious";
+      };
+
+      https_only = true;
+      statistics_enabled = false;
+      use_pubsub_feeds = false;
+      admins = [ ];
+      captcha_enabled = false;
+      login_enabled = true;
+    };
+
     extraSettingsFile = "/etc/nixos/system/lab/webfronts/invidious.yml";
     sig-helper.enable = false; # Deprecated
+    nginx.enable = false;
   };
 
   virtualisation.oci-containers = {
