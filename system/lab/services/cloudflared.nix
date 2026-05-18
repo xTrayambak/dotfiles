@@ -26,6 +26,7 @@
 
           # traysite (3005)
           "www.xtrayambak.xyz" = "http://localhost:3005";
+          "xtrayambak.xyz" = "http://localhost:3005";
 
           # Nextcloud (80 because nginx hates me)
           "nc.xtrayambak.xyz" = "http://localhost:80";
