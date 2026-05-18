@@ -15,7 +15,6 @@ in
 
     settings = {
       invidious_companion.private_url = "http://127.0.0.1:8282";
-      invidious_companion_key = invidiousCompanionSecret;
     };
     sig-helper.enable = false; # Deprecated
   };
