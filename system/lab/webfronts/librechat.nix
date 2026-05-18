@@ -5,7 +5,7 @@
     env = {
       PORT = 3006;
     };
-    meilisearch.enable = true;
+    # meilisearch.enable = true;
     dataDir = "/pool/librechat";
     user = "librechat";
     group = "librechat";
