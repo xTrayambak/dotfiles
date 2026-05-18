@@ -52,4 +52,8 @@ in
       };
     };
   };
+
+  systemd.services.nginx.serviceConfig = {
+    ProtectHome = false;
+  };
 }
