@@ -28,6 +28,9 @@
           "www.xtrayambak.xyz" = "http://localhost:3005";
           "xtrayambak.xyz" = "http://localhost:3005";
 
+          # librechat (3006)
+          "chat.xtrayambak.xyz" = "http://localhost:3006";
+
           # Nextcloud (80 because nginx hates me)
           "nc.xtrayambak.xyz" = "http://localhost:80";
         };
