@@ -1,2 +1,4 @@
 invidious_companion:
   - private_url: "http://localhost:8282/companion"
+
+invidious_companion_key: "iHa7riebeigeex6X"
