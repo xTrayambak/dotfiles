@@ -12,7 +12,7 @@
       };
       service = {
         DISABLE_REGISTRATION = true;
-        REQUIRE_SIGNIN_VIEW = true;
+        REQUIRE_SIGNIN_VIEW = false;
         ENABLE_ROBOTS_TXT = true;
         ENABLE_CAPTCHA = true;
       };
