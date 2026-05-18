@@ -5,6 +5,7 @@ in
 {
   services.invidious = {
     enable = true;
+    domain = "yt.xtrayambak.xyz";
     port = 3004;
 
     http3-ytproxy.enable = true;
@@ -14,6 +15,7 @@ in
     };
 
     extraSettingsFile = ./invidious.yml;
+    settings.invidious_companion_key = invidiousCompanionSecret;
     sig-helper.enable = false; # Deprecated
   };
 
