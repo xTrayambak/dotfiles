@@ -8,7 +8,6 @@ in
     port = 3004;
 
     http3-ytproxy.enable = true;
-    nginx.enable = true;
 
     database = {
       createLocally = true;
