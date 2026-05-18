@@ -13,6 +13,13 @@ in
       createLocally = true;
     };
 
+    settings = {
+      invidious_companion = [
+        {
+          private_url = "http://127.0.0.1:8282";
+        }
+      ];
+    };
     sig-helper.enable = false; # Deprecated
   };
 
