@@ -32,6 +32,8 @@ in
           private_url = "http://localhost:8282/companion";
         }
       ];
+
+      invidious_companion_key = invidiousCompanionSecret;
     };
 
     sig-helper.enable = false; # Deprecated
