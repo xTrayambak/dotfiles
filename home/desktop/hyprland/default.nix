@@ -123,7 +123,7 @@
     settings = {
       # Variables
       "$mainMod" = "SUPER";
-      "$term" = "${pkgs.wezterm}/bin/wezterm";
+      "$term" = "${inputs.nitty.packages.${pkgs.system}.default}/bin/nitty";
       "$filemanager" = "${pkgs.nautilus}/bin/nautilus";
       "$fullscreenss" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot full";
       "$selectss" = "${inputs.self.packages.${pkgs.system}.scripts}/bin/screenshot select";
