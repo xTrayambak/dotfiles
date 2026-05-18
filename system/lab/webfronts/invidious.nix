@@ -29,7 +29,6 @@ in
       login_enabled = true;
     };
 
-    extraSettingsFile = "/etc/nixos/system/lab/webfronts/invidious.yml";
     sig-helper.enable = false; # Deprecated
     nginx.enable = false;
   };
