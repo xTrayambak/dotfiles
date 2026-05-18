@@ -1,0 +1,12 @@
+## My config for nitty
+
+[appearance]
+background = "#5050500A"
+
+[font]
+name = "JetBrainsMono Nerd Font"
+size = 12.0
+
+[user]
+shell = "zsh"
+bell = true

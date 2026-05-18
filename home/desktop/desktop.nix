@@ -6,6 +6,7 @@
     ./waybar
     ./avizo
     ./fusuma
+    ./nitty
     ./wlogout
     ./fuzzel
     ./mako

@@ -1,0 +1,8 @@
+[surface]
+layer = "background"
+anchors = ["bottom", "left", "top", "right"]
+size = [0, 0]
+keyboard_interactivity = "none"
+
+[exec]
+cmd = "cmatrix"
