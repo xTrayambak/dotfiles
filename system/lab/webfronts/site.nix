@@ -1,9 +1,9 @@
 { pkgs, ... }:
 let
   rebuildScript = pkgs.writeShellScriptBin "rebuild-traysite" ''
-    cd /home/zola/.traysite
-    ${pkgs.git}/bin/git pull origin main
-    ${pkgs.zola}/bin/zola build --output-dir /home/zola/.traysite-out --force
+    cd /home/nginx/traysite
+    ${pkgs.git}/bin/git pull origin master
+    ${pkgs.zola}/bin/zola build --output-dir /home/nginx/.traysite-out --force
   '';
 in
 {
@@ -13,7 +13,7 @@ in
       description = "Zola thingmajig";
       serviceConfig = {
         Type = "oneshot";
-        User = "zola";
+        User = "nginx";
         ExecStart = "${rebuildScript}/bin/rebuild-traysite";
       };
     };
@@ -42,7 +42,7 @@ in
           port = 8080;
         }
       ];
-      root = "/home/zola/.traysite-out";
+      root = "/home/nginx/.traysite-out";
 
       locations."/" = {
         index = "index.html";
@@ -52,11 +52,4 @@ in
       };
     };
   };
-
-  systemd.tmpfiles.rules = [
-    "a+ /home/zola - - - - u:nginx:x"
-    "A+ /home/zola/.traysite-out - - - - u:nginx:X,g:nginx:X,d:u:nginx:rX,d:g:nginx:rX"
-  ];
-
-  systemd.services.nginx.serviceConfig.ProtectHome = "read-only";
 }
