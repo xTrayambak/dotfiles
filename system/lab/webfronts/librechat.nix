@@ -9,6 +9,7 @@
     dataDir = "/pool/librechat";
     user = "librechat";
     group = "librechat";
+    enableLocalDB = true;
   };
 
   systemd.tmpfiles.rules = [
