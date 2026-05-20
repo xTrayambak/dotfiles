@@ -1,6 +1,6 @@
 { ... }:
 {
-  services.sterling-pdf = {
+  services.stirling-pdf = {
     enable = true;
     environment = {
       LANGS = "en_GB";
