@@ -34,8 +34,10 @@
           # sterling pdf (3007)
           "pdf.xtrayambak.xyz" = "http://localhost:3007";
 
+          "dash.xtrayambak.xyz" = "http://localhost:9090";
           # Nextcloud (80 because nginx hates me)
           "nc.xtrayambak.xyz" = "http://localhost:80";
+
         };
         default = "http_status:404";
       };
