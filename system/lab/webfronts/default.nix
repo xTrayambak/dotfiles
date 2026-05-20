@@ -6,6 +6,7 @@
     ./nextcloud.nix
     ./invidious.nix
     ./site.nix
+    ./sterling-pdf.nix
     ./uptime-kuma.nix
   ];
 }

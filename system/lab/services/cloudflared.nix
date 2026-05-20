@@ -31,6 +31,9 @@
           # librechat (3006)
           "chat.xtrayambak.xyz" = "http://localhost:3006";
 
+          # sterling pdf (3007)
+          "pdf.xtrayambak.xyz" = "http://localhost:3007";
+
           # Nextcloud (80 because nginx hates me)
           "nc.xtrayambak.xyz" = "http://localhost:80";
         };
