@@ -6,6 +6,7 @@
     settings = {
       WebService = {
         AllowUnencrypted = true;
+        Origins = "https://dash.xtrayambak.xyz";
         ProtocolHeader = "X-Forwarded-Proto";
       };
       Session = {
