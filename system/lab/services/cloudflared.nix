@@ -32,7 +32,7 @@
           "chat.xtrayambak.xyz" = "http://localhost:3006";
 
           # sterling pdf (3007)
-          "pdf.xtrayambak.xyz" = "http://localhost:3007";
+          # "pdf.xtrayambak.xyz" = "http://localhost:3007";
 
           # Cockpit [broken] (9090)
           "dash.xtrayambak.xyz" = "http://localhost:9090";

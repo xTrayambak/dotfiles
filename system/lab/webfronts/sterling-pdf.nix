@@ -1,7 +1,7 @@
 { ... }:
 {
   services.stirling-pdf = {
-    enable = true;
+    enable = false;
     environment = {
       LANGS = "en_GB";
       SECURITY_ENABLELOGIN = "true";
