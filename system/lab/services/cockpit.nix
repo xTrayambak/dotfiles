@@ -1,5 +1,9 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    lm_sensors
+  ];
+
   services.cockpit = {
     enable = true;
     openFirewall = true;
