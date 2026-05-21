@@ -18,9 +18,6 @@
           # Redlib (3002)
           # "rl.xtrayambak.xyz" = "http://localhost:3002";
 
-          # Chhoto (3003)
-          # "links.xtrayambak.xyz" = "http://localhost:3003";
-
           # Invidious (3004)
           "yt.xtrayambak.xyz" = "http://localhost:3004";
 
@@ -28,13 +25,7 @@
           "www.xtrayambak.xyz" = "http://localhost:3005";
           "xtrayambak.xyz" = "http://localhost:3005";
 
-          # librechat (3006)
-          "chat.xtrayambak.xyz" = "http://localhost:3006";
-
-          # sterling pdf (3007)
-          # "pdf.xtrayambak.xyz" = "http://localhost:3007";
-
-          # Cockpit [broken] (9090)
+          # Cockpit (9090)
           "dash.xtrayambak.xyz" = "http://localhost:9090";
 
           # Nextcloud (80 because nginx hates me)
