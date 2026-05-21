@@ -1,4 +1,4 @@
-{ lib }:
+{ lib, ... }:
 {
   services.cockpit = {
     enable = true;
