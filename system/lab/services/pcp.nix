@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-    inputs.pcp.packages.${pkgs.system}.nixosModule
+    inputs.self.nixosModule.pcp
   ];
 
   services.pcp = {
