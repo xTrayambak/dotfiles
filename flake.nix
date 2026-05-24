@@ -24,6 +24,10 @@
       url = "github:xTrayambak/nitty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pcp = {
+      url = "github:performancecopilot/pcp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -38,6 +42,7 @@
       nixpak,
       zen-browser,
       nitty,
+      pcp,
       ...
     }@inputs:
     let
