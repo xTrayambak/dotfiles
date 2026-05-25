@@ -11,7 +11,7 @@ let
     hash = "sha256-dHpuwvcTc2+O0PJqhxNvNYmHkvt3K+hlhbGJN3a+PEM=";
   };
 
-  port = 3005;
+  port = 3006;
 
   configFile = pkgs.writeText "minetest.conf" ''
     name = Admin
@@ -55,7 +55,7 @@ in
 
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${pkgs.luanti-server}/bin/luantiserver --gameid ${gameId} --worldname ${worldName} --config ${configFile} --terminal";
+        ExecStart = "${pkgs.luanti-server}/bin/luantiserver --gameid ${gameId} --worldname ${worldName} --config ${configFile}";
         User = "gncraft";
 
         /*
