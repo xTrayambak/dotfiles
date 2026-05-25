@@ -3,7 +3,7 @@ let
   serverKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICREqkEJrvdDzjpRZBmbMXavnoQvGdr+/etyF6GuiYGc root@lab";
 in
 {
-  "playit-secret".publicKeys = [
+  "playit-secret.age".publicKeys = [
     trayKey
     serverKey
   ];
