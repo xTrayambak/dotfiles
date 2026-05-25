@@ -66,10 +66,8 @@ in
     };
   };
 
-  /*
-    services.playit = {
-      enable = true;
-      secretPath = config.age.playit-secret.path;
-    };
-  */
+  services.playit = {
+    enable = true;
+    secretPath = config.age.playit-secret.path;
+  };
 }
