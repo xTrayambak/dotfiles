@@ -76,17 +76,6 @@
           modules = [
             ./system/lab
             "${inputs.pcp}/build/nix/nixos-module.nix"
-
-            (
-              { config, pkgs, ... }:
-              {
-                nixpkgs.overlays = [
-                  (final: prev: {
-                    pcp = inputs.pcp.packages.${system}.pcp;
-                  })
-                ];
-              }
-            )
           ];
         };
       };
