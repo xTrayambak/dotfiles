@@ -72,7 +72,10 @@
         # Homelab
         lab = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+            pcp = inputs.pcp.packages.${system}.pcp;
+          };
           modules = [
             ./system/lab
             "${inputs.pcp}/build/nix/nixos-module.nix"
