@@ -9,9 +9,10 @@
       allowedTCPPorts = [
         22 # SSH
         3000 # forgejo
+      ];
+      allowedUDPPorts = [
         3006 # luanti
       ];
-      allowedUDPPorts = [ ];
       allowedTCPPortRanges = [ ];
       allowedUDPPortRanges = [ ];
     };
