@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   gameId = "voxelibre";
   worldName = "goodnightcraft";
@@ -69,6 +74,10 @@ in
   age.secrets.playit-secret = {
     file = ../../../secrets/playit-secret.age;
   };
+
+  environment.systemPackages = [
+    inputs.playit.packages.${pkgs.system}.default
+  ];
 
   services.playit = {
     enable = true;
