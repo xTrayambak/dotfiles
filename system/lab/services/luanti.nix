@@ -72,6 +72,6 @@ in
 
   services.playit = {
     enable = true;
-    secretPath = config.age."playit-secret".path;
+    secretPath = config.age.secrets."playit-secret".path;
   };
 }
