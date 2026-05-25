@@ -73,13 +73,21 @@
         lab = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
-          modules = [ ./system/lab ];
-          overlays = [
-            (self: super: {
-              pcp = pcp.packages.${system}.pcp;
-            })
+          modules = [
+            ./system/lab
+            inputs.pcp.nixosModule
+
+            (
+              { config, pkgs, ... }:
+              {
+                nixpkgs.overlays = [
+                  (final: prev: {
+                    pcp = inputs.pcp.packages.${system}.pcp;
+                  })
+                ];
+              }
+            )
           ];
-          extraConfigurations = [ pcp.nixosModule ];
         };
       };
     };
