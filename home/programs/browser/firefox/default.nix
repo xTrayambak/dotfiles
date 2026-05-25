@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   /*
@@ -19,6 +24,7 @@
   programs.firefox = {
     enable = true;
     package = inputs.zen-browser.packages.${pkgs.system}.default;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     profiles = {
       default = {
         extraConfig = ''
