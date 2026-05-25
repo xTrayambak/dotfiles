@@ -6,6 +6,7 @@
     ./emacs
     ./btop
     ./development
+    ./defaults.nix
     ./terminal/tools.nix
     ./zsh
 
