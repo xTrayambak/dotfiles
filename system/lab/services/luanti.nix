@@ -66,6 +66,10 @@ in
     };
   };
 
+  age.secrets.playit-secret = {
+    file = ../../../secrets/playit-secret.age;
+  };
+
   services.playit = {
     enable = true;
     secretPath = config.age.playit-secret.path;
