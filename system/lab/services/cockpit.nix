@@ -6,10 +6,6 @@
 
   services.cockpit = {
     enable = true;
-    package = [
-      pkgs.cockpit
-
-    ];
     openFirewall = true;
     settings = {
       WebService = {
