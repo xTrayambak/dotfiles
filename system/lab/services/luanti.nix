@@ -4,14 +4,25 @@ let
   worldName = "goodnightcraft";
   user = "gncraft";
 
-  adminName = "admin";
-
   voxelibreSrc = pkgs.fetchFromGitHub {
     owner = "VoxeLibre";
     repo = "VoxeLibre";
     rev = "0.91.2";
     hash = "sha256-dHpuwvcTc2+O0PJqhxNvNYmHkvt3K+hlhbGJN3a+PEM=";
   };
+
+  port = 3005;
+
+  configFile = pkgs.writeText "minetest.conf" ''
+    name = Admin
+    server_name = GoodnightCraft
+    server_description = Season 2
+    server_announce = false
+    motd = ts frying me
+    max_users = 64
+    port = ${port}
+    disallow_empty_password = true
+  '';
 in
 {
   environment.systemPackages = with pkgs; [
@@ -44,7 +55,7 @@ in
 
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${pkgs.luanti-server}/bin/luantiserver --gameid ${gameId} --worldname ${worldName} --name ${adminName} --terminal";
+        ExecStart = "${pkgs.luanti-server}/bin/luantiserver --gameid ${gameId} --worldname ${worldName} --config ${configFile} --terminal";
         User = "gncraft";
 
         /*
