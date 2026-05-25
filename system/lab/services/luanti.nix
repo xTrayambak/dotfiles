@@ -2,6 +2,7 @@
 let
   gameId = "voxelibre";
   worldName = "goodnightcraft";
+  user = "gncraft";
 
   voxelibreSrc = pkgs.fetchFromGitHub {
     owner = "VoxeLibre";
@@ -15,7 +16,7 @@ in
     luanti-server
   ];
 
-  users.users.gncraft = {
+  users.users.${user} = {
     isNormalUser = true;
     extraGroups = [ ];
     initialPassword = "minetest";
@@ -31,11 +32,11 @@ in
       wantedBy = [ "multi-user.target" ];
 
       preStart = ''
-        mkdir -p ~/.minetest/worlds/
-        mkdir -p ~/.minetest/games/
+        mkdir -p /home/${user}/.minetest/worlds/
+        mkdir -p /home/${user}/.minetest/games/
 
-        if [ ! -d ".minetest/games/${gameId}" ]; then
-          ln -sfn ${voxelibreSrc} ".minetest/games/${gameId}"
+        if [ ! -d "/home/${user}/.minetest/games/${gameId}" ]; then
+          ln -sfn ${voxelibreSrc} "/home/${user}/.minetest/games/${gameId}"
         fi
       '';
 
