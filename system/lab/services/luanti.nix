@@ -4,6 +4,8 @@ let
   worldName = "goodnightcraft";
   user = "gncraft";
 
+  adminName = "admin";
+
   voxelibreSrc = pkgs.fetchFromGitHub {
     owner = "VoxeLibre";
     repo = "VoxeLibre";
@@ -42,7 +44,7 @@ in
 
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${pkgs.luanti-server}/bin/luantiserver --gameid ${gameId} --worldname ${worldName} --terminal";
+        ExecStart = "${pkgs.luanti-server}/bin/luantiserver --gameid ${gameId} --worldname ${worldName} --name ${adminName} --terminal";
         User = "gncraft";
 
         /*
