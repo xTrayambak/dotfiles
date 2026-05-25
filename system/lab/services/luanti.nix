@@ -78,6 +78,6 @@ in
 
   services.playit = {
     enable = true;
-    secretPath = config.age.secrets."playit-secret".path;
+    secretPath = "/etc/playit/secret.toml"; # config.age.secrets."playit-secret".path;
   };
 }
