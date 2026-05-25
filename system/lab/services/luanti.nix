@@ -32,6 +32,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     luanti-server
+    inputs.playit.packages.${pkgs.system}.default
   ];
 
   users.users.${user} = {
@@ -74,10 +75,6 @@ in
   age.secrets.playit-secret = {
     file = ../../../secrets/playit-secret.age;
   };
-
-  environment.systemPackages = [
-    inputs.playit.packages.${pkgs.system}.default
-  ];
 
   services.playit = {
     enable = true;
