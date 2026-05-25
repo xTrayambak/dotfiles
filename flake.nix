@@ -32,6 +32,14 @@
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    playit = {
+      url = "github:pedorich-n/playit-nixos-module";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -47,6 +55,8 @@
       zen-browser,
       nitty,
       pcp,
+      playit,
+      agenix,
       ...
     }@inputs:
     let
@@ -83,6 +93,8 @@
           modules = [
             ./system/lab
             "${inputs.pcp}/build/nix/nixos-module.nix"
+            playit.nixosModules.default
+            agenix.nixosModules.default
           ];
         };
       };
