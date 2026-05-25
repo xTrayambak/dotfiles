@@ -75,7 +75,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./system/lab
-            inputs.pcp.nixosModules.default
+            "${inputs.pcp}/build/nix/nixos-module.nix"
 
             (
               { config, pkgs, ... }:
