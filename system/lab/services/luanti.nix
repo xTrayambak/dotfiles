@@ -3,7 +3,7 @@ let
   gameId = "voxelibre";
   worldName = "goodnightcraft";
 
-  voxelibreSrc = pkgs.fetchFromGithub {
+  voxelibreSrc = pkgs.fetchFromGitHub {
     owner = "VoxeLibre";
     repo = "VoxeLibre";
     rev = "0.91.2";
