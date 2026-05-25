@@ -20,7 +20,7 @@ let
     server_announce = false
     motd = ts frying me
     max_users = 64
-    port = ${port}
+    port = ${toString port}
     disallow_empty_password = true
   '';
 in
