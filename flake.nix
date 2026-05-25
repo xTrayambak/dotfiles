@@ -74,6 +74,12 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [ ./system/lab ];
+          overlays = [
+            (self: super: {
+              pcp = pcp.packages.${system}.pcp;
+            })
+          ];
+          extraConfigurations = [ pcp.nixosModule ];
         };
       };
     };
