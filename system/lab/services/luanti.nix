@@ -7,7 +7,7 @@ let
     owner = "VoxeLibre";
     repo = "VoxeLibre";
     rev = "0.91.2";
-    hash = "";
+    hash = "sha256-dHpuwvcTc2+O0PJqhxNvNYmHkvt3K+hlhbGJN3a+PEM=";
   };
 in
 {
@@ -19,6 +19,7 @@ in
     isNormalUser = true;
     extraGroups = [ ];
     initialPassword = "minetest";
+    createHome = true;
     shell = pkgs.bash;
     openssh.authorizedKeys.keys = [ ];
   };
