@@ -24,6 +24,11 @@
 
   environment = {
     # Launch hyprland upon login (tty1 only)
+    loginShellInit = ''
+      if [ "$(tty)" = "/dev/tty1" ]; then
+        exec ${pkgs.hyprland}/bin/start-hyprland
+      fi
+    '';
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       SDL_VIDEODRIVER = "wayland";
