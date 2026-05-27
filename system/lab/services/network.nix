@@ -2,7 +2,7 @@
   networking = {
     networkmanager = {
       enable = true;
-      powersave = false;
+      wifi.powersave = false;
     };
     hostName = "lab";
 
