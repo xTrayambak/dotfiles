@@ -2,6 +2,7 @@
 {
   services.nextcloud = {
     enable = true;
+    package = pkgs.nextcloud33;
     home = "/pool/nextcloud";
     hostName = "nc.xtrayambak.xyz";
     https = true;
