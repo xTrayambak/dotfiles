@@ -1,6 +1,9 @@
 {
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      powersave = false;
+    };
     hostName = "lab";
 
     nftables.enable = true;
