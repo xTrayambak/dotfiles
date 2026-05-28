@@ -27,6 +27,8 @@ let
     max_users = 64
     port = ${toString port}
     disallow_empty_password = true
+    max_block_generate_distance = 32
+    max_block_send_distance = 32
   '';
 in
 {
