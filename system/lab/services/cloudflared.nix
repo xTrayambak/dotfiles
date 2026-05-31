@@ -9,8 +9,8 @@
         credentialsFile = "/home/tray/.cloudflared/dc2eb3da-46ba-48fe-a641-86a6831754bf.json";
         ingress = {
           ## Personal services
-          # Forgejo (3000)
-          "git.xtrayambak.xyz" = "http://localhost:3000";
+          # Forgejo (3007)
+          "git.xtrayambak.xyz" = "http://localhost:3007";
 
           # Uptime Kuma (3001)
           "status.xtrayambak.xyz" = "http://localhost:3001";
