@@ -24,7 +24,7 @@
           }
           {
             name = "i-hate-slop-scrapers";
-            path_regex = "^(?!/api/v1/activitypub)";
+            path_regex = ".*";
             action = "CHALLENGE";
           }
         ];
