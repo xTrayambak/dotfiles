@@ -19,12 +19,12 @@
         policy.extraBots = [
           {
             name = "forgejo-federation-bypass";
-            request_path_regex = "^/api/v1/activitypub";
+            path_regex = "^/api/v1/activitypub";
             action = "ALLOW";
           }
           {
             name = "i-hate-slop-scrapers";
-            request_path_regex = "^(?!/api/v1/activitypub)";
+            path_regex = "^(?!/api/v1/activitypub)";
             action = "CHALLENGE";
           }
         ];
