@@ -15,6 +15,14 @@
 
           DIFFICULTY = 5;
         };
+
+        policy.extraBots = [
+          {
+            name = "forgejo-federation-bypass";
+            request_path_regex = "^/api/v1/activitypub";
+            action = "ALLOW";
+          }
+        ];
       };
     };
   };
