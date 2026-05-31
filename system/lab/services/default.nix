@@ -1,6 +1,5 @@
 {
   imports = [
-    ./anubis.nix
     ./cockpit.nix
     ./cloudflared.nix
     ./luanti.nix

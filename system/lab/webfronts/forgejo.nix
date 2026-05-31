@@ -8,7 +8,7 @@
       server = {
         DOMAIN = "git.xtrayambak.xyz";
         ROOT_URL = "https://git.xtrayambak.xyz";
-        HTTP_PORT = 3007;
+        HTTP_PORT = 3000;
       };
       service = {
         DISABLE_REGISTRATION = true;
