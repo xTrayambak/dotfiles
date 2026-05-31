@@ -10,7 +10,9 @@
         ingress = {
           ## Personal services
           # Forgejo (3000)
-          "git.xtrayambak.xyz" = "http://localhost:3000";
+          "git.xtrayambak.xyz" = {
+            service = "http://localhost:3000";
+          };
 
           # Uptime Kuma (3001)
           "status.xtrayambak.xyz" = "http://localhost:3001";
