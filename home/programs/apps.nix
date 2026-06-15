@@ -23,6 +23,7 @@
     snapshot
     loupe
     duf
+    nocturne
     godot_4
     amdgpu_top
     pixelorama

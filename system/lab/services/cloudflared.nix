@@ -31,6 +31,8 @@
           # Nextcloud (80 because nginx hates me)
           "nc.xtrayambak.xyz" = "http://localhost:80";
 
+          # Navidrome (3007)
+          "navi.xtrayambak.xyz" = "http://localhost:3007";
         };
         default = "http_status:404";
       };
