@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   services.navidrome = {
     enable = true;
@@ -8,5 +8,8 @@
       MusicFolder = "/pool/navidrome";
       EnableInsightsCollector = true; # help your local OSS project! ;)
     };
+    plugins = with pkgs.navidromePlugins; [
+      apple-music
+    ];
   };
 }
