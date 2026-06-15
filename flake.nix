@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     waybar.url = "github:Alexays/waybar";
     lanzaboote.url = "github:nix-community/lanzaboote";
     nix-gaming.url = "github:fufexan/nix-gaming";
@@ -50,7 +50,7 @@
     {
       nixpkgs,
       home-manager,
-      hyprland,
+      # hyprland,
       nur,
       lanzaboote,
       waybar,

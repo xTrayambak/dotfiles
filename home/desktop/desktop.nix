@@ -2,7 +2,7 @@
 {
   imports = [
     # ./foot
-    ./hyprland
+    # ./hyprland
     ./waybar
     ./niri
     ./avizo

@@ -20,7 +20,7 @@
   };
 
   programs.wireshark.enable = true;
-  programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
 
   environment = {
     # Launch niri upon login (tty1 only)
