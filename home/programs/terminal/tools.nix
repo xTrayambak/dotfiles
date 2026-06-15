@@ -1,6 +1,4 @@
 {
-  inputs,
-  lib,
   pkgs,
   ...
 }:
@@ -15,6 +13,8 @@
     wl-clipboard
     playerctl
     moreutils
+    arp-scan
+    yt-dlp
     python314
     gh
     git

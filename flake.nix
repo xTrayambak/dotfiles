@@ -40,6 +40,10 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -57,6 +61,7 @@
       pcp,
       playit,
       agenix,
+      niri,
       ...
     }@inputs:
     let
@@ -80,7 +85,9 @@
         box = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
-          modules = [ ./system/box ];
+          modules = [
+            ./system/box
+          ];
         };
 
         # Homelab

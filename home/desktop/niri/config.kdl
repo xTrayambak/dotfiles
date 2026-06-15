@@ -1,0 +1,182 @@
+layout {
+  gaps 16
+  // center-focused-column "always"
+
+  focus-ring {
+    on
+    width 3
+    active-color "#595959aa"
+    inactive-color "#595959aa"
+  }
+
+  border {
+    off
+  }
+
+  shadow {
+    on
+    softness 30
+    spread 5
+    offset x=0 y=5
+    draw-behind-window true
+    color "#00000070"
+  }
+}
+
+prefer-no-csd
+
+input {
+  focus-follows-mouse
+
+  touchpad {
+    natural-scroll
+    tap-button-map "left-middle-right"
+    scroll-method "two-finger"
+    left-handed
+    tap
+  }
+
+  mouse {
+    accel-profile "flat"
+  }
+}
+
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 16
+
+    hide-when-typing
+}
+
+output "eDP-1" {
+  scale 1.0
+}
+
+binds {
+  Mod+T { spawn "wezterm"; }
+  Mod+Return { spawn "wezterm"; }
+  Mod+D { spawn "fuzzel"; }
+  Mod+L { spawn "locker"; }
+  Mod+F { spawn "nautilus"; }
+
+  Mod+Shift+D { spawn "makoctl dismiss"; }
+
+  Mod+WheelScrollDown { focus-workspace-down; }
+  Mod+WheelScrollUp { focus-workspace-up; }
+  Mod+Shift+WheelScrollDown { move-window-to-workspace-down; }
+  Mod+Shift+WheelScrollUp { move-window-to-workspace-up; }
+  
+  // player controls
+  XF86AudioStop { spawn "playerctl" "play-pause"; }
+  XF86AudioPause { spawn "playerctl" "play-pause"; }
+  XF86AudioNext { spawn "playerctl" "next"; }
+  XF86AudioPrev { spawn "playerctl" "previous"; }
+
+  // volume controls
+  XF86AudioMute { spawn-sh "volumectl -d toggle-mute"; }
+  XF86AudioMicMute { spawn-sh "volumectl -d toggle-mute"; }
+  XF86AudioLowerVolume { spawn-sh "volumectl -d -u down"; }
+  XF86AudioRaiseVolume { spawn-sh "volumectl -d -u up"; }
+
+  // brightness controls
+  XF86MonBrightnessDown { spawn-sh "lightctl -d down"; }
+  XF86MonBrightnessUp { spawn-sh "lightctl -d up"; }
+
+  // window controlls
+  Mod+V { toggle-window-floating; }
+  Mod+Shift+A { swap-window-left; }
+  Mod+Shift+S { swap-window-right; }
+  Mod+Shift+Q { close-window; }
+  F11 { fullscreen-window; }
+
+  Print { screenshot; }
+  Mod+Print { screenshot-screen; }
+
+  Mod+W { toggle-overview; }
+}
+
+gestures {
+  dnd-edge-view-scroll {
+    trigger-width 30
+    delay-ms 100
+    max-speed 1500
+  }
+
+  dnd-edge-workspace-switch {
+    trigger-height 50
+    delay-ms 100
+    max-speed 1500
+  }
+
+  hot-corners {
+    top-left
+  }
+}
+
+blur {
+    on
+    passes 3
+    offset 3.0
+    noise 0.02
+    saturation 0.8916
+}
+
+window-rule {
+  match app-id=".*"
+
+  background-effect {
+    blur true
+  }
+}
+
+window-rule {
+    match app-id="firefox$"
+    open-maximized false
+}
+
+layer-rule {
+  match namespace="^fuzzel$"
+}
+
+layer-rule {
+    match namespace="^fuzzel$"
+    match namespace="^waybar$"
+    match namespace="^avizo$"
+    match namespace="^notifications$"
+
+    background-effect {
+        blur true
+	xray false
+    }
+
+    popups {
+      geometry-corner-radius 6
+        
+      opacity 0.85 
+        
+      background-effect {
+        blur true
+      }
+    }
+}
+
+clipboard {
+  disable-primary
+}
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+environment {
+  GSK_RENDERER "vulkan"
+  ADW_DISABLE_PORTAL "1"
+}
+
+spawn-at-startup "awww-daemon"
+spawn-at-startup "waybar"
+spawn-at-startup "mako"
+spawn-at-startup "avizo-service"
+spawn-at-startup "nm-applet"
+
+screenshot-path "~/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"

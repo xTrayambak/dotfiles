@@ -11,6 +11,8 @@
     gnome-calculator
     wireshark
     ghidra-bin
+    spotify
+    spotifycli
     gnome-secrets
     gnome-control-center
     amberol

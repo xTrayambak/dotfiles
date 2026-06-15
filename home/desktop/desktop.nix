@@ -4,6 +4,7 @@
     # ./foot
     ./hyprland
     ./waybar
+    ./niri
     ./avizo
     ./fusuma
     ./nitty

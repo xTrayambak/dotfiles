@@ -23,10 +23,10 @@
   programs.hyprland.enable = true;
 
   environment = {
-    # Launch hyprland upon login (tty1 only)
+    # Launch niri upon login (tty1 only)
     loginShellInit = ''
       if [ "$(tty)" = "/dev/tty1" ]; then
-        exec ${pkgs.hyprland}/bin/start-hyprland
+        exec ${pkgs.niri}/bin/niri --session
       fi
     '';
     sessionVariables = {

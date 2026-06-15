@@ -22,7 +22,7 @@
       };
 
       colors = {
-        background = "12121266";
+        background = "12121244";
         text = "FFFFFFFF";
         selection-text = "D3D3D3FF";
         border = "00000000";
@@ -30,8 +30,8 @@
       };
 
       border = {
-        width = 0;
-        radius = 24;
+        width = 2;
+        radius = 0;
       };
     };
   };
