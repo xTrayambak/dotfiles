@@ -44,6 +44,9 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    atlas = {
+      url = "github:xTrayambak/atlas/nix/init";
+    };
   };
 
   outputs =
@@ -62,6 +65,7 @@
       playit,
       agenix,
       niri,
+      atlas,
       ...
     }@inputs:
     let

@@ -14,6 +14,7 @@
     playerctl
     moreutils
     arp-scan
+    gocryptfs
     yt-dlp
     python314
     gh

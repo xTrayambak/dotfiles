@@ -3,6 +3,7 @@
   imports = [
     # ./foot
     # ./hyprland
+    ./hyprland/hyprlock.nix
     ./waybar
     ./niri
     ./avizo

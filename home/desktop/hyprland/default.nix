@@ -6,14 +6,6 @@
 }:
 
 {
-  home.packages = with pkgs; [
-    grim
-    slurp
-    awww
-    ydotool
-    networkmanagerapplet
-  ];
-
   imports = [
     ./hypridle.nix
     ./hyprlock.nix

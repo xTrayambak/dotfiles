@@ -1,12 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  home.packages = with pkgs; [
-    nim-unwrapped-2
-    nph
-    nimlsp
-    valgrind
-    nimble
-    kdePackages.kcachegrind
+  home.packages = [
+    pkgs.nim-unwrapped-2
+    pkgs.nph
+    pkgs.nimlsp
+    pkgs.nimble
+    inputs.atlas.packages.${pkgs.system}.default
   ];
 }

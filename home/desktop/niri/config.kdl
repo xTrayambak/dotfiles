@@ -67,7 +67,7 @@ binds {
   Mod+Shift+WheelScrollUp { move-window-to-workspace-up; }
   
   // player controls
-  XF86AudioStop { spawn "playerctl" "play-pause"; }
+  XF86AudioPlay { spawn "playerctl" "play-pause"; }
   XF86AudioPause { spawn "playerctl" "play-pause"; }
   XF86AudioNext { spawn "playerctl" "next"; }
   XF86AudioPrev { spawn "playerctl" "previous"; }

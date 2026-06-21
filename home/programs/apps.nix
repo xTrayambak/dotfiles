@@ -17,6 +17,8 @@
     gnome-control-center
     amberol
     gnome-calendar
+    awww
+    networkmanagerapplet
     gimp
     tenacity
     pavucontrol
