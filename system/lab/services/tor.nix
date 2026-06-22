@@ -15,9 +15,7 @@
 
       ServerTransportPlugin = {
         transports = [ "obfs4" ];
-        # Note: If you are on an older NixOS channel (pre-23.11),
-        # this might need to be "${pkgs.obfs4}/bin/obfs4proxy"
-        exec = "${pkgs.lyrebird}/bin/lyrebird";
+        exec = "${pkgs.obfs4}/bin/lyrebird";
       };
 
       ServerTransportListenAddr = "obfs4 0.0.0.0:443";
