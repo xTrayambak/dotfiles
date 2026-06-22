@@ -10,7 +10,13 @@
       Nickname = "FriendsOfDorothy";
       ORPort = 9001;
 
-      ServerTransportPlugin = "obfs4 exec ${pkgs.lyrebird}/bin/lyrebird";
+      ServerTransportPlugin = {
+        transports = [ "obfs4" ];
+        # Note: If you are on an older NixOS channel (pre-23.11),
+        # this might need to be "${pkgs.obfs4}/bin/obfs4proxy"
+        exec = "${pkgs.lyrebird}/bin/lyrebird";
+      };
+
       ServerTransportListenAddr = "obfs4 0.0.0.0:443";
 
       ExitRelay = lib.mkForce false;
