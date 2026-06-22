@@ -19,7 +19,7 @@
       };
 
       ServerTransportListenAddr = "obfs4 0.0.0.0:8443";
-
+      AssumeReachable = true;
       ExitRelay = lib.mkForce false;
 
       RelayBandwidthRate = "20 MBytes";
