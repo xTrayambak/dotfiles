@@ -9,7 +9,6 @@
     settings = {
       Nickname = "FriendsOfDorothy";
       ORPort = 9001;
-      ExtORPort = "auto";
 
       ServerTransportPlugin = "obfs4 exec ${pkgs.lyrebird}/bin/lyrebird";
       ServerTransportListenAddr = "obfs4 0.0.0.0:443";
