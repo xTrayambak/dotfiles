@@ -7,6 +7,7 @@
     ./power.nix
     ./pcp.nix
     ./ssh.nix
+    ./tor.nix
     ./virtualization.nix
   ];
 }

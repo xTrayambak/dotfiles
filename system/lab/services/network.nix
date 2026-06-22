@@ -11,7 +11,9 @@
       enable = true;
       allowedTCPPorts = [
         22 # SSH
+        443 # OBFS4
         3000 # forgejo
+        9001 # tor
       ];
       allowedUDPPorts = [
         3006 # luanti
