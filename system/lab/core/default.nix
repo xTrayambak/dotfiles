@@ -42,6 +42,7 @@
       "nix-switch" = "sudo nixos-rebuild switch --flake /etc/nixos#lab";
       "pull-conf" = "sudo git -C /etc/nixos pull origin master";
       "switch" = "pull-conf && nix-switch";
+      "torstats" = "sudo -u tor ${pkgs.nyx}/bin/nyx";
     };
   };
 
