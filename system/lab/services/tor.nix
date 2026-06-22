@@ -1,5 +1,12 @@
 { lib, pkgs, ... }:
 {
+  security.wrappers.lyrebird = {
+    source = "${pkgs.obfs4}/bin/lyrebird";
+    capabilities = "cap_net_bind_service+ep";
+    owner = "root";
+    group = "root";
+  };
+
   services.tor = {
     enable = true;
     relay = {
@@ -15,7 +22,7 @@
 
       ServerTransportPlugin = {
         transports = [ "obfs4" ];
-        exec = "${pkgs.obfs4}/bin/lyrebird";
+        exec = "/run/wrappers/bin/lyrebird";
       };
 
       ServerTransportListenAddr = "obfs4 0.0.0.0:443";
