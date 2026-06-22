@@ -10,6 +10,9 @@
       Nickname = "FriendsOfDorothy";
       ORPort = 9001;
 
+      ControlPort = 9051;
+      CookieAuthentication = true;
+
       ServerTransportPlugin = {
         transports = [ "obfs4" ];
         # Note: If you are on an older NixOS channel (pre-23.11),
