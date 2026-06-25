@@ -4,7 +4,7 @@
     enable = true;
     relay = {
       enable = true;
-      role = "bridge";
+      role = "relay";
     };
     settings = {
       Nickname = "FriendsOfDorothy";
@@ -13,18 +13,17 @@
       ControlPort = 9051;
       CookieAuthentication = true;
 
-      ServerTransportPlugin = {
-        transports = [ "obfs4" ];
-        exec = "${pkgs.obfs4}/bin/lyrebird";
-      };
-
-      ServerTransportListenAddr = "obfs4 0.0.0.0:8443";
-      AssumeReachable = true;
+      # AssumeReachable = true;
       ExitRelay = lib.mkForce false;
 
       RelayBandwidthRate = "20 MBytes";
       RelayBandwidthBurst = "24 MBytes";
     };
+  };
+
+  services.snowflake-proxy = {
+    enable = true;
+    capacity = 0;
   };
 
   environment.systemPackages = with pkgs; [ nyx ];
