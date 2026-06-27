@@ -7,7 +7,6 @@
     ./waybar
     ./niri
     ./avizo
-    ./fusuma
     ./nitty
     ./wlogout
     ./fuzzel
