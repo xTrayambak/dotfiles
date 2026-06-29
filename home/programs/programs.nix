@@ -3,7 +3,6 @@
   imports = [
     ./neovim
     ./browser
-    ./emacs
     ./btop
     ./development
     ./defaults.nix
