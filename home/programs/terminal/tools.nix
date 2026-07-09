@@ -4,6 +4,8 @@
 }:
 
 {
+  imports = [ ./hyfetch.nix ];
+
   home.packages = with pkgs; [
     cloc
     htop

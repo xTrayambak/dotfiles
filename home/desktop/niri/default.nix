@@ -17,6 +17,8 @@ in
     inputs.niri.homeModules.config
   ];
 
+  home.packages = with pkgs; [ xwayland-satellite ];
+
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 
   programs.niri = {
