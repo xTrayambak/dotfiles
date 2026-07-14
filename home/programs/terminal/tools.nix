@@ -42,6 +42,8 @@
 
     # Stuff I use for cryptic hunts
     stegseek
+    subfinder
+    nmap
     exiftool
     binwalk
     steghide

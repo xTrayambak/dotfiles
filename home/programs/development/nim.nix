@@ -2,7 +2,7 @@
 
 {
   home.packages = [
-    pkgs.nim-unwrapped-2
+    pkgs.nim-unwrapped
     pkgs.nph
     pkgs.nimlsp
     pkgs.nimble
