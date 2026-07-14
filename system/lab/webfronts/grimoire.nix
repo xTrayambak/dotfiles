@@ -17,7 +17,6 @@ in
     serviceConfig = {
       Type = "simple";
       User = "nginx";
-      Restart = "on-failure";
       WorkingDirectory = "/home/nginx/grimoire";
       ExecStart = "${rebuildScript}/bin/grimoirevoncrimson";
     };
