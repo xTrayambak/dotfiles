@@ -3,6 +3,8 @@ let
   port = "6767";
   rebuildScript = pkgs.writeShellScriptBin "grimoirevoncrimson" ''
     export HOME=/home/nginx
+    export PATH=$PATH:${pkgs.git}/bin
+
     cd /home/nginx/grimoire
 
     # ${pkgs.git}/bin/git pull origin master
