@@ -13,7 +13,6 @@ in
     enable = true;
     description = "Sherlocked thingmajig";
     serviceConfig = {
-      Type = "oneshot";
       User = "nginx";
       ExecStart = "${rebuildScript}/bin/grimoirevoncrimson";
     };
