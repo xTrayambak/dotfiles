@@ -3,7 +3,7 @@ let
   port = "6767";
   rebuildScript = pkgs.writeShellScriptBin "grimoirevoncrimson" ''
     cd /home/nginx/grimoire
-    ${pkgs.git}/bin/git pull origin master
+    # ${pkgs.git}/bin/git pull origin master
     ${pkgs.nim}/bin/nimble build -d:release --opt:speed
     PORT=${port} ./grimoire
   '';
