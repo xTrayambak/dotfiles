@@ -4,7 +4,7 @@ let
   rebuildScript = pkgs.writeShellScriptBin "grimoirevoncrimson" ''
     cd /home/nginx/grimoire
     # ${pkgs.git}/bin/git pull origin master
-    ${pkgs.nim}/bin/nimble build -d:release --opt:speed
+    ${pkgs.nimble}/bin/nimble build -d:release --opt:speed
     PORT=${port} ./grimoire
   '';
 in
