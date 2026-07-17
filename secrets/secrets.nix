@@ -15,4 +15,8 @@ in
     trayKey
     serverKey
   ];
+  "searxng.age".publicKeys = [
+    trayKey
+    serverKey
+  ];
 }
