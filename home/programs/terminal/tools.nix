@@ -4,7 +4,10 @@
 }:
 
 {
-  imports = [ ./hyfetch.nix ];
+  imports = [
+    ./hyfetch.nix
+    ./agenix.nix
+  ];
 
   home.packages = with pkgs; [
     cloc
