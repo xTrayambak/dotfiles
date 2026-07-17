@@ -1,4 +1,16 @@
 { ... }: {
+  nixpkgs.overlays = [
+    (final: prev: {
+      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+        (python-final: python-prev: {
+          langgraph = python-prev.langgraph.overridePythonAttrs (oldAttrs: {
+            doCheck = false;
+          });
+        })
+      ];
+    })
+  ];
+
   services.open-webui = {
     enable = true;
     host = "localhost";
