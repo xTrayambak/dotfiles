@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
   nixpkgs.overlays = [
     (final: prev: {
       ctranslate2 = prev.ctranslate2.overrideAttrs (oldAttrs: {
@@ -30,6 +30,6 @@
   };
 
   systemd.services.open-webui.serviceConfig = {
-    ReadWritePaths = [ "/pool" ];
+    DynamicUser = lib.mkForce false;
   };
 }
