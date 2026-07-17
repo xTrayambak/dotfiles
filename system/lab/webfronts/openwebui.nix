@@ -31,5 +31,6 @@
 
   systemd.services.open-webui.serviceConfig = {
     ReadWritePaths = [ "/pool/openwebui" ];
+    ProtectSystem = "strict";
   };
 }
