@@ -23,6 +23,7 @@
 
     open-webui = {
       isNormalUser = false;
+      group = "open-webui";
       extraGroups = [ ];
       shell = pkgs.shadow + "/bin/nologin";
     };
