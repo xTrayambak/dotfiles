@@ -33,6 +33,9 @@
 
           # Navidrome (3007)
           "navi.xtrayambak.xyz" = "http://localhost:3007";
+
+          # OpenWebUI (3008)
+          "chat.xtrayambak.xyz" = "http://localhost:3008";
         };
         default = "http_status:404";
       };

@@ -6,6 +6,7 @@
     ./invidious.nix
     ./site.nix
     ./navidrome.nix
+    ./openwebui.nix
     ./uptime-kuma.nix
   ];
 }
