@@ -29,8 +29,7 @@
     };
   };
 
-  systemd.tmpfiles.rules = [
-    "d /pool/openwebui 0750 openwebui openwebui - -"
-    "Z /pool/openwebui 0750 openwebui openwebui - -"
-  ];
+  systemd.services.open-webui.serviceConfig = {
+    ReadWritePaths = [ "/pool/openwebui" ];
+  };
 }
