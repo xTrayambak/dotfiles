@@ -8,6 +8,7 @@
     ./navidrome.nix
     ./openwebui.nix
     # ./librechat.nix
+    ./searxng.nix
     ./uptime-kuma.nix
   ];
 }

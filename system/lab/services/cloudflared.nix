@@ -36,6 +36,9 @@
 
           # OpenWebUI (3008)
           "chat.xtrayambak.xyz" = "http://localhost:3008";
+
+          # SearXNG (3009)
+          "search.xtrayambak.xyz" = "http://localhost:3009";
         };
         default = "http_status:404";
       };
