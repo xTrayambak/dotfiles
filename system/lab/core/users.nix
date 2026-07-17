@@ -28,4 +28,6 @@
       shell = pkgs.shadow + "/bin/nologin";
     };
   };
+
+  users.groups.open-webui = { };
 }
