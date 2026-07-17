@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   environmentFile = pkgs.writeText "env" ''
-    SEARXNG_SECRET_KEY_FILE=${config.age.secrets.searxng.path}
+    SEARXNG_SECRET_KEY_FILE=${config.age.secrets."searxng.age".path}
   '';
 in
 {
