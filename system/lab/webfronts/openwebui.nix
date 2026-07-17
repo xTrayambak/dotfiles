@@ -1,6 +1,12 @@
 { ... }: {
   nixpkgs.overlays = [
     (final: prev: {
+      ctranslate2 = prev.ctranslate2.overrideAttrs (oldAttrs: {
+        src = oldAttrs.src.overrideAttrs (_: {
+          outputHash = "sha256-cchwv+esysn/0v6RqD5zp306HfzOjjlCxH5usLETXs0=";
+        });
+      });
+
       pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
         (python-final: python-prev: {
           langgraph = python-prev.langgraph.overridePythonAttrs (oldAttrs: {
