@@ -1,9 +1,4 @@
 { config, pkgs, ... }:
-let
-  environmentFile = pkgs.writeText "env" ''
-    SEARXNG_SECRET_KEY_FILE=${config.age.secrets."searxng.age".path}
-  '';
-in
 {
   age.secrets.playit-secret = {
     file = ../../../secrets/searxng.age;
@@ -19,6 +14,10 @@ in
         bind_address = "localhost";
       };
     };
-    environmentFile = environmentFile;
+    environmentFile = (
+      pkgs.writeText "env" ''
+        SEARXNG_SECRET_KEY_FILE=${config.age.secrets."searxng.age".path}
+      ''
+    );
   };
 }
