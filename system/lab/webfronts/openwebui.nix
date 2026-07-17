@@ -31,5 +31,12 @@
 
   systemd.services.open-webui.serviceConfig = {
     DynamicUser = lib.mkForce false;
+    User = lib.mkForce "open-webui";
+    Group = lib.mkForce "open-webui";
+
+    ReadWritePaths = [ "/pool/openwebui" ];
+    SystemCallFilter = lib.mkForce [ ];
+    AmbientCapabilities = lib.mkForce [ ];
+    CapabilityBoundingSet = lib.mkForce [ ];
   };
 }

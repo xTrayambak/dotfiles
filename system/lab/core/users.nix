@@ -20,5 +20,11 @@
       initialPassword = "meowmeowmrrp";
       shell = pkgs.bash;
     };
+
+    open-webui = {
+      isNormalUser = false;
+      extraGroups = [ ];
+      shell = "";
+    };
   };
 }
