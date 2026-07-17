@@ -31,8 +31,5 @@
 
   systemd.services.open-webui.serviceConfig = {
     ReadWritePaths = [ "/pool" ];
-
-    StateDirectory = "openwebui";
-    StateDirectorySymlink = "openwebui";
   };
 }
