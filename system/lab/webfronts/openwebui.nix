@@ -39,4 +39,9 @@
     AmbientCapabilities = lib.mkForce [ ];
     CapabilityBoundingSet = lib.mkForce [ ];
   };
+
+  systemd.tmpfiles.rules = [
+    "d /pool/openwebui 0750 open-webui open-webui - -"
+    "Z /pool/openwebui 0750 open-webui open-webui - -"
+  ];
 }
