@@ -30,7 +30,9 @@
   };
 
   systemd.services.open-webui.serviceConfig = {
-    ReadWritePaths = [ "/pool/openwebui" ];
-    ProtectSystem = "strict";
+    ReadWritePaths = [ "/pool" ];
+
+    StateDirectory = "openwebui";
+    StateDirectorySymlink = "openwebui";
   };
 }
