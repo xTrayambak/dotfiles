@@ -28,4 +28,9 @@
       SCARF_NO_ANALYTICS = "True";
     };
   };
+
+  systemd.tmpfiles.rules = [
+    "d /pool/openwebui 0750 openwebui openwebui - -"
+    "Z /pool/openwebui 0750 openwebui openwebui - -"
+  ];
 }
