@@ -14,10 +14,6 @@
         bind_address = "localhost";
       };
     };
-    environmentFile = (
-      pkgs.writeText "env" ''
-        SEARXNG_SECRET_KEY_FILE=${config.age.secrets.searxng.path}
-      ''
-    );
+    environmentFile = config.age.secrets.searxng.path;
   };
 }
