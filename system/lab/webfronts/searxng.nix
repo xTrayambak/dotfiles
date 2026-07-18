@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  age.secrets.playit-secret = {
+  age.secrets.searxng = {
     file = ../../../secrets/searxng.age;
   };
 
@@ -16,7 +16,7 @@
     };
     environmentFile = (
       pkgs.writeText "env" ''
-        SEARXNG_SECRET_KEY_FILE=${config.age.secrets."searxng.age".path}
+        SEARXNG_SECRET_KEY_FILE=${config.age.secrets.searxng.path}
       ''
     );
   };
