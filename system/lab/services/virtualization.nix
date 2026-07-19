@@ -27,6 +27,16 @@
 
         ports = [ "3010:80" ];
       };
+      sherlocked-bot = {
+        image = "debian:13";
+        autoStart = true;
+
+        cmd = [
+          "bash"
+          "-c"
+          "while true; do if [ -f /sherlocked-bot/src/bot.py ]; then python3 /sherlocked-bot/src/bot.py; else echo 'Waiting for bot'; fi; sleep 5; done"
+        ];
+      };
     };
   };
 }
