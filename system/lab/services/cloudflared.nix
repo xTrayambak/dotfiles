@@ -12,6 +12,7 @@
           # crimSON
           "grimoire.thevoidclub.in" = "http://localhost:3010";
         };
+        default = "http_status:404";
       };
 
       # personal (xtrayambak.xyz)
