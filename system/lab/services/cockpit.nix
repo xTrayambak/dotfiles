@@ -17,5 +17,9 @@
         IdleTimeout = 0;
       };
     };
+    plugins = with pkgs; [
+      cockpit-podman
+      cockpit-machines
+    ];
   };
 }
