@@ -20,7 +20,7 @@
         autoStart = true;
 
         cmd = [
-          "/bin/bash"
+          "bash"
         ];
 
         ports = [ "3010:80" ];
