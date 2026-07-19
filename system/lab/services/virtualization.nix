@@ -15,7 +15,7 @@
     };
 
     oci-containers.containers = {
-      debian13 = {
+      grimoire = {
         image = "debian:13";
         autoStart = true;
 
