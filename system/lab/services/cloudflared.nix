@@ -2,11 +2,23 @@
 {
   services.cloudflared = {
     enable = true;
-    certificateFile = "/home/tray/.cloudflared/cert.pem";
 
     tunnels = {
+      # void (thevoidclub.in)
+      "c21f6bcb-e2fa-4583-918e-7a6069ce4cbf" = {
+        credentialsFile = "/home/tray/.cloudflared/c21f6bcb-e2fa-4583-918e-7a6069ce4cbf.json";
+        certificateFile = "/home/tray/.cloudflared/voidcert.pem";
+        ingress = {
+          # crimSON
+          "grimoire.thevoidclub.in" = "http://localhost:3010";
+        };
+      };
+
+      # personal (xtrayambak.xyz)
       "dc2eb3da-46ba-48fe-a641-86a6831754bf" = {
         credentialsFile = "/home/tray/.cloudflared/dc2eb3da-46ba-48fe-a641-86a6831754bf.json";
+
+        certificateFile = "/home/tray/.cloudflared/cert.pem";
         ingress = {
           ## Personal services
           # Forgejo (3000)

@@ -67,20 +67,18 @@ binds {
   Mod+Shift+WheelScrollUp { move-window-to-workspace-up; }
   
   // player controls
-  XF86AudioPlay { spawn "playerctl" "play-pause"; }
-  XF86AudioPause { spawn "playerctl" "play-pause"; }
-  XF86AudioNext { spawn "playerctl" "next"; }
-  XF86AudioPrev { spawn "playerctl" "previous"; }
+  F9 { spawn "playerctl" "play-pause"; }
+  F10 { spawn "playerctl" "next"; }
+  F8 { spawn "playerctl" "previous"; }
 
   // volume controls
-  XF86AudioMute { spawn-sh "volumectl -d toggle-mute"; }
-  XF86AudioMicMute { spawn-sh "volumectl -d toggle-mute"; }
-  XF86AudioLowerVolume { spawn-sh "volumectl -d -u down"; }
-  XF86AudioRaiseVolume { spawn-sh "volumectl -d -u up"; }
+  F5 { spawn-sh "volumectl -d toggle-mute"; }
+  F6 { spawn-sh "volumectl -d -u down"; }
+  F7 { spawn-sh "volumectl -d -u up"; }
 
   // brightness controls
-  XF86MonBrightnessDown { spawn-sh "lightctl -d down"; }
-  XF86MonBrightnessUp { spawn-sh "lightctl -d up"; }
+  F2 { spawn-sh "lightctl -d down"; }
+  F3 { spawn-sh "lightctl -d up"; }
 
   // window controlls
   Mod+V { toggle-window-floating; }
@@ -89,8 +87,8 @@ binds {
   Mod+Shift+Q { close-window; }
   F11 { fullscreen-window; }
 
-  Print { screenshot; }
-  Mod+Print { screenshot-screen; }
+  Home { screenshot; }
+  Mod+Home { screenshot-screen; }
 
   Mod+W { toggle-overview; }
 }

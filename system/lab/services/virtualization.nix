@@ -13,5 +13,20 @@
         runroot = "/run/containers/storage";
       };
     };
+
+    oci-containers.containers = {
+      debian13 = {
+        image = "debian:13";
+        autoStart = true;
+
+        cmd = [
+          "tail"
+          "-f"
+          "/dev/null"
+        ];
+
+        ports = [ "3010:80" ];
+      };
+    };
   };
 }
