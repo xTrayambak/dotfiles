@@ -20,9 +20,7 @@
         autoStart = true;
 
         cmd = [
-          "tail"
-          "-f"
-          "/dev/null"
+          "/grimoire/grimoire"
         ];
 
         ports = [ "3010:80" ];
