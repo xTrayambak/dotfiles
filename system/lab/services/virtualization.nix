@@ -15,12 +15,14 @@
     };
 
     oci-containers.containers = {
-      grimoire = {
+      debian13 = {
         image = "debian:13";
         autoStart = true;
 
         cmd = [
           "bash"
+          "-c"
+          "while true; do if [ -f /grimoire/grimoire ]; then /grimoire/grimoire; else echo 'Waiting for binary...'; fi; sleep 5; done"
         ];
 
         ports = [ "3010:80" ];
