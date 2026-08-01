@@ -6,7 +6,7 @@
       Port = 3007;
       Address = "localhost";
 
-      MusicFolder = "/pool/navidrome";
+      MusicFolder = "/pool/navidrome/songs";
       CacheFolder = "/pool/navidrome/cache";
 
       Agents = "apple-music,deezer,lastfm,listenbrainz";
