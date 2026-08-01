@@ -19,4 +19,8 @@ in
     trayKey
     serverKey
   ];
+  "webdav.age".publicKeys = [
+    trayKey
+    serverKey
+  ];
 }

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   services.navidrome = {
     enable = true;
@@ -16,5 +16,31 @@
     plugins = with pkgs.navidromePlugins; [
       apple-music
     ];
+  };
+
+  age.secrets.webdav = {
+    file = ../../../secrets/webdav.age;
+    owner = "navidrome";
+    group = "navidrome";
+    mode = "0400";
+  };
+
+  services.webdav = {
+    enable = true;
+    user = "navidrome";
+    group = "navidrome";
+    environmentFile = config.age.secrets.webdav.path;
+    settings = {
+      address = "localhost";
+      port = 3010;
+      directory = "/pool/navidrome/songs";
+      permissions = "RW";
+      users = [
+        {
+          username = "{env}USERNAME";
+          password = "{env}PASSWORD";
+        }
+      ];
+    };
   };
 }
