@@ -34,7 +34,7 @@
       address = "localhost";
       port = 3010;
       directory = "/pool/navidrome/songs";
-      permissions = "RW";
+      permissions = "crud";
       users = [
         {
           username = "{env}USERNAME";
