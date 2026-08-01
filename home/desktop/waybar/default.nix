@@ -15,7 +15,7 @@
         "temperature"
       ];
       modules-center = [
-        "hyprland/window"
+        "niri/window"
       ];
       modules-right = [
         "tray"
@@ -172,6 +172,11 @@
         tooltip = "{}";
         separate-outputs = true;
         on-click = "missioncenter";
+      };
+      "niri/window" = {
+        format = "{}";
+        icon = true;
+        expand = true;
       };
     };
   };

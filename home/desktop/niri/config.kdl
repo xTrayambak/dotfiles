@@ -119,6 +119,17 @@ blur {
     saturation 0.8916
 }
 
+animations {
+  screenshot-ui-open {
+    duration-ms 200
+    curve "ease-out-quad"
+  }
+  config-notification-open-close {
+    duration-ms 200
+    curve "linear"
+  }
+}
+
 window-rule {
   match app-id=".*"
 
@@ -177,4 +188,4 @@ spawn-at-startup "mako"
 spawn-at-startup "avizo-service"
 spawn-at-startup "nm-applet"
 
-screenshot-path "~/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
