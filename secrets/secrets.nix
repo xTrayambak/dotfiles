@@ -23,4 +23,8 @@ in
     trayKey
     serverKey
   ];
+  "nextcloud.age".publicKeys = [
+    trayKey
+    serverKey
+  ];
 }

@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
 {
+  age.secrets.nextcloud = {
+    file = ../../../secrets/nextcloud.age;
+    owner = "nextcloud";
+    group = "nextcloud";
+    mode = "0400";
+  };
+
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud33;
@@ -30,8 +37,19 @@
       adminpassFile = "/home/tray/.config/nextcloud/admin-password";
     };
 
+    secretFile = config.age.secrets.nextcloud.path;
+
     settings = {
       default_phone_region = "IN";
+      mail_domain = "xtrayambak.xyz";
+      mail_smtpmode = "smtp";
+      mail_smtphost = "smtp.resend.com";
+      mail_smtpport = 465;
+      mail_smtpsecure = "ssl";
+      mail_smtpauth = true;
+      mail_smtpname = "resend";
+      mail_smtppassword = "re_your_api_key_here";
+      mail_from_address = "no-reply";
     };
 
     caching = {
