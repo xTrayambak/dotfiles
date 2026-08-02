@@ -48,7 +48,6 @@
       mail_smtpsecure = "ssl";
       mail_smtpauth = true;
       mail_smtpname = "resend";
-      mail_smtppassword = "re_your_api_key_here";
       mail_from_address = "no-reply";
     };
 
