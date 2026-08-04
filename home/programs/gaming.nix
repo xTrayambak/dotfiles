@@ -7,5 +7,6 @@
     lutris
     wine-staging
     luanti
+    prismlauncher
   ];
 }
