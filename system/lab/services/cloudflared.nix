@@ -60,6 +60,9 @@ in
 
           # WebDAV (3010): my song collection :3
           "dav.${personal}" = "http://localhost:3010";
+
+          # qbittorrent (3011)
+          "1337.${personal}" = "http://localhost:3011";
         };
         default = "http_status:404";
       };

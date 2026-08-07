@@ -7,10 +7,6 @@ in
     trayKey
     serverKey
   ];
-  "librechat.age".publicKeys = [
-    trayKey
-    serverKey
-  ];
   "airouter.age".publicKeys = [
     trayKey
     serverKey
