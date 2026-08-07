@@ -22,11 +22,15 @@
     lfs.enable = true;
 
     # Keep backing up stuff to the backup drive because I'm not very fond of losing my stuff
-    dump = {
-      enable = true;
-      type = "zip";
-      backupDir = "/backup/git";
-      age = "8w";
-    };
+    # TODO: Buy a new drive or get
+    /*
+      dump = {
+        enable = true;
+        type = "zip";
+        backupDir = "/backup/git";
+        age = "8w";
+      };
+    */
+    dump.enable = false;
   };
 }

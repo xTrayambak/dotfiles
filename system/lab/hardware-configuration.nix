@@ -44,14 +44,16 @@
     ];
   };
 
-  fileSystems."/backup" = {
-    device = "/dev/disk/by-uuid/5fdb0575-4586-40cf-9715-33144cb92d57";
-    fsType = "ext4";
-    options = [
-      "nofail"
-      "x-systemd.idle-timeout=60"
-    ];
-  };
+  /*
+    fileSystems."/backup" = {
+      device = "/dev/disk/by-uuid/5fdb0575-4586-40cf-9715-33144cb92d57";
+      fsType = "ext4";
+      options = [
+        "nofail"
+        "x-systemd.idle-timeout=60"
+      ];
+    };
+  */
 
   fileSystems."/pool" = {
     device = "/dev/disk/by-uuid/4cc0e878-c863-4aef-bc33-5e7e92d85d9e";
