@@ -2,6 +2,7 @@
   services.suwayomi-server = {
     enable = true;
     dataDir = "/pool/suwayomi";
+    user = "suwayomi";
 
     settings = {
       server = {
