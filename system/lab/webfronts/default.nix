@@ -4,8 +4,8 @@
     ./forgejo.nix
     ./nextcloud.nix
     ./invidious.nix
-    ./kavita.nix
     ./site.nix
+    ./suwayomi.nix
     ./navidrome.nix
     ./openwebui.nix
     ./searxng.nix
