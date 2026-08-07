@@ -9,4 +9,9 @@
       BaseUrl = "/";
     };
   };
+
+  systemd.tmpfiles.rules = [
+    "d /pool/kavita 0750 kavita kavita - -"
+    "Z /pool/kavita 0750 kavita kavita - -"
+  ];
 }
