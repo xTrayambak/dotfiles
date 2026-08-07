@@ -8,7 +8,6 @@
     ./navidrome.nix
     ./openwebui.nix
     ./searxng.nix
-    ./torrents.nix
     ./uptime-kuma.nix
   ];
 }

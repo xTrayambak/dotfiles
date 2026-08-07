@@ -9,7 +9,7 @@
           AlternativeUIEnabled = true;
           RootFolder = "${pkgs.vuetorrent}/share/vuetorrent";
         };
-        Session.DefaultSavePath = "/pool/torrents";
+        BitTorrent.Session.DefaultSavePath = "/pool/torrents";
         General.Locale = "en";
       };
     };
