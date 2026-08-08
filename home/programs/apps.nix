@@ -12,6 +12,7 @@
     wireshark
     ghidra-bin
     spotify
+    piper
     spotifycli
     gnome-secrets
     gnome-control-center

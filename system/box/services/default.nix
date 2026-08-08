@@ -9,6 +9,7 @@
     ./virtualization.nix
     ./power.nix
     ./display-manager.nix
+    ./logitech.nix
     ./gamemode.nix
     ./printing.nix
     ./warp.nix
