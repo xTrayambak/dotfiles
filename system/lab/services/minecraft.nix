@@ -64,7 +64,7 @@ in
             };
             C2me = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/VSNURh3q/versions/wGnmDPvI/c2me-fabric-mc26.1.1-0.3.7%2Balpha.0.63.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
-              sha256 = "";
+              sha256 = "sha256-A9hd3Zt+cY5F4oOZjMmm/4zlimof0AKTJ+QHBYO0Gpw=";
             };
           }
         );
