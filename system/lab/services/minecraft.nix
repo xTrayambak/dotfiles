@@ -48,23 +48,23 @@ in
           builtins.attrValues {
             Fabric-API = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/BLz7ETCw/fabric-api-0.149.1%2B26.1.2.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}";
-              sha512 = "";
+              sha256 = "";
             };
             Bluemap = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/swbUV1cr/versions/D9j76thC/bluemap-5.20-fabric.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
-              sha512 = "";
+              sha256 = "";
             };
             Lithium = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/Oqq8TOAV/lithium-fabric-0.24.7%2Bmc26.1.2.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
-              sha512 = "";
+              sha256 = "";
             };
             Chunky = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/fALzjamp/versions/4Eotm6ov/Chunky-Fabric-1.5.3.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
-              sha512 = "sha256-7N/FWg9n8+xvQIUGh2FclBriJr2I9OBhiKeyaP09qUI=";
+              sha256 = "sha256-7N/FWg9n8+xvQIUGh2FclBriJr2I9OBhiKeyaP09qUI=";
             };
             C2me = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/VSNURh3q/versions/wGnmDPvI/c2me-fabric-mc26.1.1-0.3.7%2Balpha.0.63.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
-              sha512 = "";
+              sha256 = "";
             };
           }
         );
