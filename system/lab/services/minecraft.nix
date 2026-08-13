@@ -12,7 +12,6 @@ in
     enable = true;
     eula = true;
     openFirewall = true;
-    declarative = true;
     serverProperties = {
       server-port = 43000;
       difficulty = 3;
