@@ -3,7 +3,10 @@ let
   gameVersion = "26.1.2";
 in
 {
-  environment.systemPackages = with pkgs; [ mcrcon ];
+  environment.systemPackages = with pkgs; [
+    mcrcon
+    tmux
+  ];
 
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
@@ -15,6 +18,7 @@ in
     servers.gooncraft = {
       enable = true;
       openFirewall = true;
+      autoStart = true;
       serverProperties = {
         server-port = 25565;
         difficulty = 3;
@@ -28,6 +32,13 @@ in
       };
       whitelist = {
         xTrayambak = "98d0333e-f17a-4721-babf-cf89ae416b33";
+      };
+      operators = {
+        xTrayambak = {
+          uuid = "98d0333e-f17a-4721-babf-cf89ae416b33";
+          level = 3;
+          bypassesPlayerLimit = true;
+        };
       };
       package = pkgs.fabricServers.fabric-26_1_2.override { loaderVersion = "0.19.2"; };
 
