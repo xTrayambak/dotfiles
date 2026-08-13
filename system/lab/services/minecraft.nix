@@ -56,7 +56,7 @@ in
             };
             Lithium = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/Oqq8TOAV/lithium-fabric-0.24.7%2Bmc26.1.2.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
-              sha256 = "";
+              sha256 = "sha256-oVWybfJZN3LoCp+TWDe6MxnGij53S6Xhs6Ietk1HfoY=";
             };
             Chunky = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/fALzjamp/versions/4Eotm6ov/Chunky-Fabric-1.5.3.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
