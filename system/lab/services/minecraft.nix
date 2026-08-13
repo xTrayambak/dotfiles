@@ -52,7 +52,7 @@ in
             };
             Bluemap = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/swbUV1cr/versions/D9j76thC/bluemap-5.20-fabric.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
-              sha256 = "";
+              sha256 = "sha256-ZO1PAAmfRtN21vL/Vq1thOtCie2Gxir+f84t/TW+siY=";
             };
             Lithium = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/Oqq8TOAV/lithium-fabric-0.24.7%2Bmc26.1.2.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
