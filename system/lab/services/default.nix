@@ -7,6 +7,7 @@
     # ./pcp.nix
     ./ssh.nix
     ./tor.nix
+    ./minecraft.nix
     ./virtualization.nix
   ];
 }
