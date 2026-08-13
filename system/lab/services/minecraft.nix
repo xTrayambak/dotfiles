@@ -48,7 +48,7 @@ in
           builtins.attrValues {
             Fabric-API = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/BLz7ETCw/fabric-api-0.149.1%2B26.1.2.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}";
-              sha256 = "";
+              sha256 = "sha256-BgDWQ5hgnhHTVm3RM18D7RtpBbSEyPbdWksucxn9GOA=";
             };
             Bluemap = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/swbUV1cr/versions/D9j76thC/bluemap-5.20-fabric.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
