@@ -11,24 +11,24 @@ in
   services.minecraft-servers = {
     enable = true;
     eula = true;
-    openFirewall = true;
-    serverProperties = {
-      server-port = 43000;
-      difficulty = 3;
-      gamemode = 0;
-      max-players = 20;
-      motd = "GoodnightCraft Season 2";
-      white-list = true;
-      enable-rcon = true;
-      online-mode = false;
-      "rcon.password" = "password";
-    };
-    whitelist = {
-      xTrayambak = "98d0333e-f17a-4721-babf-cf89ae416b33";
-    };
 
     servers.gooncraft = {
       enable = true;
+      openFirewall = true;
+      serverProperties = {
+        server-port = 25565;
+        difficulty = 3;
+        gamemode = 0;
+        max-players = 20;
+        motd = "GoodnightCraft Season 2";
+        white-list = true;
+        enable-rcon = true;
+        online-mode = false;
+        "rcon.password" = "password";
+      };
+      whitelist = {
+        xTrayambak = "98d0333e-f17a-4721-babf-cf89ae416b33";
+      };
       package = pkgs.fabricServers.fabric-26_1_2.override { loaderVersion = "0.19.2"; };
 
       symlinks = {
