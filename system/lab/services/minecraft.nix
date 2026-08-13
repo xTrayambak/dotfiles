@@ -60,7 +60,7 @@ in
             };
             Chunky = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/fALzjamp/versions/4Eotm6ov/Chunky-Fabric-1.5.3.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
-              sha512 = "";
+              sha512 = "sha256-7N/FWg9n8+xvQIUGh2FclBriJr2I9OBhiKeyaP09qUI=";
             };
             C2me = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/VSNURh3q/versions/wGnmDPvI/c2me-fabric-mc26.1.1-0.3.7%2Balpha.0.63.jar?mr_download_reason=standalone&mr_game_version=${gameVersion}&mr_loader=fabric";
